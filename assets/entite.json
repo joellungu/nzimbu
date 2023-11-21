@@ -1,0 +1,6352 @@
+[
+    {
+      "id": 1,
+      "name": "Bas-Uele",
+      "cities": [
+        {
+          "id": 1,
+          "name": "Buta",
+          "towns": [
+            {
+              "id": 1,
+              "name": "Babade"
+            },
+            {
+              "id": 2,
+              "name": "Dobeya"
+            },
+            {
+              "id": 3,
+              "name": "Finant"
+            },
+            {
+              "id": 4,
+              "name": "Tepatondele"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Terrtoire Buta",
+          "towns": [
+            {
+              "id": 5,
+              "name": "Chefferie Mongazolo(Mongazulu)"
+            },
+            {
+              "id": 6,
+              "name": "Chefferie Nguru"
+            },
+            {
+              "id": 7,
+              "name": "Chefferie Mobati"
+            },
+            {
+              "id": 8,
+              "name": "Chefferie B.M.(Barisi)"
+            },
+            {
+              "id": 9,
+              "name": "Chefferie Bayeu Bogongea"
+            },
+            {
+              "id": 10,
+              "name": "Chefferie Bayeu Bogbama"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Aketi",
+          "towns": [
+            {
+              "id": 11,
+              "name": " Itimbiri"
+            },
+            {
+              "id": 12,
+              "name": "Ngbongade"
+            },
+            {
+              "id": 13,
+              "name": "Tinda"
+            },
+            {
+              "id": 14,
+              "name": "Yoko"
+            },
+            {
+              "id": 15,
+              "name": "Chefferie Bondongola"
+            },
+            {
+              "id": 16,
+              "name": "Bgongi"
+            },
+            {
+              "id": 17,
+              "name": "Kolongwandi(Mongwandi)"
+            },
+            {
+              "id": 18,
+              "name": "Chefferie Avuru Duma"
+            },
+            {
+              "id": 19,
+              "name": "Chefferie Mobati Boyele"
+            },
+            {
+              "id": 20,
+              "name": "Chefferie Avuru Gatanga"
+            },
+            {
+              "id": 21,
+              "name": "Likati(commune rurale)"
+            },
+            {
+              "id": 22,
+              "name": "Mabinza"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Bondo",
+          "towns": [
+            {
+              "id": 23,
+              "name": "Uele"
+            },
+            {
+              "id": 24,
+              "name": "Bondo"
+            },
+            {
+              "id": 25,
+              "name": "Zagili"
+            },
+            {
+              "id": 26,
+              "name": "Chefferie Mobenge Mundila"
+            },
+            {
+              "id": 27,
+              "name": "Chefferie Duaru"
+            },
+            {
+              "id": 28,
+              "name": "Chefferie Kasa"
+            },
+            {
+              "id": 29,
+              "name": "Monga (commune rurale)"
+            },
+            {
+              "id": 30,
+              "name": "Chefferie Soa"
+            },
+            {
+              "id": 31,
+              "name": "Ndu (commune rurale)"
+            },
+            {
+              "id": 32,
+              "name": "Chefferie Deni"
+            },
+            {
+              "id": 33,
+              "name": "Chefferie Gaya"
+            },
+            {
+              "id": 34,
+              "name": "Chefferie Goya"
+            },
+            {
+              "id": 35,
+              "name": "Baye (commune rurale)"
+            },
+            {
+              "id": 36,
+              "name": "Chefferie Biamange(Gbamange)"
+            },
+            {
+              "id": 37,
+              "name": "Chefferie Boso"
+            },
+            {
+              "id": 38,
+              "name": "Bili(commune rurale)"
+            },
+            {
+              "id": 39,
+              "name": "Chefferie Gama"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Ango",
+          "towns": [
+            {
+              "id": 40,
+              "name": "Ango(commune rurale)"
+            },
+            {
+              "id": 41,
+              "name": "Chefferie Ngindo"
+            },
+            {
+              "id": 42,
+              "name": "Chefferie Sasa"
+            },
+            {
+              "id": 43,
+              "name": "Chefferie Mopay"
+            },
+            {
+              "id": 44,
+              "name": "Chefferie Ezo"
+            },
+            {
+              "id": 45,
+              "name": "Dakwa(commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Poko",
+          "towns": [
+            {
+              "id": 46,
+              "name": "Poko (commune rurale)"
+            },
+            {
+              "id": 47,
+              "name": "Chefferie Malele"
+            },
+            {
+              "id": 48,
+              "name": "Chefferie Bakangaie - Avuru"
+            },
+            {
+              "id": 49,
+              "name": "Kembisa"
+            },
+            {
+              "id": 50,
+              "name": "Abarambo"
+            },
+            {
+              "id": 51,
+              "name": "Chefferie Madi"
+            },
+            {
+              "id": 52,
+              "name": "Chefferie Soronga"
+            },
+            {
+              "id": 53,
+              "name": "Chefferie Mabanga"
+            },
+            {
+              "id": 54,
+              "name": "Chefferie Ngbarandi"
+            },
+            {
+              "id": 55,
+              "name": "Chefferie Babena"
+            },
+            {
+              "id": 56,
+              "name": "Chefferie Gamu"
+            },
+            {
+              "id": 57,
+              "name": "Chefferie Kamandeni(Komendeni)"
+            },
+            {
+              "id": 58,
+              "name": "Chefferie Kipate"
+            },
+            {
+              "id": 59,
+              "name": "Chefferie Zune"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "name": "Bambesa",
+          "towns": [
+            {
+              "id": 60,
+              "name": "Bambesa(commune rurale)"
+            },
+            {
+              "id": 61,
+              "name": "Chefferie Makere 2"
+            },
+            {
+              "id": 62,
+              "name": "Chefferie Makere 1"
+            },
+            {
+              "id": 63,
+              "name": "Zobia(commune rurale)"
+            },
+            {
+              "id": 64,
+              "name": "Chefferie Bokiba"
+            },
+            {
+              "id": 65,
+              "name": "Chefferie Mondongwali"
+            },
+            {
+              "id": 66,
+              "name": "Titule (commune rurale)"
+            },
+            {
+              "id": 67,
+              "name": "Chefferie Mange"
+            },
+            {
+              "id": 68,
+              "name": "Chefferie Bulungua"
+            },
+            {
+              "id": 69,
+              "name": "Chefferie Bakete(Bateke)"
+            },
+            {
+              "id": 70,
+              "name": "Chefferie Bokapo"
+            },
+            {
+              "id": 71,
+              "name": "Chefferie Bakere Bakete"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Dingila",
+          "towns": [
+            {
+              "id": 72,
+              "name": "Bambili"
+            },
+            {
+              "id": 73,
+              "name": "Dingila"
+            },
+            {
+              "id": 74,
+              "name": "Tobola"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Équateur",
+      "cities": [
+        {
+          "id": 9,
+          "name": "Mbandaka",
+          "towns": [
+            {
+              "id": 75,
+              "name": "Wangata"
+            },
+            {
+              "id": 76,
+              "name": "Mbandaka"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "Bikoro",
+          "towns": [
+            {
+              "id": 77,
+              "name": "Bikoro(commune rurale)"
+            },
+            {
+              "id": 78,
+              "name": "Lac Ntomba"
+            },
+            {
+              "id": 79,
+              "name": "Elanga"
+            },
+            {
+              "id": 80,
+              "name": "Ekonda"
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "name": "Lukolela",
+          "towns": [
+            {
+              "id": 81,
+              "name": "Lukolela(commune rurale)"
+            },
+            {
+              "id": 82,
+              "name": "Banunu"
+            },
+            {
+              "id": 83,
+              "name": "Mpama"
+            },
+            {
+              "id": 84,
+              "name": "Lusakani"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "Bomongo",
+          "towns": [
+            {
+              "id": 85,
+              "name": "Bomongo(commune rurale)"
+            },
+            {
+              "id": 86,
+              "name": "Djamba"
+            },
+            {
+              "id": 87,
+              "name": "Ngiri"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "name": "Makanza",
+          "towns": [
+            {
+              "id": 88,
+              "name": "Makanza(commune rurale)"
+            },
+            {
+              "id": 89,
+              "name": "Ndobo"
+            },
+            {
+              "id": 90,
+              "name": "Bangala"
+            },
+            {
+              "id": 91,
+              "name": "Mweko(Moeko)"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "Basankusu",
+          "towns": [
+            {
+              "id": 92,
+              "name": "Baenga"
+            },
+            {
+              "id": 93,
+              "name": "Basankusu"
+            },
+            {
+              "id": 94,
+              "name": "Gombalo"
+            },
+            {
+              "id": 95,
+              "name": "Waka - Bokeka"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "name": "Bolomba",
+          "towns": [
+            {
+              "id": 96,
+              "name": "Bolomba(commune rurale)"
+            },
+            {
+              "id": 97,
+              "name": "Chefferie Dianga"
+            },
+            {
+              "id": 98,
+              "name": "Mampoko"
+            },
+            {
+              "id": 99,
+              "name": "Bolomba"
+            },
+            {
+              "id": 100,
+              "name": "Lusanganya"
+            },
+            {
+              "id": 101,
+              "name": "Busira"
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "name": "Ingende",
+          "towns": [
+            {
+              "id": 102,
+              "name": "Ingende(commune rurale)"
+            },
+            {
+              "id": 103,
+              "name": "Duali"
+            },
+            {
+              "id": 104,
+              "name": "Bokatola"
+            },
+            {
+              "id": 105,
+              "name": "Eungu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Haut-Katanga",
+      "cities": [
+        {
+          "id": 17,
+          "name": "Lubumbashi",
+          "towns": [
+            {
+              "id": 106,
+              "name": "Katuba"
+            },
+            {
+              "id": 107,
+              "name": "Lubumbashi"
+            },
+            {
+              "id": 108,
+              "name": "Kampemba"
+            },
+            {
+              "id": 109,
+              "name": "Ruashi"
+            },
+            {
+              "id": 110,
+              "name": "Kenia"
+            },
+            {
+              "id": 111,
+              "name": "Kamalondo"
+            },
+            {
+              "id": 112,
+              "name": "Commune Annexe"
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "name": "Kipushi",
+          "towns": [
+            {
+              "id": 113,
+              "name": "Chefferie Kaponda"
+            },
+            {
+              "id": 114,
+              "name": "Bukanda"
+            },
+            {
+              "id": 115,
+              "name": "Chefferie Kinyama"
+            },
+            {
+              "id": 116,
+              "name": "Katapula"
+            },
+            {
+              "id": 117,
+              "name": "Kipushi"
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "name": "Sakania",
+          "towns": [
+            {
+              "id": 118,
+              "name": "Sakania(com. rurale)"
+            },
+            {
+              "id": 119,
+              "name": "Balamba"
+            },
+            {
+              "id": 120,
+              "name": "Mokambo(com. rurale)"
+            },
+            {
+              "id": 121,
+              "name": "Musoshi-Kasumbalesa(com. rurale)"
+            },
+            {
+              "id": 122,
+              "name": "Baushi-Mwenda"
+            },
+            {
+              "id": 123,
+              "name": "Balala"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "Kambove",
+          "towns": [
+            {
+              "id": 124,
+              "name": "Kambove(com. rurale)"
+            },
+            {
+              "id": 125,
+              "name": "Source du Fleuve Congo"
+            },
+            {
+              "id": 126,
+              "name": "Chefferie Basanga"
+            },
+            {
+              "id": 127,
+              "name": "Cité de Luambo(c. rurale)"
+            },
+            {
+              "id": 128,
+              "name": "Lufira"
+            }
+          ]
+        },
+        {
+          "id": 21,
+          "name": "Likasi",
+          "towns": [
+            {
+              "id": 129,
+              "name": "Panda"
+            },
+            {
+              "id": 130,
+              "name": "Kikula"
+            },
+            {
+              "id": 131,
+              "name": "Likasi"
+            },
+            {
+              "id": 132,
+              "name": "Shituru"
+            }
+          ]
+        },
+        {
+          "id": 22,
+          "name": "Kasenga",
+          "towns": [
+            {
+              "id": 133,
+              "name": "Kasenga(com. rurale)"
+            },
+            {
+              "id": 134,
+              "name": "Kafira"
+            },
+            {
+              "id": 135,
+              "name": "Bakunda"
+            },
+            {
+              "id": 136,
+              "name": "Luapula"
+            },
+            {
+              "id": 137,
+              "name": "Kisamamba"
+            }
+          ]
+        },
+        {
+          "id": 23,
+          "name": "Mitwaba",
+          "towns": [
+            {
+              "id": 138,
+              "name": "Mitwaba(com. rurale)"
+            },
+            {
+              "id": 139,
+              "name": "Bamweshi"
+            },
+            {
+              "id": 140,
+              "name": "Chefferie Kiona-Ngoie"
+            },
+            {
+              "id": 141,
+              "name": "Balomotwa"
+            }
+          ]
+        },
+        {
+          "id": 24,
+          "name": "Pweto",
+          "towns": [
+            {
+              "id": 142,
+              "name": "Pweto(com. rurale)"
+            },
+            {
+              "id": 143,
+              "name": "Moero"
+            },
+            {
+              "id": 144,
+              "name": "Kilwa(com. rurale)"
+            },
+            {
+              "id": 145,
+              "name": "Chefferie Kiona-Nzini"
+            },
+            {
+              "id": 146,
+              "name": "Chefferie Mwenge"
+            },
+            {
+              "id": 147,
+              "name": "Chefferie Pweto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Haut-Lomami",
+      "cities": [
+        {
+          "id": 25,
+          "name": "Kamina",
+          "towns": [
+            {
+              "id": 148,
+              "name": "Dimayi"
+            },
+            {
+              "id": 149,
+              "name": "Kamina"
+            },
+            {
+              "id": 150,
+              "name": "Sobongo"
+            },
+            {
+              "id": 151,
+              "name": "Chefferie Kasongo-Nyembo"
+            },
+            {
+              "id": 152,
+              "name": "Kinda"
+            }
+          ]
+        },
+        {
+          "id": 26,
+          "name": "Kaniama",
+          "towns": [
+            {
+              "id": 153,
+              "name": "Kaniama(com. rurale)"
+            },
+            {
+              "id": 154,
+              "name": "Chefferie Mutombo-Mukulu"
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "name": "Kabongo",
+          "towns": [
+            {
+              "id": 155,
+              "name": "Kabongo(com. rurale)"
+            },
+            {
+              "id": 156,
+              "name": "Chefferie Kabongo"
+            },
+            {
+              "id": 157,
+              "name": "Chefferie Kayamba"
+            },
+            {
+              "id": 158,
+              "name": "Nord-Baluba"
+            }
+          ]
+        },
+        {
+          "id": 28,
+          "name": "Malemba-Nkulu",
+          "towns": [
+            {
+              "id": 159,
+              "name": "Malemba-Nkulu(com. rurale)"
+            },
+            {
+              "id": 160,
+              "name": "Chefferie Nkulu"
+            },
+            {
+              "id": 161,
+              "name": "Mwanza"
+            },
+            {
+              "id": 162,
+              "name": "Badia"
+            },
+            {
+              "id": 163,
+              "name": "Chefferie Mulongo"
+            },
+            {
+              "id": 164,
+              "name": "Cité de Mulongo(com. rurale)"
+            },
+            {
+              "id": 165,
+              "name": "Chefferie Museka"
+            },
+            {
+              "id": 166,
+              "name": "Chefferie Kayumba"
+            }
+          ]
+        },
+        {
+          "id": 29,
+          "name": "Bukama",
+          "towns": [
+            {
+              "id": 167,
+              "name": "Bukama(com. rurale)"
+            },
+            {
+              "id": 168,
+              "name": "Chefferie Kibanda"
+            },
+            {
+              "id": 169,
+              "name": "Luena(com. rurale)"
+            },
+            {
+              "id": 170,
+              "name": "Lualaba"
+            },
+            {
+              "id": 171,
+              "name": "Chefferie Kabondo-Dianda"
+            },
+            {
+              "id": 172,
+              "name": "Kapamay"
+            },
+            {
+              "id": 173,
+              "name": "Chefferie Kinkondja"
+            },
+            {
+              "id": 174,
+              "name": "Cité de Kipamba(com. rurale)"
+            },
+            {
+              "id": 175,
+              "name": "Chefferie Butumba"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Haut-Uele",
+      "cities": [
+        {
+          "id": 30,
+          "name": "Isiro",
+          "towns": [
+            {
+              "id": 176,
+              "name": "Kupa"
+            },
+            {
+              "id": 177,
+              "name": "Mambaya"
+            },
+            {
+              "id": 178,
+              "name": "Mendambo"
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "name": "Rungu",
+          "towns": [
+            {
+              "id": 179,
+              "name": "Rungu(com. rurale)"
+            },
+            {
+              "id": 180,
+              "name": "Chefferie Medje Mongo"
+            },
+            {
+              "id": 181,
+              "name": "Chefferie Mengo Mosi"
+            },
+            {
+              "id": 182,
+              "name": "Chefferie Ndey"
+            },
+            {
+              "id": 183,
+              "name": "Chefferie Azanga"
+            },
+            {
+              "id": 184,
+              "name": "Chefferie Mboli"
+            },
+            {
+              "id": 185,
+              "name": "Chefferie Mayoyo Magbele"
+            },
+            {
+              "id": 186,
+              "name": "ChefferieMayogo-Mabozo"
+            }
+          ]
+        },
+        {
+          "id": 32,
+          "name": "Niangara",
+          "towns": [
+            {
+              "id": 187,
+              "name": "Niangara (com. rurale)"
+            },
+            {
+              "id": 188,
+              "name": "Chefferie Okoda"
+            },
+            {
+              "id": 189,
+              "name": "Chefferie Boemi"
+            },
+            {
+              "id": 190,
+              "name": "Chefferie Mangbetu Mabisanga"
+            },
+            {
+              "id": 191,
+              "name": "Chefferie Mangbele"
+            },
+            {
+              "id": 192,
+              "name": "Chefferie Manzinga"
+            },
+            {
+              "id": 193,
+              "name": "Chefferie Kopa"
+            },
+            {
+              "id": 194,
+              "name": "Chefferie Kereboro"
+            }
+          ]
+        },
+        {
+          "id": 33,
+          "name": "Dungu",
+          "towns": [
+            {
+              "id": 195,
+              "name": "Bamokandi"
+            },
+            {
+              "id": 196,
+              "name": "Dungu - Uye"
+            },
+            {
+              "id": 197,
+              "name": "Ngilima"
+            },
+            {
+              "id": 198,
+              "name": "Chefferie Wando"
+            },
+            {
+              "id": 199,
+              "name": "Chefferie Ndolomo"
+            },
+            {
+              "id": 200,
+              "name": "Chefferie Malingindu"
+            }
+          ]
+        },
+        {
+          "id": 34,
+          "name": "Faradje",
+          "towns": [
+            {
+              "id": 201,
+              "name": "Laskuri"
+            },
+            {
+              "id": 202,
+              "name": "Sambali"
+            },
+            {
+              "id": 203,
+              "name": "Zungbi"
+            },
+            {
+              "id": 204,
+              "name": "Faradje (com. rurale)"
+            },
+            {
+              "id": 205,
+              "name": "Chefferie Dongo"
+            },
+            {
+              "id": 206,
+              "name": "Chefferie Logo - Doka"
+            },
+            {
+              "id": 207,
+              "name": "Makaro (com. rurale)"
+            },
+            {
+              "id": 208,
+              "name": "Chefferie Logo - Ogambi"
+            },
+            {
+              "id": 209,
+              "name": "Tadu (com. rurale)"
+            },
+            {
+              "id": 210,
+              "name": "Chefferie Mondo"
+            },
+            {
+              "id": 211,
+              "name": "Chefferie Logo - Bagela"
+            },
+            {
+              "id": 212,
+              "name": "Chefferie Kakwa - Lamada"
+            },
+            {
+              "id": 213,
+              "name": "Chefferie Logo - Lolia"
+            },
+            {
+              "id": 214,
+              "name": "Chefferie Logo - Obeleba"
+            }
+          ]
+        },
+        {
+          "id": 35,
+          "name": "Watsa",
+          "towns": [
+            {
+              "id": 215,
+              "name": "Gandza"
+            },
+            {
+              "id": 216,
+              "name": "Kibali"
+            },
+            {
+              "id": 217,
+              "name": "Mongali"
+            },
+            {
+              "id": 218,
+              "name": "Mangoro"
+            },
+            {
+              "id": 219,
+              "name": "Chefferie Andikofa"
+            },
+            {
+              "id": 220,
+              "name": "Mari - Minza"
+            },
+            {
+              "id": 221,
+              "name": "Mangbutu"
+            },
+            {
+              "id": 222,
+              "name": "Chefferie Walesa"
+            },
+            {
+              "id": 223,
+              "name": "Gombari"
+            },
+            {
+              "id": 224,
+              "name": "Chefferie Ateru"
+            },
+            {
+              "id": 225,
+              "name": "Chefferie Kebo"
+            },
+            {
+              "id": 226,
+              "name": "Chefferie Andobi"
+            }
+          ]
+        },
+        {
+          "id": 36,
+          "name": "Wamba",
+          "towns": [
+            {
+              "id": 227,
+              "name": "Anoalite"
+            },
+            {
+              "id": 228,
+              "name": "Nepoko"
+            },
+            {
+              "id": 229,
+              "name": "Wamba"
+            },
+            {
+              "id": 230,
+              "name": "Chefferie Timoniko"
+            },
+            {
+              "id": 231,
+              "name": "Ibambi (com. rurale)"
+            },
+            {
+              "id": 232,
+              "name": "Chefferie Wadimbisa"
+            },
+            {
+              "id": 233,
+              "name": "Chefferie Makoda"
+            },
+            {
+              "id": 234,
+              "name": "Chefferie Bafwangada"
+            },
+            {
+              "id": 235,
+              "name": "Chefferie Malikala"
+            },
+            {
+              "id": 236,
+              "name": "Chefferie Malamba"
+            },
+            {
+              "id": 237,
+              "name": "Chefferie Maha"
+            },
+            {
+              "id": 238,
+              "name": "Chefferie Bafwakoy"
+            },
+            {
+              "id": 239,
+              "name": "Mabudu Malika Babero"
+            },
+            {
+              "id": 240,
+              "name": "Chefferie Malika Toriko"
+            },
+            {
+              "id": 241,
+              "name": "Durunga (com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Ituri",
+      "cities": [
+        {
+          "id": 37,
+          "name": "Bunia",
+          "towns": [
+            {
+              "id": 242,
+              "name": "Nyakasanza"
+            },
+            {
+              "id": 243,
+              "name": "Mbunya"
+            },
+            {
+              "id": 244,
+              "name": "Shari"
+            }
+          ]
+        },
+        {
+          "id": 38,
+          "name": "Irumu",
+          "towns": [
+            {
+              "id": 245,
+              "name": "Irumu (com. rurale)"
+            },
+            {
+              "id": 246,
+              "name": "Chefferie Bahema Boga"
+            },
+            {
+              "id": 247,
+              "name": "Chefferie Baniari - Tchiabi"
+            },
+            {
+              "id": 248,
+              "name": "Chefferie Walese Vonkutu"
+            },
+            {
+              "id": 249,
+              "name": "Chefferie Basili"
+            },
+            {
+              "id": 250,
+              "name": "Chefferie Mobala"
+            },
+            {
+              "id": 251,
+              "name": "Chefferie Babelebe"
+            },
+            {
+              "id": 252,
+              "name": "Chefferie Baboa - Bakoe"
+            },
+            {
+              "id": 253,
+              "name": "Chefferie Bahema d'Irumu"
+            },
+            {
+              "id": 254,
+              "name": "Bahema - Sud"
+            },
+            {
+              "id": 255,
+              "name": "Chefferie Walema Bindi"
+            },
+            {
+              "id": 256,
+              "name": "Chefferie Andisoma"
+            },
+            {
+              "id": 257,
+              "name": "Chefferie Bahema Mitega"
+            }
+          ]
+        },
+        {
+          "id": 39,
+          "name": "Mambasa",
+          "towns": [
+            {
+              "id": 258,
+              "name": "Mambasa (com. rurale)"
+            },
+            {
+              "id": 259,
+              "name": "Chefferie Mambasa"
+            },
+            {
+              "id": 260,
+              "name": "Chefferie Babila Babombi"
+            },
+            {
+              "id": 261,
+              "name": "Biakato (com. rurale)"
+            },
+            {
+              "id": 262,
+              "name": "Chefferie Bombo"
+            },
+            {
+              "id": 263,
+              "name": "Chefferie Bandaka"
+            },
+            {
+              "id": 264,
+              "name": "Nia-Nia (com. rurale)"
+            },
+            {
+              "id": 265,
+              "name": "Chefferie Walese Dese"
+            },
+            {
+              "id": 266,
+              "name": "Chefferie Walese Koro"
+            },
+            {
+              "id": 267,
+              "name": "Chefferie Bakwanza"
+            }
+          ]
+        },
+        {
+          "id": 40,
+          "name": "Mongwalu",
+          "towns": [
+            {
+              "id": 268,
+              "name": "Mongwalu"
+            },
+            {
+              "id": 269,
+              "name": "Musaba"
+            },
+            {
+              "id": 270,
+              "name": "Plito - Yalala"
+            }
+          ]
+        },
+        {
+          "id": 41,
+          "name": "Djugu",
+          "towns": [
+            {
+              "id": 271,
+              "name": "Djugu (com. rurale)"
+            },
+            {
+              "id": 272,
+              "name": "Banyali - Kilo(Baniari - Tchabi)"
+            },
+            {
+              "id": 273,
+              "name": "Chefferie Mabisa( Mambisa)"
+            },
+            {
+              "id": 274,
+              "name": "Chefferie Mabendi(Mabengi)"
+            },
+            {
+              "id": 275,
+              "name": "Walendu Djatshi"
+            },
+            {
+              "id": 276,
+              "name": "Chefferie Ndo - Okebo"
+            },
+            {
+              "id": 277,
+              "name": "Fataki (com. rurale)"
+            },
+            {
+              "id": 278,
+              "name": "Chefferie Bahema Badjere"
+            },
+            {
+              "id": 279,
+              "name": "Walendu Pitshi"
+            },
+            {
+              "id": 280,
+              "name": "Kpandruma (com. rurale)"
+            },
+            {
+              "id": 281,
+              "name": "Chefferie Bahema Nord"
+            },
+            {
+              "id": 282,
+              "name": "Walendu Tatsi"
+            },
+            {
+              "id": 283,
+              "name": "Chefferie Bahema - Banywagi"
+            },
+            {
+              "id": 284,
+              "name": "Doruma (com. rurale)"
+            },
+            {
+              "id": 285,
+              "name": "Ndedu (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 42,
+          "name": "Mahagi",
+          "towns": [
+            {
+              "id": 286,
+              "name": "Mahagi Commune rurale"
+            },
+            {
+              "id": 287,
+              "name": "Chefferie Walendu Watshi"
+            },
+            {
+              "id": 288,
+              "name": "Chefferie Pandoro"
+            },
+            {
+              "id": 289,
+              "name": "Chefferie Alur Djuganda"
+            },
+            {
+              "id": 290,
+              "name": "Nioka (com. rurale)"
+            },
+            {
+              "id": 291,
+              "name": "Chefferie War - Palara"
+            },
+            {
+              "id": 292,
+              "name": "Chefferie Anghal I & II"
+            },
+            {
+              "id": 293,
+              "name": "Djegu (com. rurale)"
+            },
+            {
+              "id": 294,
+              "name": "Chefferie Wangongo"
+            },
+            {
+              "id": 295,
+              "name": "Chefferie Mokambo"
+            },
+            {
+              "id": 296,
+              "name": "Chefferie Djukoth I & II"
+            },
+            {
+              "id": 297,
+              "name": "Ndrele (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 43,
+          "name": "Aru",
+          "towns": [
+            {
+              "id": 298,
+              "name": "Aru commune rurale"
+            },
+            {
+              "id": 299,
+              "name": "Chefferie Aluru"
+            },
+            {
+              "id": 300,
+              "name": "Ndo - Kebo"
+            },
+            {
+              "id": 301,
+              "name": "Chefferie Kaliko Omi"
+            },
+            {
+              "id": 302,
+              "name": "Chefferie Kakwa"
+            },
+            {
+              "id": 303,
+              "name": "Chefferie Zaki"
+            },
+            {
+              "id": 304,
+              "name": "Chefferie Nio - Kamule"
+            },
+            {
+              "id": 305,
+              "name": "Chefferie Otso"
+            },
+            {
+              "id": 306,
+              "name": "Chefferie Lu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Kasaï",
+      "cities": [
+        {
+          "id": 44,
+          "name": "Tshikapa",
+          "towns": [
+            {
+              "id": 307,
+              "name": "Dibumba I"
+            },
+            {
+              "id": 308,
+              "name": "Dibumba II"
+            },
+            {
+              "id": 309,
+              "name": "Kanzala"
+            },
+            {
+              "id": 310,
+              "name": "Mabondo"
+            },
+            {
+              "id": 311,
+              "name": "Mbumba"
+            }
+          ]
+        },
+        {
+          "id": 45,
+          "name": "Kamonia",
+          "towns": [
+            {
+              "id": 312,
+              "name": "Kamonia(com. rurale)"
+            },
+            {
+              "id": 313,
+              "name": "Lovua-Longatshimo"
+            },
+            {
+              "id": 314,
+              "name": "Kamako(com. rurale)"
+            },
+            {
+              "id": 315,
+              "name": "Ngombe(com. rurale)"
+            },
+            {
+              "id": 316,
+              "name": "Lovua-Lushiku"
+            },
+            {
+              "id": 317,
+              "name": "Bapende"
+            },
+            {
+              "id": 318,
+              "name": "Ndjindji(com. rurale)"
+            },
+            {
+              "id": 319,
+              "name": "Nyanga(com. rurale)"
+            },
+            {
+              "id": 320,
+              "name": "Nzadi(com. rurale)"
+            },
+            {
+              "id": 321,
+              "name": "Kasai-Kabambaie"
+            },
+            {
+              "id": 322,
+              "name": "Tshikapa"
+            },
+            {
+              "id": 323,
+              "name": "Mayi-Munene(com. rurale)"
+            },
+            {
+              "id": 324,
+              "name": "Katanga(com. rurale)"
+            },
+            {
+              "id": 325,
+              "name": "Bakwa-Nyambi"
+            },
+            {
+              "id": 326,
+              "name": "Kamuesha(com. rurale)"
+            },
+            {
+              "id": 327,
+              "name": "Lukombo(com. rurale)"
+            },
+            {
+              "id": 328,
+              "name": "Kasai-Lunyeka"
+            },
+            {
+              "id": 329,
+              "name": "Kasai-Longatshimo"
+            },
+            {
+              "id": 330,
+              "name": "Kabunda(com. rurale)"
+            },
+            {
+              "id": 331,
+              "name": "Kasadi-Sadi"
+            }
+          ]
+        },
+        {
+          "id": 46,
+          "name": "Luebo",
+          "towns": [
+            {
+              "id": 332,
+              "name": "Luebo Commune rurale"
+            },
+            {
+              "id": 333,
+              "name": "Luebo-Kabambaie"
+            },
+            {
+              "id": 334,
+              "name": "Djoko-Punda"
+            },
+            {
+              "id": 335,
+              "name": "Kabemba(com. rurale)"
+            },
+            {
+              "id": 336,
+              "name": "Luebo-Wedi"
+            },
+            {
+              "id": 337,
+              "name": "Luebo-Lulengele"
+            }
+          ]
+        },
+        {
+          "id": 47,
+          "name": "Ilebo",
+          "towns": [
+            {
+              "id": 338,
+              "name": "Sud-Banga"
+            },
+            {
+              "id": 339,
+              "name": "Mapangu"
+            },
+            {
+              "id": 340,
+              "name": "Mapangu(com. rurale)"
+            },
+            {
+              "id": 341,
+              "name": "Basongo"
+            },
+            {
+              "id": 342,
+              "name": "Mibilayi(com. rurale)"
+            },
+            {
+              "id": 343,
+              "name": "Ilebo Commune rurale"
+            },
+            {
+              "id": 344,
+              "name": "Malu-Malu"
+            }
+          ]
+        },
+        {
+          "id": 48,
+          "name": "Mweka",
+          "towns": [
+            {
+              "id": 345,
+              "name": "Mweka(com. rurale)"
+            },
+            {
+              "id": 346,
+              "name": "Chefferie Bakuba"
+            },
+            {
+              "id": 347,
+              "name": "Kakenge(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 49,
+          "name": "Dekese",
+          "towns": [
+            {
+              "id": 348,
+              "name": "Dekese(com. rurale)"
+            },
+            {
+              "id": 349,
+              "name": "Chefferie Ndengese Ikolombe Isolu"
+            },
+            {
+              "id": 350,
+              "name": "Chefferie Yaelima"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Kasaï-Central",
+      "cities": [
+        {
+          "id": 50,
+          "name": "Kananga",
+          "towns": [
+            {
+              "id": 351,
+              "name": "Nganza"
+            },
+            {
+              "id": 352,
+              "name": "Katoka"
+            },
+            {
+              "id": 353,
+              "name": "Ndesha"
+            },
+            {
+              "id": 354,
+              "name": "Lukonga"
+            },
+            {
+              "id": 355,
+              "name": "Kananga"
+            }
+          ]
+        },
+        {
+          "id": 51,
+          "name": "Dibaya",
+          "towns": [
+            {
+              "id": 356,
+              "name": "Dibaya(com. rurale)"
+            },
+            {
+              "id": 357,
+              "name": "Tshishilu"
+            },
+            {
+              "id": 358,
+              "name": "Dibanda"
+            },
+            {
+              "id": 359,
+              "name": "Kamuandu"
+            },
+            {
+              "id": 360,
+              "name": "Dibataie"
+            },
+            {
+              "id": 361,
+              "name": "Tshikula(com. rurale)"
+            },
+            {
+              "id": 362,
+              "name": "Kasangidi"
+            }
+          ]
+        },
+        {
+          "id": 52,
+          "name": "Luiza",
+          "towns": [
+            {
+              "id": 363,
+              "name": "Luiza(com. rurale)"
+            },
+            {
+              "id": 364,
+              "name": "Kalunga"
+            },
+            {
+              "id": 365,
+              "name": "Ngadi-A-Pemba(com. rurale)"
+            },
+            {
+              "id": 366,
+              "name": "Loatshi"
+            },
+            {
+              "id": 367,
+              "name": "Masuika(com. rurale)"
+            },
+            {
+              "id": 368,
+              "name": "Lueta"
+            },
+            {
+              "id": 369,
+              "name": "Samuanda(com. rurale)"
+            },
+            {
+              "id": 370,
+              "name": "Kabelekese"
+            },
+            {
+              "id": 371,
+              "name": "Luambo(com. rurale)"
+            },
+            {
+              "id": 372,
+              "name": "Bambaie"
+            },
+            {
+              "id": 373,
+              "name": "Bushimaie"
+            },
+            {
+              "id": 374,
+              "name": "Yangala(com. rurale)"
+            },
+            {
+              "id": 375,
+              "name": "Lusanza"
+            },
+            {
+              "id": 376,
+              "name": "Tulume(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 53,
+          "name": "Kazumba",
+          "towns": [
+            {
+              "id": 377,
+              "name": "Kazumba(com. rurale)"
+            },
+            {
+              "id": 378,
+              "name": "Bashi-Mboie"
+            },
+            {
+              "id": 379,
+              "name": "Tshitadi"
+            },
+            {
+              "id": 380,
+              "name": "Kafuba"
+            },
+            {
+              "id": 381,
+              "name": "Bulungu"
+            },
+            {
+              "id": 382,
+              "name": "Kaluebo(com. rurale)"
+            },
+            {
+              "id": 383,
+              "name": "Matamba"
+            },
+            {
+              "id": 384,
+              "name": "Muswaswa"
+            },
+            {
+              "id": 385,
+              "name": "Miao"
+            },
+            {
+              "id": 386,
+              "name": "Bena-Ngoshi (Mutefu)"
+            },
+            {
+              "id": 387,
+              "name": "Bilomba(com. rurale)"
+            },
+            {
+              "id": 388,
+              "name": "Kavula"
+            },
+            {
+              "id": 389,
+              "name": "Luemba(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 54,
+          "name": "Demba",
+          "towns": [
+            {
+              "id": 390,
+              "name": "Demba(com. rurale)"
+            },
+            {
+              "id": 391,
+              "name": "Tshibungu"
+            },
+            {
+              "id": 392,
+              "name": "Tshibote"
+            },
+            {
+              "id": 393,
+              "name": "Lombelo"
+            },
+            {
+              "id": 394,
+              "name": "Bena Mamba"
+            },
+            {
+              "id": 395,
+              "name": "Bena Leka(com. rurale)"
+            },
+            {
+              "id": 396,
+              "name": "Lusonge"
+            },
+            {
+              "id": 397,
+              "name": "Mwanza-Ngoma"
+            },
+            {
+              "id": 398,
+              "name": "Diofwa"
+            }
+          ]
+        },
+        {
+          "id": 55,
+          "name": "Dimbelenge",
+          "towns": [
+            {
+              "id": 399,
+              "name": "Dimbelenge(com. rurale)"
+            },
+            {
+              "id": 400,
+              "name": "Lubi"
+            },
+            {
+              "id": 401,
+              "name": "Bana Ba Ntumba(com. rurale)"
+            },
+            {
+              "id": 402,
+              "name": "Lubudi"
+            },
+            {
+              "id": 403,
+              "name": "Munkamba(com. rurale)"
+            },
+            {
+              "id": 404,
+              "name": "Kunduyi"
+            },
+            {
+              "id": 405,
+              "name": "Katende(com. rurale)"
+            },
+            {
+              "id": 406,
+              "name": "Mashala"
+            },
+            {
+              "id": 407,
+              "name": "Lukibu"
+            },
+            {
+              "id": 408,
+              "name": "Lubuinshi (com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Kasaï-Oriental",
+      "cities": [
+        {
+          "id": 56,
+          "name": "Mbuji-Mayi",
+          "towns": [
+            {
+              "id": 409,
+              "name": "Kanshi"
+            },
+            {
+              "id": 410,
+              "name": "Muya"
+            },
+            {
+              "id": 411,
+              "name": "Bipemba"
+            },
+            {
+              "id": 412,
+              "name": "Diulu"
+            },
+            {
+              "id": 413,
+              "name": "Dibindi"
+            }
+          ]
+        },
+        {
+          "id": 57,
+          "name": "Tshilenge",
+          "towns": [
+            {
+              "id": 414,
+              "name": "Kalonji - Sud"
+            },
+            {
+              "id": 415,
+              "name": "Lukalaba"
+            },
+            {
+              "id": 416,
+              "name": "Cheferie Kampatshi"
+            },
+            {
+              "id": 417,
+              "name": "Tshouka/Tshipuka"
+            },
+            {
+              "id": 418,
+              "name": "Kalelu"
+            },
+            {
+              "id": 419,
+              "name": "Kabimba(com. rurale)"
+            },
+            {
+              "id": 420,
+              "name": "Kalenda-Kashila(com. rurale)"
+            },
+            {
+              "id": 421,
+              "name": "Lukalaba(com. rurale)"
+            },
+            {
+              "id": 422,
+              "name": "Tshilenge Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 58,
+          "name": "Miabi",
+          "towns": [
+            {
+              "id": 423,
+              "name": "Tshijiba"
+            },
+            {
+              "id": 424,
+              "name": "Tshilundu"
+            },
+            {
+              "id": 425,
+              "name": "Kakangayi"
+            },
+            {
+              "id": 426,
+              "name": "Movo-Nkatshia"
+            },
+            {
+              "id": 427,
+              "name": "Boya(com. rurale)"
+            },
+            {
+              "id": 428,
+              "name": "Miabi Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 59,
+          "name": "Kabeya-Kamuanga",
+          "towns": [
+            {
+              "id": 429,
+              "name": "Kena(Bena) - Nkuna(com. rurale)"
+            },
+            {
+              "id": 430,
+              "name": "Mpemba"
+            },
+            {
+              "id": 431,
+              "name": "Lac Munkamba"
+            },
+            {
+              "id": 432,
+              "name": "Ndomba"
+            },
+            {
+              "id": 433,
+              "name": "Kalela"
+            }
+          ]
+        },
+        {
+          "id": 60,
+          "name": "Lupatapata",
+          "towns": [
+            {
+              "id": 434,
+              "name": "Tshishimbi(com. rurale)"
+            },
+            {
+              "id": 435,
+              "name": "Mudiba"
+            },
+            {
+              "id": 436,
+              "name": "Kabala"
+            },
+            {
+              "id": 437,
+              "name": "Mulenda"
+            },
+            {
+              "id": 438,
+              "name": "Mukumbi"
+            }
+          ]
+        },
+        {
+          "id": 61,
+          "name": "Katanda",
+          "towns": [
+            {
+              "id": 439,
+              "name": "Katanda(com. rurale)"
+            },
+            {
+              "id": 440,
+              "name": "Baluba-Lubilandji"
+            },
+            {
+              "id": 441,
+              "name": "Mutuayi"
+            },
+            {
+              "id": 442,
+              "name": "Nsangu"
+            },
+            {
+              "id": 443,
+              "name": "Cité de Dilunga(com. rurale)"
+            },
+            {
+              "id": 444,
+              "name": "Tshitolo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Kinshasa",
+      "cities": [
+        {
+          "id": 62,
+          "name": "kinshasa",
+          "towns": [
+            {
+              "id": 445,
+              "name": "Bandalungwa",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 446,
+              "name": "Barumbu",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 447,
+              "name": "Bumbu",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 448,
+              "name": "Gombe",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 449,
+              "name": "Kalamu",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 450,
+              "name": "Kasa Vubu",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 451,
+              "name": "Kimbanseke",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 452,
+              "name": "Kinshasa",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 453,
+              "name": "Kintambo",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 454,
+              "name": "Kisenso",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 455,
+              "name": "Lemba",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 456,
+              "name": "Limete",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 457,
+              "name": "Lingwala",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 458,
+              "name": "Makala",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 459,
+              "name": "Maluku",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 460,
+              "name": "Masina",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 461,
+              "name": "Matete",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 462,
+              "name": "Mont-Ngafula",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 463,
+              "name": "Ndjili",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 464,
+              "name": "Ngaba",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 465,
+              "name": "Ngaliema",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 466,
+              "name": "Ngiri-Ngiri",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 467,
+              "name": "Nsele",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 468,
+              "name": "Selembao",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 469,
+              "name": "Bandalunga",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 470,
+              "name": "Mont Ngafula",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 471,
+              "name": "Ngiri - Ngiri",
+              "quartiers": [
+                ""
+              ]
+            },
+            {
+              "id": 472,
+              "name": "Kasa -Vubu",
+              "quartiers": [
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Kongo-Central",
+      "cities": [
+        {
+          "id": 63,
+          "name": "Matadi",
+          "towns": [
+            {
+              "id": 473,
+              "name": "Matadi"
+            },
+            {
+              "id": 474,
+              "name": "Nzaza"
+            },
+            {
+              "id": 475,
+              "name": "M'vuzi"
+            }
+          ]
+        },
+        {
+          "id": 64,
+          "name": "Boma",
+          "towns": [
+            {
+              "id": 476,
+              "name": "Kabondo"
+            },
+            {
+              "id": 477,
+              "name": "c. Kalamu"
+            },
+            {
+              "id": 478,
+              "name": "Nzadi"
+            }
+          ]
+        },
+        {
+          "id": 65,
+          "name": "Moanda",
+          "towns": [
+            {
+              "id": 479,
+              "name": "Assolongo"
+            },
+            {
+              "id": 480,
+              "name": "La Mer"
+            },
+            {
+              "id": 481,
+              "name": "Boma – Bungu"
+            },
+            {
+              "id": 482,
+              "name": "Mamputu"
+            },
+            {
+              "id": 483,
+              "name": "Muanda"
+            }
+          ]
+        },
+        {
+          "id": 66,
+          "name": "Lukula",
+          "towns": [
+            {
+              "id": 484,
+              "name": "Kakongo"
+            },
+            {
+              "id": 485,
+              "name": "Tsundi - Sud"
+            },
+            {
+              "id": 486,
+              "name": "Fubu"
+            },
+            {
+              "id": 487,
+              "name": "Tsanga - Sud"
+            },
+            {
+              "id": 488,
+              "name": "Patu"
+            },
+            {
+              "id": 489,
+              "name": "Lemba Kinsudi (com. rurale)"
+            },
+            {
+              "id": 490,
+              "name": "Nsioni(com. rurale)"
+            },
+            {
+              "id": 491,
+              "name": "Lukula"
+            },
+            {
+              "id": 492,
+              "name": "Nsioni"
+            }
+          ]
+        },
+        {
+          "id": 67,
+          "name": "Tshela",
+          "towns": [
+            {
+              "id": 493,
+              "name": "Tshela banga"
+            },
+            {
+              "id": 494,
+              "name": "Loango"
+            },
+            {
+              "id": 495,
+              "name": "Bula Naku"
+            },
+            {
+              "id": 496,
+              "name": "Nzobe - Luzi"
+            },
+            {
+              "id": 497,
+              "name": "Lubolo"
+            },
+            {
+              "id": 498,
+              "name": "Lubuzi"
+            },
+            {
+              "id": 499,
+              "name": "Nganda Sundi"
+            },
+            {
+              "id": 500,
+              "name": "Maduda"
+            },
+            {
+              "id": 501,
+              "name": "Kasa - Vubu"
+            },
+            {
+              "id": 502,
+              "name": "Luvu"
+            },
+            {
+              "id": 503,
+              "name": "Tshela"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "Seke-Banza",
+          "towns": [
+            {
+              "id": 504,
+              "name": "Seke-Banza (com. rurale)"
+            },
+            {
+              "id": 505,
+              "name": "Bundi"
+            },
+            {
+              "id": 506,
+              "name": "Mbavu"
+            },
+            {
+              "id": 507,
+              "name": "Sumbi"
+            },
+            {
+              "id": 508,
+              "name": "Isangila"
+            },
+            {
+              "id": 509,
+              "name": "Cité d' I nga(com. rurale)"
+            },
+            {
+              "id": 510,
+              "name": "Lufu"
+            },
+            {
+              "id": 511,
+              "name": "Kinzau - Mvuete (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 69,
+          "name": "Luozi",
+          "towns": [
+            {
+              "id": 512,
+              "name": "Luozi (com. rurale)"
+            },
+            {
+              "id": 513,
+              "name": "Mbanza Ngoyo"
+            },
+            {
+              "id": 514,
+              "name": "Mbanza Mona"
+            },
+            {
+              "id": 515,
+              "name": "Mbanza Mwembe"
+            },
+            {
+              "id": 516,
+              "name": "Kinkenge"
+            },
+            {
+              "id": 517,
+              "name": "Mongo Luala"
+            },
+            {
+              "id": 518,
+              "name": "Kimumba"
+            },
+            {
+              "id": 519,
+              "name": "Kenge"
+            },
+            {
+              "id": 520,
+              "name": "Balari"
+            },
+            {
+              "id": 521,
+              "name": "Kivunda"
+            },
+            {
+              "id": 522,
+              "name": "Kimbanza"
+            }
+          ]
+        },
+        {
+          "id": 70,
+          "name": "Songololo",
+          "towns": [
+            {
+              "id": 523,
+              "name": "Songololo (com. rurale)"
+            },
+            {
+              "id": 524,
+              "name": "Luima"
+            },
+            {
+              "id": 525,
+              "name": "Palabala"
+            },
+            {
+              "id": 526,
+              "name": "Bamboma"
+            },
+            {
+              "id": 527,
+              "name": "Wombo"
+            },
+            {
+              "id": 528,
+              "name": "Kimpese"
+            },
+            {
+              "id": 529,
+              "name": "Vampa"
+            },
+            {
+              "id": 530,
+              "name": "Lukala"
+            }
+          ]
+        },
+        {
+          "id": 71,
+          "name": "Mbanza-Ngungu",
+          "towns": [
+            {
+              "id": 531,
+              "name": "Boko"
+            },
+            {
+              "id": 532,
+              "name": "Kivulu"
+            },
+            {
+              "id": 533,
+              "name": "Sele (com. rurale)"
+            },
+            {
+              "id": 534,
+              "name": "Gombe – Sud"
+            },
+            {
+              "id": 535,
+              "name": "Kwilu – Ngongo"
+            },
+            {
+              "id": 536,
+              "name": "Kwilu - Ngongo (com. rurale)"
+            },
+            {
+              "id": 537,
+              "name": "Ntimansi"
+            },
+            {
+              "id": 538,
+              "name": "Gombe - Matadi"
+            },
+            {
+              "id": 539,
+              "name": "Lunzadi"
+            },
+            {
+              "id": 540,
+              "name": "Ngungu"
+            },
+            {
+              "id": 541,
+              "name": "Noki"
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "name": "Kasangulu",
+          "towns": [
+            {
+              "id": 542,
+              "name": "Kasangulu"
+            },
+            {
+              "id": 543,
+              "name": "Lukunga - Mputu"
+            },
+            {
+              "id": 544,
+              "name": "Luila"
+            }
+          ]
+        },
+        {
+          "id": 73,
+          "name": "Madimba",
+          "towns": [
+            {
+              "id": 545,
+              "name": "Madimba (com. rurale)"
+            },
+            {
+              "id": 546,
+              "name": "Ngufu"
+            },
+            {
+              "id": 547,
+              "name": "Mfidi Malele"
+            },
+            {
+              "id": 548,
+              "name": "Wungu"
+            },
+            {
+              "id": 549,
+              "name": "Ngeba"
+            },
+            {
+              "id": 550,
+              "name": "Mfuma - Kibambi"
+            },
+            {
+              "id": 551,
+              "name": "Luidi(Kinkosi)"
+            },
+            {
+              "id": 552,
+              "name": "Nkandu (com. rurale)"
+            },
+            {
+              "id": 553,
+              "name": "Kikonka (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 74,
+          "name": "Kimvula",
+          "towns": [
+            {
+              "id": 554,
+              "name": "Kimvula (com. rurale)"
+            },
+            {
+              "id": 555,
+              "name": "Benga"
+            },
+            {
+              "id": 556,
+              "name": "Luila - Lumene"
+            },
+            {
+              "id": 557,
+              "name": "Lubisi"
+            },
+            {
+              "id": 558,
+              "name": "Benga (com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Kwango",
+      "cities": [
+        {
+          "id": 75,
+          "name": "Kenge",
+          "towns": [
+            {
+              "id": 559,
+              "name": "Cinq mai"
+            },
+            {
+              "id": 560,
+              "name": "Mavula"
+            },
+            {
+              "id": 561,
+              "name": "Laurent Désiré Kabila"
+            },
+            {
+              "id": 562,
+              "name": "Manonga"
+            },
+            {
+              "id": 563,
+              "name": "Masikita"
+            },
+            {
+              "id": 564,
+              "name": "Kenge 2(com. rurale)"
+            },
+            {
+              "id": 565,
+              "name": "chefferie Pelende – Nord"
+            },
+            {
+              "id": 566,
+              "name": "Mosamba"
+            },
+            {
+              "id": 567,
+              "name": "Dinga"
+            },
+            {
+              "id": 568,
+              "name": "Bukanga – Lonzo"
+            },
+            {
+              "id": 569,
+              "name": "Pont Kwango (com. rurale)"
+            },
+            {
+              "id": 570,
+              "name": "Kolokoso"
+            },
+            {
+              "id": 571,
+              "name": "Misele(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 76,
+          "name": "Feshi",
+          "towns": [
+            {
+              "id": 572,
+              "name": "Feshi (com. rurale)"
+            },
+            {
+              "id": 573,
+              "name": "Ganaketi"
+            },
+            {
+              "id": 574,
+              "name": "Lobo"
+            },
+            {
+              "id": 575,
+              "name": "Feshi"
+            },
+            {
+              "id": 576,
+              "name": "Mukoso"
+            }
+          ]
+        },
+        {
+          "id": 77,
+          "name": "Kahemba",
+          "towns": [
+            {
+              "id": 577,
+              "name": "Kwilu"
+            },
+            {
+              "id": 578,
+              "name": "Lutshima"
+            },
+            {
+              "id": 579,
+              "name": "Ntshakal"
+            },
+            {
+              "id": 580,
+              "name": "Kulindji"
+            },
+            {
+              "id": 581,
+              "name": "Tfundwale"
+            },
+            {
+              "id": 582,
+              "name": "Chefferie Mwendjila"
+            },
+            {
+              "id": 583,
+              "name": "Chefferie Muloshi"
+            },
+            {
+              "id": 584,
+              "name": "Bangu"
+            },
+            {
+              "id": 585,
+              "name": "Chefferie Mwa - Mushiko"
+            },
+            {
+              "id": 586,
+              "name": "Bindu"
+            }
+          ]
+        },
+        {
+          "id": 78,
+          "name": "Kasongo Lunda",
+          "towns": [
+            {
+              "id": 587,
+              "name": " Imona"
+            },
+            {
+              "id": 588,
+              "name": "Kituadi"
+            },
+            {
+              "id": 589,
+              "name": "Kumbila"
+            },
+            {
+              "id": 590,
+              "name": "Chefferie Kasongo-Lunda"
+            },
+            {
+              "id": 591,
+              "name": "Kizamba"
+            },
+            {
+              "id": 592,
+              "name": "Tembo (com. rurale)"
+            },
+            {
+              "id": 593,
+              "name": "Swa Tenda"
+            },
+            {
+              "id": 594,
+              "name": "Kingulu"
+            },
+            {
+              "id": 595,
+              "name": "Pelende (com. rurale)"
+            },
+            {
+              "id": 596,
+              "name": "Mawanga"
+            },
+            {
+              "id": 597,
+              "name": "Kibunda"
+            },
+            {
+              "id": 598,
+              "name": "Panzi"
+            },
+            {
+              "id": 599,
+              "name": "Kahungula (com. rurale)"
+            },
+            {
+              "id": 600,
+              "name": "Kingwangala (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 79,
+          "name": "Popokabaka",
+          "towns": [
+            {
+              "id": 601,
+              "name": "Popokabaka (com. rurale)"
+            },
+            {
+              "id": 602,
+              "name": "Popokabaka"
+            },
+            {
+              "id": 603,
+              "name": "Yonso"
+            },
+            {
+              "id": 604,
+              "name": "Lufuma"
+            },
+            {
+              "id": 605,
+              "name": "Kabama(com. rurale)"
+            },
+            {
+              "id": 606,
+              "name": "Kisoma(com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Kwilu",
+      "cities": [
+        {
+          "id": 80,
+          "name": "Bandundu",
+          "towns": [
+            {
+              "id": 607,
+              "name": "Basoko"
+            },
+            {
+              "id": 608,
+              "name": "Mayoyo"
+            },
+            {
+              "id": 609,
+              "name": "Disasi"
+            }
+          ]
+        },
+        {
+          "id": 81,
+          "name": "Kikwit",
+          "towns": [
+            {
+              "id": 610,
+              "name": "Kazamba"
+            },
+            {
+              "id": 611,
+              "name": "Nzinda"
+            },
+            {
+              "id": 612,
+              "name": "Lukolela"
+            },
+            {
+              "id": 613,
+              "name": "Lukemi"
+            }
+          ]
+        },
+        {
+          "id": 82,
+          "name": "Bagata",
+          "towns": [
+            {
+              "id": 614,
+              "name": "Bagata (com. rurale)"
+            },
+            {
+              "id": 615,
+              "name": "Manzasay"
+            },
+            {
+              "id": 616,
+              "name": "Wamba - Fatundu"
+            },
+            {
+              "id": 617,
+              "name": "Misay(commune rurale)"
+            },
+            {
+              "id": 618,
+              "name": "Kwango - Kasay"
+            },
+            {
+              "id": 619,
+              "name": "Kwilu - Ntobere"
+            },
+            {
+              "id": 620,
+              "name": "Kidzueme"
+            },
+            {
+              "id": 621,
+              "name": "Mabenga (com. rurale)"
+            },
+            {
+              "id": 622,
+              "name": "Panu pay Pay (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 83,
+          "name": "Bulungu",
+          "towns": [
+            {
+              "id": 623,
+              "name": "Luniungu"
+            },
+            {
+              "id": 624,
+              "name": "Kilunda"
+            },
+            {
+              "id": 625,
+              "name": "Mikwi"
+            },
+            {
+              "id": 626,
+              "name": "Djuma(com. rurale)"
+            },
+            {
+              "id": 627,
+              "name": "Kwilu - Kimbata"
+            },
+            {
+              "id": 628,
+              "name": "Dwe"
+            },
+            {
+              "id": 629,
+              "name": "Nyadi Nkara"
+            },
+            {
+              "id": 630,
+              "name": "Imbongo"
+            },
+            {
+              "id": 631,
+              "name": "Kipuka"
+            },
+            {
+              "id": 632,
+              "name": "Kwenge"
+            },
+            {
+              "id": 633,
+              "name": "Bukiombo - Lusanga(com. rurale)"
+            },
+            {
+              "id": 634,
+              "name": "Nko"
+            },
+            {
+              "id": 635,
+              "name": "Kabangu"
+            },
+            {
+              "id": 636,
+              "name": "Lukonzi"
+            }
+          ]
+        },
+        {
+          "id": 84,
+          "name": "Idiofa",
+          "towns": [
+            {
+              "id": 637,
+              "name": "Musanga - Idiofa"
+            },
+            {
+              "id": 638,
+              "name": "Yasa - Lokwa"
+            },
+            {
+              "id": 639,
+              "name": "Kanga"
+            },
+            {
+              "id": 640,
+              "name": "Kalanganda"
+            },
+            {
+              "id": 641,
+              "name": "Bulwem"
+            },
+            {
+              "id": 642,
+              "name": "Sedzo"
+            },
+            {
+              "id": 643,
+              "name": "Piopio (com. rurale)"
+            },
+            {
+              "id": 644,
+              "name": "Mateko"
+            },
+            {
+              "id": 645,
+              "name": "Yolo/Eolo (com. rurale)"
+            },
+            {
+              "id": 646,
+              "name": "Kapia"
+            },
+            {
+              "id": 647,
+              "name": "Banga"
+            },
+            {
+              "id": 648,
+              "name": "Kipuku"
+            },
+            {
+              "id": 649,
+              "name": "Belo"
+            },
+            {
+              "id": 650,
+              "name": "Madimbi"
+            },
+            {
+              "id": 651,
+              "name": "Panu (com. rurale)"
+            },
+            {
+              "id": 652,
+              "name": "Kalo(com. rurale)"
+            },
+            {
+              "id": 653,
+              "name": "Mulasa(com. rurale)"
+            },
+            {
+              "id": 654,
+              "name": " Idiofa"
+            },
+            {
+              "id": 655,
+              "name": "Manding"
+            },
+            {
+              "id": 656,
+              "name": "Musanga"
+            }
+          ]
+        },
+        {
+          "id": 85,
+          "name": "Mangai",
+          "towns": [
+            {
+              "id": 657,
+              "name": " Isabo"
+            },
+            {
+              "id": 658,
+              "name": "Menki"
+            }
+          ]
+        },
+        {
+          "id": 86,
+          "name": "Dibaya – Lubwe",
+          "towns": [
+            {
+              "id": 659,
+              "name": " Ipala"
+            },
+            {
+              "id": 660,
+              "name": "Tshenza"
+            },
+            {
+              "id": 661,
+              "name": "Ndambu"
+            }
+          ]
+        },
+        {
+          "id": 87,
+          "name": "Gungu",
+          "towns": [
+            {
+              "id": 662,
+              "name": "Gungu"
+            },
+            {
+              "id": 663,
+              "name": "Kandale"
+            },
+            {
+              "id": 664,
+              "name": "Kobo"
+            },
+            {
+              "id": 665,
+              "name": "Mudikalunga"
+            },
+            {
+              "id": 666,
+              "name": "Kisunzu"
+            },
+            {
+              "id": 667,
+              "name": "Mungindu"
+            },
+            {
+              "id": 668,
+              "name": "Kilamba"
+            },
+            {
+              "id": 669,
+              "name": "Lukamba"
+            },
+            {
+              "id": 670,
+              "name": "Lozo"
+            },
+            {
+              "id": 671,
+              "name": "Ngudi"
+            },
+            {
+              "id": 672,
+              "name": "Mukedi(com. rurale)"
+            },
+            {
+              "id": 673,
+              "name": "Kilembe"
+            },
+            {
+              "id": 674,
+              "name": "Kondo"
+            },
+            {
+              "id": 675,
+              "name": "Congo"
+            },
+            {
+              "id": 676,
+              "name": "Kakobola"
+            },
+            {
+              "id": 677,
+              "name": "Lukwila"
+            }
+          ]
+        },
+        {
+          "id": 88,
+          "name": "Masi-Manimba",
+          "towns": [
+            {
+              "id": 678,
+              "name": "Masi-Manimba"
+            },
+            {
+              "id": 679,
+              "name": "Kibolo"
+            },
+            {
+              "id": 680,
+              "name": "Kinzenzengo"
+            },
+            {
+              "id": 681,
+              "name": "Bindungi"
+            },
+            {
+              "id": 682,
+              "name": "Kinzenga"
+            },
+            {
+              "id": 683,
+              "name": "Masamuna(commune rurale)"
+            },
+            {
+              "id": 684,
+              "name": "Kitoy"
+            },
+            {
+              "id": 685,
+              "name": "Mokamo"
+            },
+            {
+              "id": 686,
+              "name": "Bwalayulu(com. rurale)"
+            },
+            {
+              "id": 687,
+              "name": "Mosango"
+            },
+            {
+              "id": 688,
+              "name": "Pay - Kongila"
+            },
+            {
+              "id": 689,
+              "name": "Pay - Kongila(com. rurale)"
+            },
+            {
+              "id": 690,
+              "name": "Sungu"
+            },
+            {
+              "id": 691,
+              "name": "Bibembo"
+            },
+            {
+              "id": 692,
+              "name": "Kangamiese"
+            },
+            {
+              "id": 693,
+              "name": "Lukuala"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Lomami",
+      "cities": [
+        {
+          "id": 89,
+          "name": "Kabinda",
+          "towns": [
+            {
+              "id": 694,
+              "name": "Kabwela-Bwela"
+            },
+            {
+              "id": 695,
+              "name": "Kajiba"
+            },
+            {
+              "id": 696,
+              "name": "Mudingayi"
+            },
+            {
+              "id": 697,
+              "name": "Kabinda"
+            },
+            {
+              "id": 698,
+              "name": "Lukashi-Lualu"
+            },
+            {
+              "id": 699,
+              "name": "Kamende(com. rurale)"
+            },
+            {
+              "id": 700,
+              "name": "Vunayi"
+            },
+            {
+              "id": 701,
+              "name": "Ludimbi-Lukula"
+            },
+            {
+              "id": 702,
+              "name": "Lufubu-Lomami"
+            },
+            {
+              "id": 703,
+              "name": "Baluba-Lubangule"
+            },
+            {
+              "id": 704,
+              "name": "Kakula(com. rurale)"
+            },
+            {
+              "id": 705,
+              "name": "Munyenge(com. rurale)"
+            },
+            {
+              "id": 706,
+              "name": "Pengie(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "name": "Mwene-Ditu",
+          "towns": [
+            {
+              "id": 707,
+              "name": "Bondoyi"
+            },
+            {
+              "id": 708,
+              "name": "Musadi"
+            },
+            {
+              "id": 709,
+              "name": "Mwene-Ditu"
+            }
+          ]
+        },
+        {
+          "id": 91,
+          "name": "Luilu",
+          "towns": [
+            {
+              "id": 710,
+              "name": "Luilu(com. rurale)"
+            },
+            {
+              "id": 711,
+              "name": "Chefferie Kanutshina(In - Kan)"
+            },
+            {
+              "id": 712,
+              "name": "Wikong(com. rurale)"
+            },
+            {
+              "id": 713,
+              "name": "Chefferie Mulundu"
+            },
+            {
+              "id": 714,
+              "name": "Kanda-Kanda"
+            },
+            {
+              "id": 715,
+              "name": "Kasekeyi(com. rurale)"
+            },
+            {
+              "id": 716,
+              "name": "Chefferie Katshisungu"
+            },
+            {
+              "id": 717,
+              "name": "Cite de Luputa(com. rurale)"
+            },
+            {
+              "id": 718,
+              "name": "Lusuku(com. rurale)"
+            },
+            {
+              "id": 719,
+              "name": "Kalenda(com. rurale)"
+            },
+            {
+              "id": 720,
+              "name": "Tshiabut(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 92,
+          "name": "Kamiji",
+          "towns": [
+            {
+              "id": 721,
+              "name": "Malenge(com. rurale)ex Kamiji"
+            },
+            {
+              "id": 722,
+              "name": "Kamiji"
+            },
+            {
+              "id": 723,
+              "name": "Kamiji-Tshisangu(com. rurale)"
+            },
+            {
+              "id": 724,
+              "name": "Luekeshi"
+            }
+          ]
+        },
+        {
+          "id": 93,
+          "name": "Ngandajika",
+          "towns": [
+            {
+              "id": 725,
+              "name": "Ngandajika"
+            },
+            {
+              "id": 726,
+              "name": "Bena-Tshiyamba"
+            },
+            {
+              "id": 727,
+              "name": "Chefferie Bakwa-Mulumba"
+            },
+            {
+              "id": 728,
+              "name": "Chefferie Bena-Kalambay"
+            },
+            {
+              "id": 729,
+              "name": "Kalunda-Musoko(com. rurale)"
+            },
+            {
+              "id": 730,
+              "name": "Baluba-Shankadi"
+            },
+            {
+              "id": 731,
+              "name": "Ngandajika Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 94,
+          "name": "Lubao",
+          "towns": [
+            {
+              "id": 732,
+              "name": "Bekalebwe"
+            },
+            {
+              "id": 733,
+              "name": "Kamana(com. rurale)"
+            },
+            {
+              "id": 734,
+              "name": "Balungu(com. rurale)"
+            },
+            {
+              "id": 735,
+              "name": "Tshofa"
+            },
+            {
+              "id": 736,
+              "name": "Lubao Commune rurale"
+            },
+            {
+              "id": 737,
+              "name": "Kisengwa"
+            },
+            {
+              "id": 738,
+              "name": "Ebombo(com. rurale)"
+            },
+            {
+              "id": 739,
+              "name": "Mwanuayi(Mwamuayi)(com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Lualaba",
+      "cities": [
+        {
+          "id": 95,
+          "name": "Kolwezi",
+          "towns": [
+            {
+              "id": 740,
+              "name": "Dilala"
+            },
+            {
+              "id": 741,
+              "name": "Manika"
+            }
+          ]
+        },
+        {
+          "id": 96,
+          "name": "Mutshatsha",
+          "towns": [
+            {
+              "id": 742,
+              "name": "Mutshatsha(com. rurale)"
+            },
+            {
+              "id": 743,
+              "name": "Lufupa"
+            },
+            {
+              "id": 744,
+              "name": "Mukuleshi"
+            },
+            {
+              "id": 745,
+              "name": "Luilu"
+            }
+          ]
+        },
+        {
+          "id": 97,
+          "name": "Lubudi",
+          "towns": [
+            {
+              "id": 746,
+              "name": "Lubudi(com. rurale)"
+            },
+            {
+              "id": 747,
+              "name": "Cheﬀerie Mwana-Muadi"
+            },
+            {
+              "id": 748,
+              "name": "Cheﬀerie Mazangule"
+            },
+            {
+              "id": 749,
+              "name": "Cheﬀerie Mulumbu"
+            },
+            {
+              "id": 750,
+              "name": "Cheﬀerie Bayeke"
+            },
+            {
+              "id": 751,
+              "name": "Fungurume(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 98,
+          "name": "Kasaji",
+          "towns": [
+            {
+              "id": 752,
+              "name": "Lueu"
+            },
+            {
+              "id": 753,
+              "name": "Lukoji"
+            },
+            {
+              "id": 754,
+              "name": "Tsimbundi"
+            }
+          ]
+        },
+        {
+          "id": 99,
+          "name": "Dilolo",
+          "towns": [
+            {
+              "id": 755,
+              "name": "Dilolo(com. rurale)"
+            },
+            {
+              "id": 756,
+              "name": "Luena"
+            },
+            {
+              "id": 757,
+              "name": "Cheﬀerie Ndumba"
+            },
+            {
+              "id": 758,
+              "name": "Cheﬀerie Mwakandala"
+            },
+            {
+              "id": 759,
+              "name": "Cheﬀerie Mwatshisenge"
+            },
+            {
+              "id": 760,
+              "name": "Cheﬀerie Saluseke"
+            },
+            {
+              "id": 761,
+              "name": "Cheﬀerie Muyeye"
+            },
+            {
+              "id": 762,
+              "name": "Lulua-Lukoshi"
+            },
+            {
+              "id": 763,
+              "name": "Kisenge(com. rurale)"
+            },
+            {
+              "id": 764,
+              "name": "Cheﬀerie Tshisangama"
+            },
+            {
+              "id": 765,
+              "name": "Mutanda"
+            }
+          ]
+        },
+        {
+          "id": 100,
+          "name": "Sandoa",
+          "towns": [
+            {
+              "id": 766,
+              "name": "Sandoa(com. rurale)"
+            },
+            {
+              "id": 767,
+              "name": "Cheﬀerie Mbako"
+            },
+            {
+              "id": 768,
+              "name": "Cheﬀerie Samutoma(samuloma)"
+            },
+            {
+              "id": 769,
+              "name": "Cheﬀerie Tshibamba"
+            },
+            {
+              "id": 770,
+              "name": "Cheﬀerie Muteba"
+            },
+            {
+              "id": 771,
+              "name": "Cheﬀerie Lumanga"
+            },
+            {
+              "id": 772,
+              "name": "Cheﬀerie Kayembe-Mukulu"
+            },
+            {
+              "id": 773,
+              "name": "Cheﬀerie Sakundundu"
+            },
+            {
+              "id": 774,
+              "name": "Cheﬀerie Tshipao"
+            },
+            {
+              "id": 775,
+              "name": "Kapanga(com. rurale)"
+            },
+            {
+              "id": 776,
+              "name": "Cheﬀerie Mwant-Yav"
+            },
+            {
+              "id": 777,
+              "name": "Cite de Musumba(com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Mai-Ndombe",
+      "cities": [
+        {
+          "id": 101,
+          "name": "Inongo",
+          "towns": [
+            {
+              "id": 778,
+              "name": "Bonse"
+            },
+            {
+              "id": 779,
+              "name": "Mpolo"
+            },
+            {
+              "id": 780,
+              "name": "Mpongonzoli"
+            },
+            {
+              "id": 781,
+              "name": "Inongo"
+            },
+            {
+              "id": 782,
+              "name": "Basengele"
+            },
+            {
+              "id": 783,
+              "name": "Bolia"
+            },
+            {
+              "id": 784,
+              "name": "Tand'Embelo (commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "name": "Kiri",
+          "towns": [
+            {
+              "id": 785,
+              "name": "Kiri(commune rurale)"
+            },
+            {
+              "id": 786,
+              "name": "Lutoy"
+            },
+            {
+              "id": 787,
+              "name": "Pendjwa"
+            },
+            {
+              "id": 788,
+              "name": "Ikongo(commune rurale)"
+            },
+            {
+              "id": 789,
+              "name": "Beronge"
+            }
+          ]
+        },
+        {
+          "id": 103,
+          "name": "Oshwe",
+          "towns": [
+            {
+              "id": 790,
+              "name": "Oshwe(commune rurale)"
+            },
+            {
+              "id": 791,
+              "name": "Lukenie"
+            },
+            {
+              "id": 792,
+              "name": "Entre Lukenie - Lokoro Nkaw"
+            },
+            {
+              "id": 793,
+              "name": "Lokolama"
+            },
+            {
+              "id": 794,
+              "name": "Kangara"
+            }
+          ]
+        },
+        {
+          "id": 104,
+          "name": "Kutu",
+          "towns": [
+            {
+              "id": 795,
+              "name": "Commune rurale de Nioki"
+            },
+            {
+              "id": 796,
+              "name": "Kutu(commune rurale)"
+            },
+            {
+              "id": 797,
+              "name": "cheﬀerie Badia"
+            },
+            {
+              "id": 798,
+              "name": "Luabu"
+            },
+            {
+              "id": 799,
+              "name": "cheﬀerie Batere"
+            },
+            {
+              "id": 800,
+              "name": "Mbien (commune rurale)"
+            },
+            {
+              "id": 801,
+              "name": "Dungu (com. rurale)"
+            },
+            {
+              "id": 802,
+              "name": "Kemba"
+            },
+            {
+              "id": 803,
+              "name": "Semondane(commune rurale)"
+            },
+            {
+              "id": 804,
+              "name": "Mﬁmi"
+            },
+            {
+              "id": 805,
+              "name": "Semendua(commune rurale)"
+            },
+            {
+              "id": 806,
+              "name": "Bokoro(commune rurale)"
+            },
+            {
+              "id": 807,
+              "name": "Toolo(commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 105,
+          "name": "Kwamouth",
+          "towns": [
+            {
+              "id": 808,
+              "name": "Kwamouth(commune rurale)"
+            },
+            {
+              "id": 809,
+              "name": "Bateke - Sud/Twa"
+            }
+          ]
+        },
+        {
+          "id": 106,
+          "name": "Bolobo",
+          "towns": [
+            {
+              "id": 810,
+              "name": "cheﬀerie Bateke - Nord"
+            },
+            {
+              "id": 811,
+              "name": "Commune rurale de Bolobo"
+            }
+          ]
+        },
+        {
+          "id": 107,
+          "name": "Yumbi",
+          "towns": [
+            {
+              "id": 812,
+              "name": "Yumbi(commune rurale)"
+            },
+            {
+              "id": 813,
+              "name": "Mongama"
+            }
+          ]
+        },
+        {
+          "id": 108,
+          "name": "Mushie",
+          "towns": [
+            {
+              "id": 814,
+              "name": "Mushie(commune rurale)"
+            },
+            {
+              "id": 815,
+              "name": "cheﬀerie Baboma - Nord"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Maniema",
+      "cities": [
+        {
+          "id": 109,
+          "name": "Kindu",
+          "towns": [
+            {
+              "id": 816,
+              "name": "Alungili"
+            },
+            {
+              "id": 817,
+              "name": "Kasuku"
+            },
+            {
+              "id": 818,
+              "name": " Alungili"
+            },
+            {
+              "id": 819,
+              "name": "Mikelenge"
+            }
+          ]
+        },
+        {
+          "id": 110,
+          "name": "Kailo",
+          "towns": [
+            {
+              "id": 820,
+              "name": "Kailo (com. rurale)"
+            },
+            {
+              "id": 821,
+              "name": "Chefferie Bangengele"
+            },
+            {
+              "id": 822,
+              "name": "Lubengengele(com. rurale)"
+            },
+            {
+              "id": 823,
+              "name": "Balanga"
+            },
+            {
+              "id": 824,
+              "name": "Ambwe"
+            },
+            {
+              "id": 825,
+              "name": "Wasongola"
+            },
+            {
+              "id": 826,
+              "name": "Misabanga(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 111,
+          "name": "Punia",
+          "towns": [
+            {
+              "id": 827,
+              "name": "Ulindi"
+            },
+            {
+              "id": 828,
+              "name": "Kowe(com. rurale)"
+            },
+            {
+              "id": 829,
+              "name": "Baleka"
+            },
+            {
+              "id": 830,
+              "name": "Babira-Bakwame"
+            },
+            {
+              "id": 831,
+              "name": "Kibeleketa(com. rurale)"
+            },
+            {
+              "id": 832,
+              "name": "Punia Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 112,
+          "name": "Lubutu",
+          "towns": [
+            {
+              "id": 833,
+              "name": "Lubutu (com. rurale)"
+            },
+            {
+              "id": 834,
+              "name": "Obokote"
+            },
+            {
+              "id": 835,
+              "name": "Tshamaka(com. rurale)"
+            },
+            {
+              "id": 836,
+              "name": "Bitule"
+            },
+            {
+              "id": 837,
+              "name": "Mungele (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 113,
+          "name": "Pangi",
+          "towns": [
+            {
+              "id": 838,
+              "name": "Pangi (com. rurale)"
+            },
+            {
+              "id": 839,
+              "name": "Wakabongo"
+            },
+            {
+              "id": 840,
+              "name": "Chefferie Babene"
+            },
+            {
+              "id": 841,
+              "name": "Kampene(com. rurale)"
+            },
+            {
+              "id": 842,
+              "name": "Beia"
+            },
+            {
+              "id": 843,
+              "name": "Ikama"
+            },
+            {
+              "id": 844,
+              "name": "Kama(com. rurale)"
+            },
+            {
+              "id": 845,
+              "name": "Cité Kakutya (Kalima) (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 114,
+          "name": "Kabambare",
+          "towns": [
+            {
+              "id": 846,
+              "name": "Kabambare(com. rurale)"
+            },
+            {
+              "id": 847,
+              "name": "Kabambare-Bahombo"
+            },
+            {
+              "id": 848,
+              "name": "Bahemba"
+            },
+            {
+              "id": 849,
+              "name": "Lulindi"
+            },
+            {
+              "id": 850,
+              "name": "Wamaza"
+            },
+            {
+              "id": 851,
+              "name": "Wamaza(com. rurale)"
+            },
+            {
+              "id": 852,
+              "name": "Saramabi"
+            }
+          ]
+        },
+        {
+          "id": 115,
+          "name": "Kasongo",
+          "towns": [
+            {
+              "id": 853,
+              "name": "Chefferie Basonge 1"
+            },
+            {
+              "id": 854,
+              "name": "Chefferie Benya-Samba"
+            },
+            {
+              "id": 855,
+              "name": "Samba(com. rurale)"
+            },
+            {
+              "id": 856,
+              "name": "Chefferie Bakwange"
+            },
+            {
+              "id": 857,
+              "name": "Wazimba-wa-Maringa"
+            },
+            {
+              "id": 858,
+              "name": "Kipaka(com. rurale)"
+            },
+            {
+              "id": 859,
+              "name": "Kahonda(com. rurale)"
+            },
+            {
+              "id": 860,
+              "name": "Wazimba-wa-Mulu"
+            },
+            {
+              "id": 861,
+              "name": "Luekachi(com. rurale)"
+            },
+            {
+              "id": 862,
+              "name": "Bikenge(com. rurale)"
+            },
+            {
+              "id": 863,
+              "name": "Chefferie Nonda"
+            },
+            {
+              "id": 864,
+              "name": "Mamba-Kasenga"
+            },
+            {
+              "id": 865,
+              "name": "Chefferie Wazula"
+            },
+            {
+              "id": 866,
+              "name": "Chefferie Wagenia"
+            },
+            {
+              "id": 867,
+              "name": "Basonge 2 Mweho"
+            },
+            {
+              "id": 868,
+              "name": "Kasongo Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 116,
+          "name": "Kibombo",
+          "towns": [
+            {
+              "id": 869,
+              "name": "Kibombo (com. rurale)"
+            },
+            {
+              "id": 870,
+              "name": "Chefferie Bahina"
+            },
+            {
+              "id": 871,
+              "name": "Chefferie Ankutshu"
+            },
+            {
+              "id": 872,
+              "name": "Chefferie Bakongola"
+            },
+            {
+              "id": 873,
+              "name": "Chefferie Matapa"
+            },
+            {
+              "id": 874,
+              "name": "Chefferie Aluba"
+            },
+            {
+              "id": 875,
+              "name": "Likeri(com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Mongala",
+      "cities": [
+        {
+          "id": 117,
+          "name": "Lisala",
+          "towns": [
+            {
+              "id": 876,
+              "name": "Bolikango"
+            },
+            {
+              "id": 877,
+              "name": "Mongala"
+            },
+            {
+              "id": 878,
+              "name": "Ngombe Doko"
+            },
+            {
+              "id": 879,
+              "name": "Mondongo(commune rurale)"
+            },
+            {
+              "id": 880,
+              "name": "Lisala"
+            },
+            {
+              "id": 881,
+              "name": "Ngombe Mobangi"
+            },
+            {
+              "id": 882,
+              "name": "Binga(commune rurale)"
+            },
+            {
+              "id": 883,
+              "name": "Mongala Motima"
+            }
+          ]
+        },
+        {
+          "id": 118,
+          "name": "Bumba",
+          "towns": [
+            {
+              "id": 884,
+              "name": "Bumba"
+            },
+            {
+              "id": 885,
+              "name": "Budja"
+            },
+            {
+              "id": 886,
+              "name": "Ebonda"
+            },
+            {
+              "id": 887,
+              "name": "Lokole"
+            },
+            {
+              "id": 888,
+              "name": "Molua"
+            },
+            {
+              "id": 889,
+              "name": "Monama"
+            },
+            {
+              "id": 890,
+              "name": "Molwa"
+            },
+            {
+              "id": 891,
+              "name": "Modjamboli"
+            },
+            {
+              "id": 892,
+              "name": "Banda Yoka"
+            },
+            {
+              "id": 893,
+              "name": "Yandongi"
+            },
+            {
+              "id": 894,
+              "name": "Loeka"
+            },
+            {
+              "id": 895,
+              "name": "Itimbiri"
+            }
+          ]
+        },
+        {
+          "id": 119,
+          "name": "Bongandanga",
+          "towns": [
+            {
+              "id": 896,
+              "name": "Bongandanga(commune rurale)"
+            },
+            {
+              "id": 897,
+              "name": "Bongandanga"
+            },
+            {
+              "id": 898,
+              "name": "Boso - Melo"
+            },
+            {
+              "id": 899,
+              "name": "Boso - Djano"
+            },
+            {
+              "id": 900,
+              "name": "Boso - Simba"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Nord-Kivu",
+      "cities": [
+        {
+          "id": 120,
+          "name": "Goma",
+          "towns": [
+            {
+              "id": 901,
+              "name": "Goma"
+            },
+            {
+              "id": 902,
+              "name": "Karisimbi"
+            }
+          ]
+        },
+        {
+          "id": 121,
+          "name": "Beni",
+          "towns": [
+            {
+              "id": 903,
+              "name": "Beu"
+            },
+            {
+              "id": 904,
+              "name": "Bungulu"
+            },
+            {
+              "id": 905,
+              "name": "Mulekera"
+            },
+            {
+              "id": 906,
+              "name": "Ruwenzori"
+            }
+          ]
+        },
+        {
+          "id": 122,
+          "name": "Butembo",
+          "towns": [
+            {
+              "id": 907,
+              "name": "Bulengera"
+            },
+            {
+              "id": 908,
+              "name": "Kimeni"
+            },
+            {
+              "id": 909,
+              "name": "Mususa"
+            },
+            {
+              "id": 910,
+              "name": "Vulamba"
+            }
+          ]
+        },
+        {
+          "id": 123,
+          "name": "Nyirangongo",
+          "towns": [
+            {
+              "id": 911,
+              "name": "Chefferie Bukumu"
+            }
+          ]
+        },
+        {
+          "id": 124,
+          "name": "Masisi",
+          "towns": [
+            {
+              "id": 912,
+              "name": "Kibumba (com. rurale)"
+            },
+            {
+              "id": 913,
+              "name": "Masisi (com. rurale)"
+            },
+            {
+              "id": 914,
+              "name": "Katoy"
+            },
+            {
+              "id": 915,
+              "name": "Osso(Banyungu)"
+            },
+            {
+              "id": 916,
+              "name": "Chefferie Bashali"
+            },
+            {
+              "id": 917,
+              "name": "Kirumbu(com. rurale)"
+            },
+            {
+              "id": 918,
+              "name": "Pinga - Bushimbo(com. rurale)"
+            },
+            {
+              "id": 919,
+              "name": "Chefferie Bahunde"
+            },
+            {
+              "id": 920,
+              "name": "Sake(com. rurale)"
+            },
+            {
+              "id": 921,
+              "name": "Ngungu(com. rurale)"
+            },
+            {
+              "id": 922,
+              "name": "Hombo Nord(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 125,
+          "name": "Walikale",
+          "towns": [
+            {
+              "id": 923,
+              "name": "Walikale (com. rurale)"
+            },
+            {
+              "id": 924,
+              "name": "Bakano"
+            },
+            {
+              "id": 925,
+              "name": "Wanianga"
+            },
+            {
+              "id": 926,
+              "name": "Mubi(com. rurale)"
+            },
+            {
+              "id": 927,
+              "name": "Pinga(com. rurale)"
+            },
+            {
+              "id": 928,
+              "name": "Kilambo(com. rurale)"
+            },
+            {
+              "id": 929,
+              "name": "Nyamitaba(com. rurale)"
+            },
+            {
+              "id": 930,
+              "name": "Ndjingala(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 126,
+          "name": "Lubero",
+          "towns": [
+            {
+              "id": 931,
+              "name": "Lubero(com. rurale)"
+            },
+            {
+              "id": 932,
+              "name": "Chefferie Bamate"
+            },
+            {
+              "id": 933,
+              "name": "Kipese (com. rurale)"
+            },
+            {
+              "id": 934,
+              "name": "Bapere"
+            },
+            {
+              "id": 935,
+              "name": "Chefferie Baswaga"
+            },
+            {
+              "id": 936,
+              "name": "Masereka(com. rurale)"
+            },
+            {
+              "id": 937,
+              "name": "Chefferie Batangi"
+            },
+            {
+              "id": 938,
+              "name": "Kanyabayonga (com. rurale)"
+            },
+            {
+              "id": 939,
+              "name": "Kitsombira(com. rurale)"
+            },
+            {
+              "id": 940,
+              "name": "Luoto(com. rurale)"
+            },
+            {
+              "id": 941,
+              "name": "Cité de Katwa (com. rurale)"
+            },
+            {
+              "id": 942,
+              "name": "Cite de Kayna (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 127,
+          "name": "Oicha",
+          "towns": [
+            {
+              "id": 943,
+              "name": "Chefferie Bashu"
+            },
+            {
+              "id": 944,
+              "name": "Kyondo(Rwangoma) (com. rurale)"
+            },
+            {
+              "id": 945,
+              "name": "Kaseghe(com. rurale)"
+            },
+            {
+              "id": 946,
+              "name": "Beni-Mbau"
+            },
+            {
+              "id": 947,
+              "name": "Mangina (com. rurale)"
+            },
+            {
+              "id": 948,
+              "name": "Chefferie Watalinga"
+            },
+            {
+              "id": 949,
+              "name": "Bulongo (com. rurale)"
+            },
+            {
+              "id": 950,
+              "name": "Lume (com. rurale)"
+            },
+            {
+              "id": 951,
+              "name": "Kasindi(com. rurale)"
+            },
+            {
+              "id": 952,
+              "name": "Njiapanda(com. rurale)"
+            },
+            {
+              "id": 953,
+              "name": "Oicha commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 128,
+          "name": "Rutshuru",
+          "towns": [
+            {
+              "id": 954,
+              "name": "Chefferie Bwito"
+            },
+            {
+              "id": 955,
+              "name": "Bambo(com. rurale)"
+            },
+            {
+              "id": 956,
+              "name": "Kibirizi(com. rurale)"
+            },
+            {
+              "id": 957,
+              "name": "Nyanzale(com. rurale)"
+            },
+            {
+              "id": 958,
+              "name": "Chefferie Bwisha"
+            },
+            {
+              "id": 959,
+              "name": "Nyamilima(com. rurale)"
+            },
+            {
+              "id": 960,
+              "name": "Tshengerero(com. rurale)"
+            },
+            {
+              "id": 961,
+              "name": "Rubaya(Rubara)(com. rurale)"
+            },
+            {
+              "id": 962,
+              "name": "Rutshuru Commune rurale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Nord-Ubangi",
+      "cities": [
+        {
+          "id": 129,
+          "name": "Gbadolite",
+          "towns": [
+            {
+              "id": 963,
+              "name": "Gbadolite"
+            },
+            {
+              "id": 964,
+              "name": "Molegbe"
+            }
+          ]
+        },
+        {
+          "id": 130,
+          "name": "Mobayi-Mbongo",
+          "towns": [
+            {
+              "id": 965,
+              "name": "Mobayi-Mbongo"
+            },
+            {
+              "id": 966,
+              "name": "Oto - Mbanza"
+            },
+            {
+              "id": 967,
+              "name": "Mobayi-Mbongo(Ville)"
+            },
+            {
+              "id": 968,
+              "name": "Nwange"
+            },
+            {
+              "id": 969,
+              "name": "Ngogbe"
+            }
+          ]
+        },
+        {
+          "id": 131,
+          "name": "Yakoma",
+          "towns": [
+            {
+              "id": 970,
+              "name": "Yakoma(commune rurale)"
+            },
+            {
+              "id": 971,
+              "name": "Yakoma"
+            },
+            {
+              "id": 972,
+              "name": "Wapinda"
+            },
+            {
+              "id": 973,
+              "name": "Abumombazi"
+            }
+          ]
+        },
+        {
+          "id": 132,
+          "name": "Businga",
+          "towns": [
+            {
+              "id": 974,
+              "name": "Businga(commune rurale)"
+            },
+            {
+              "id": 975,
+              "name": "Businga"
+            },
+            {
+              "id": 976,
+              "name": "Karawa"
+            },
+            {
+              "id": 977,
+              "name": "Bodangabo"
+            }
+          ]
+        },
+        {
+          "id": 133,
+          "name": "Bosobolo",
+          "towns": [
+            {
+              "id": 978,
+              "name": "Bosobolo(commune rurale)"
+            },
+            {
+              "id": 979,
+              "name": "Bosobolo"
+            },
+            {
+              "id": 980,
+              "name": "Bandas"
+            },
+            {
+              "id": 981,
+              "name": "Bili"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Sankuru",
+      "cities": [
+        {
+          "id": 134,
+          "name": "Lusambo",
+          "towns": [
+            {
+              "id": 982,
+              "name": "Lumpembe"
+            },
+            {
+              "id": 983,
+              "name": "Lusambo"
+            },
+            {
+              "id": 984,
+              "name": "Tusuanganyi"
+            },
+            {
+              "id": 985,
+              "name": "Sankuru"
+            },
+            {
+              "id": 986,
+              "name": "Entre Lubi Kunduye(E.L.K.)"
+            },
+            {
+              "id": 987,
+              "name": "Entre Kunduye Mal(E.K.M.)"
+            },
+            {
+              "id": 988,
+              "name": "Batetela"
+            },
+            {
+              "id": 989,
+              "name": "Basonge"
+            },
+            {
+              "id": 990,
+              "name": "Pania-Mutombo"
+            },
+            {
+              "id": 991,
+              "name": "Mpanya-M"
+            }
+          ]
+        },
+        {
+          "id": 135,
+          "name": "Lodja",
+          "towns": [
+            {
+              "id": 992,
+              "name": "Batetela-Lukenie (cite de Lodja)"
+            },
+            {
+              "id": 993,
+              "name": "Olemba"
+            },
+            {
+              "id": 994,
+              "name": "Lukfungu"
+            },
+            {
+              "id": 995,
+              "name": "Lutshimba"
+            },
+            {
+              "id": 996,
+              "name": "Ahamba-Mange"
+            },
+            {
+              "id": 997,
+              "name": "Vungi"
+            },
+            {
+              "id": 998,
+              "name": "Kutshiakoyi(com. rurale)"
+            },
+            {
+              "id": 999,
+              "name": "Watambulu"
+            },
+            {
+              "id": 1000,
+              "name": "Nambelu-Luhembe"
+            },
+            {
+              "id": 1001,
+              "name": "Kondo-Tshumbe"
+            },
+            {
+              "id": 1002,
+              "name": "Lodja Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 136,
+          "name": "Kole",
+          "towns": [
+            {
+              "id": 1003,
+              "name": "Kole(com. rurale)"
+            },
+            {
+              "id": 1004,
+              "name": "Ohindo"
+            },
+            {
+              "id": 1005,
+              "name": "Atshuru"
+            },
+            {
+              "id": 1006,
+              "name": "Bankutsu-Lukenie"
+            },
+            {
+              "id": 1007,
+              "name": "Bankutsu-Dibele"
+            },
+            {
+              "id": 1008,
+              "name": "Batetela-Dibele"
+            },
+            {
+              "id": 1009,
+              "name": "Basho"
+            }
+          ]
+        },
+        {
+          "id": 137,
+          "name": "Lomela",
+          "towns": [
+            {
+              "id": 1010,
+              "name": "Lomela Olua(com. rurale)"
+            },
+            {
+              "id": 1011,
+              "name": "Bahamba I"
+            },
+            {
+              "id": 1012,
+              "name": "Okutu"
+            },
+            {
+              "id": 1013,
+              "name": "Bakela"
+            },
+            {
+              "id": 1014,
+              "name": "Batetela-Lomela"
+            },
+            {
+              "id": 1015,
+              "name": "Bahamba II"
+            },
+            {
+              "id": 1016,
+              "name": "Chefferie Djonga"
+            }
+          ]
+        },
+        {
+          "id": 138,
+          "name": "Katako-Kombe",
+          "towns": [
+            {
+              "id": 1017,
+              "name": "Katako-Kombe(com. rurale)"
+            },
+            {
+              "id": 1018,
+              "name": "Ukulungu"
+            },
+            {
+              "id": 1019,
+              "name": "Djalo"
+            },
+            {
+              "id": 1020,
+              "name": "Lonya"
+            },
+            {
+              "id": 1021,
+              "name": "Basambala"
+            },
+            {
+              "id": 1022,
+              "name": "Watambulu-Sud"
+            },
+            {
+              "id": 1023,
+              "name": "Ngandu (Est/ Ouest )"
+            },
+            {
+              "id": 1024,
+              "name": "Watambulu-Nord"
+            },
+            {
+              "id": 1025,
+              "name": "Lukumbe"
+            },
+            {
+              "id": 1026,
+              "name": "Batetela arabisés (Lomam"
+            },
+            {
+              "id": 1027,
+              "name": "Batetela arabisés (Lomami)"
+            }
+          ]
+        },
+        {
+          "id": 139,
+          "name": "Lubefu",
+          "towns": [
+            {
+              "id": 1028,
+              "name": "Lubefu(com. rurale)"
+            },
+            {
+              "id": 1029,
+              "name": "Ndjovu"
+            },
+            {
+              "id": 1030,
+              "name": "Mondja-Ngandu"
+            },
+            {
+              "id": 1031,
+              "name": "Ngandu-Wuma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Sud-Kivu",
+      "cities": [
+        {
+          "id": 140,
+          "name": "Bukavu",
+          "towns": [
+            {
+              "id": 1032,
+              "name": "Kadutu"
+            },
+            {
+              "id": 1033,
+              "name": "Bagira"
+            },
+            {
+              "id": 1034,
+              "name": " Ibanda"
+            }
+          ]
+        },
+        {
+          "id": 141,
+          "name": "Kabare",
+          "towns": [
+            {
+              "id": 1035,
+              "name": "Kabare (com. rurale)"
+            },
+            {
+              "id": 1036,
+              "name": "Chefferie Kabare"
+            },
+            {
+              "id": 1037,
+              "name": "Kavumu(com. rurale)"
+            },
+            {
+              "id": 1038,
+              "name": "Chefferie Nindja"
+            }
+          ]
+        },
+        {
+          "id": 142,
+          "name": "Shabunda",
+          "towns": [
+            {
+              "id": 1039,
+              "name": "Chefferie Wakabongo 1"
+            },
+            {
+              "id": 1040,
+              "name": "Chefferie Bakisi"
+            },
+            {
+              "id": 1041,
+              "name": "Lulingu(com. rurale)"
+            },
+            {
+              "id": 1042,
+              "name": "Shabunda Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 143,
+          "name": "Kalehe",
+          "towns": [
+            {
+              "id": 1043,
+              "name": "Kalehe (com. rurale)"
+            },
+            {
+              "id": 1044,
+              "name": "Chefferie Buhavu"
+            },
+            {
+              "id": 1045,
+              "name": "Bulambika (com. rurale)"
+            },
+            {
+              "id": 1046,
+              "name": "Hombo Sud(com. rurale)"
+            },
+            {
+              "id": 1047,
+              "name": "Nyabibwe(com. rurale)"
+            },
+            {
+              "id": 1048,
+              "name": "Chefferie Buloho"
+            },
+            {
+              "id": 1049,
+              "name": "Minova(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 144,
+          "name": "Idjwi",
+          "towns": [
+            {
+              "id": 1050,
+              "name": "Idjwi/ Bugarula (com. rurale)"
+            },
+            {
+              "id": 1051,
+              "name": "Chefferie Rubenga"
+            },
+            {
+              "id": 1052,
+              "name": "Chefferie Ntambuka"
+            },
+            {
+              "id": 1053,
+              "name": "Walungu (com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 145,
+          "name": "Walungu",
+          "towns": [
+            {
+              "id": 1054,
+              "name": "Chefferie Ngweshe"
+            },
+            {
+              "id": 1055,
+              "name": "Kamanyola(com. rurale)"
+            },
+            {
+              "id": 1056,
+              "name": "Nyangezi(com. rurale)"
+            },
+            {
+              "id": 1057,
+              "name": "Chefferie Kaziba"
+            }
+          ]
+        },
+        {
+          "id": 146,
+          "name": "Uvira",
+          "towns": [
+            {
+              "id": 1058,
+              "name": "Chefferie Bavira"
+            },
+            {
+              "id": 1059,
+              "name": "Chefferie Bafulero"
+            },
+            {
+              "id": 1060,
+              "name": "Lemera(com. rurale)"
+            },
+            {
+              "id": 1061,
+              "name": "Luvungi(com. rurale)"
+            },
+            {
+              "id": 1062,
+              "name": "Chefferie Ruzizi"
+            },
+            {
+              "id": 1063,
+              "name": "Sange(com. rurale)"
+            },
+            {
+              "id": 1064,
+              "name": "cité de Runingu(com. rurale)"
+            },
+            {
+              "id": 1065,
+              "name": "Kiliba(com. rurale)"
+            },
+            {
+              "id": 1066,
+              "name": "cité de Kagando(com. rurale)"
+            },
+            {
+              "id": 1067,
+              "name": "Uvira Commune rurale"
+            }
+          ]
+        },
+        {
+          "id": 147,
+          "name": "Fizi",
+          "towns": [
+            {
+              "id": 1068,
+              "name": "Fizi (com. rurale)"
+            },
+            {
+              "id": 1069,
+              "name": "Ngandja"
+            },
+            {
+              "id": 1070,
+              "name": "Lulimba - Misisi(com. rurale)"
+            },
+            {
+              "id": 1071,
+              "name": "Lulenge"
+            },
+            {
+              "id": 1072,
+              "name": "Tanganyika"
+            },
+            {
+              "id": 1073,
+              "name": "Mutambala"
+            },
+            {
+              "id": 1074,
+              "name": "Suima(com. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 148,
+          "name": "Baraka",
+          "towns": [
+            {
+              "id": 1075,
+              "name": "Kalundja"
+            },
+            {
+              "id": 1076,
+              "name": "Baraka Centre"
+            },
+            {
+              "id": 1077,
+              "name": "Katanga"
+            }
+          ]
+        },
+        {
+          "id": 149,
+          "name": "Mwenga",
+          "towns": [
+            {
+              "id": 1078,
+              "name": "Mwenga (com. rurale)"
+            },
+            {
+              "id": 1079,
+              "name": "Chefferie Wamuzimu"
+            },
+            {
+              "id": 1080,
+              "name": "Chefferie Basile"
+            },
+            {
+              "id": 1081,
+              "name": "Chefferie Luindi"
+            },
+            {
+              "id": 1082,
+              "name": "Chefferie Burhinyi"
+            },
+            {
+              "id": 1083,
+              "name": "Chefferie Luhwindja"
+            },
+            {
+              "id": 1084,
+              "name": "Itombwe"
+            },
+            {
+              "id": 1085,
+              "name": "Minembwe(com. rurale)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Sud-Ubangi",
+      "cities": [
+        {
+          "id": 150,
+          "name": "Gemena",
+          "towns": [
+            {
+              "id": 1086,
+              "name": "Mont Gila"
+            },
+            {
+              "id": 1087,
+              "name": "Gbazubu"
+            },
+            {
+              "id": 1088,
+              "name": "Labo"
+            },
+            {
+              "id": 1089,
+              "name": "Lac - Ntumba"
+            },
+            {
+              "id": 1090,
+              "name": "Banga - Kungu"
+            },
+            {
+              "id": 1091,
+              "name": "Bowase"
+            },
+            {
+              "id": 1092,
+              "name": "Mbari"
+            },
+            {
+              "id": 1093,
+              "name": "Nguya"
+            }
+          ]
+        },
+        {
+          "id": 151,
+          "name": "Zongo",
+          "towns": [
+            {
+              "id": 1094,
+              "name": "Nzulu"
+            },
+            {
+              "id": 1095,
+              "name": "Wango"
+            }
+          ]
+        },
+        {
+          "id": 152,
+          "name": "Budjala",
+          "towns": [
+            {
+              "id": 1096,
+              "name": "Budjala(commune rurale)"
+            },
+            {
+              "id": 1097,
+              "name": "Ndolo - Liboko"
+            },
+            {
+              "id": 1098,
+              "name": "Bolingo"
+            },
+            {
+              "id": 1099,
+              "name": "Banza"
+            }
+          ]
+        },
+        {
+          "id": 153,
+          "name": "Kungu",
+          "towns": [
+            {
+              "id": 1100,
+              "name": "Kungu(commune rurale)"
+            },
+            {
+              "id": 1101,
+              "name": "Mwanda"
+            },
+            {
+              "id": 1102,
+              "name": "Dongo"
+            },
+            {
+              "id": 1103,
+              "name": "Songo"
+            },
+            {
+              "id": 1104,
+              "name": "Lwa"
+            }
+          ]
+        },
+        {
+          "id": 154,
+          "name": "Libenge",
+          "towns": [
+            {
+              "id": 1105,
+              "name": "Libenge(commune rurale)"
+            },
+            {
+              "id": 1106,
+              "name": "Libenge Sud"
+            },
+            {
+              "id": 1107,
+              "name": "Libenge Centre"
+            },
+            {
+              "id": 1108,
+              "name": "Libenge Nord"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Tanganyika",
+      "cities": [
+        {
+          "id": 155,
+          "name": "Kalemie",
+          "towns": [
+            {
+              "id": 1109,
+              "name": "Commune du Lac"
+            },
+            {
+              "id": 1110,
+              "name": "Lukuga"
+            },
+            {
+              "id": 1111,
+              "name": "Kalemie"
+            },
+            {
+              "id": 1112,
+              "name": "Chefferie Rutuku"
+            },
+            {
+              "id": 1113,
+              "name": "Cité de Kituku(c. rurale)"
+            },
+            {
+              "id": 1114,
+              "name": "Chefferie Benze"
+            },
+            {
+              "id": 1115,
+              "name": "Chefferie Tumbwe"
+            }
+          ]
+        },
+        {
+          "id": 156,
+          "name": "Moba",
+          "towns": [
+            {
+              "id": 1116,
+              "name": "Moba(com. rurale)"
+            },
+            {
+              "id": 1117,
+              "name": "Chefferie Kayabala"
+            },
+            {
+              "id": 1118,
+              "name": "Chefferie Nganie"
+            },
+            {
+              "id": 1119,
+              "name": "Chefferie Kansabala"
+            },
+            {
+              "id": 1120,
+              "name": "Bena-Kamanya"
+            },
+            {
+              "id": 1121,
+              "name": "Chefferie Bena-Tanga"
+            },
+            {
+              "id": 1122,
+              "name": "Chefferie Manda"
+            }
+          ]
+        },
+        {
+          "id": 157,
+          "name": "Manono",
+          "towns": [
+            {
+              "id": 1123,
+              "name": "Manono Commune rurale"
+            },
+            {
+              "id": 1124,
+              "name": "Chefferie Bakongolo"
+            },
+            {
+              "id": 1125,
+              "name": "Chefferie Kiluba"
+            },
+            {
+              "id": 1126,
+              "name": "Kiofwe"
+            },
+            {
+              "id": 1127,
+              "name": "Niemba"
+            },
+            {
+              "id": 1128,
+              "name": "Luvua"
+            }
+          ]
+        },
+        {
+          "id": 158,
+          "name": "Kabalo",
+          "towns": [
+            {
+              "id": 1129,
+              "name": "Kabalo(com. rurale)"
+            },
+            {
+              "id": 1130,
+              "name": "Lukuswa"
+            },
+            {
+              "id": 1131,
+              "name": "Luela-Luvunguye"
+            }
+          ]
+        },
+        {
+          "id": 159,
+          "name": "Kongolo",
+          "towns": [
+            {
+              "id": 1132,
+              "name": "Kongolo Commune rurale"
+            },
+            {
+              "id": 1133,
+              "name": "Chefferie Bayashi"
+            },
+            {
+              "id": 1134,
+              "name": "Baluba"
+            },
+            {
+              "id": 1135,
+              "name": "Chefferie Lubunda"
+            },
+            {
+              "id": 1136,
+              "name": "Munono"
+            },
+            {
+              "id": 1137,
+              "name": "Chefferie Nkuvu"
+            },
+            {
+              "id": 1138,
+              "name": "Chefferie Yambula"
+            },
+            {
+              "id": 1139,
+              "name": "Chefferie Muhona"
+            },
+            {
+              "id": 1140,
+              "name": "Chefferie Nyembo"
+            },
+            {
+              "id": 1141,
+              "name": "Chefferie Mambwe"
+            }
+          ]
+        },
+        {
+          "id": 160,
+          "name": "Nyunzu",
+          "towns": [
+            {
+              "id": 1142,
+              "name": "Nyunzu(com. rurale)"
+            },
+            {
+              "id": 1143,
+              "name": "Sud-Lukuga"
+            },
+            {
+              "id": 1144,
+              "name": "Nord-Lukuga"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Tshopo",
+      "cities": [
+        {
+          "id": 161,
+          "name": "Kisangani",
+          "towns": [
+            {
+              "id": 1145,
+              "name": "Lubunga"
+            },
+            {
+              "id": 1146,
+              "name": "Makiso"
+            },
+            {
+              "id": 1147,
+              "name": "Mangobo"
+            },
+            {
+              "id": 1148,
+              "name": "Tshopo"
+            },
+            {
+              "id": 1149,
+              "name": "Kisangani"
+            }
+          ]
+        },
+        {
+          "id": 162,
+          "name": "Ubundu",
+          "towns": [
+            {
+              "id": 1150,
+              "name": "Ubundu(commune rurale)"
+            },
+            {
+              "id": 1151,
+              "name": "Mituku-Basikate"
+            },
+            {
+              "id": 1152,
+              "name": "Mituku-Bamoya"
+            },
+            {
+              "id": 1153,
+              "name": "Walengola-Babira"
+            },
+            {
+              "id": 1154,
+              "name": "Walengola-Baleka"
+            },
+            {
+              "id": 1155,
+              "name": "Bakumu-Mangongo"
+            },
+            {
+              "id": 1156,
+              "name": "Bakumu-Mandombe"
+            },
+            {
+              "id": 1157,
+              "name": "Wanie Rukula (c.rurale)"
+            },
+            {
+              "id": 1158,
+              "name": "Bakumu-Kilinga"
+            },
+            {
+              "id": 1159,
+              "name": "Bakumu-d'Obiatuku"
+            },
+            {
+              "id": 1160,
+              "name": "Walengola-Lilo"
+            },
+            {
+              "id": 1161,
+              "name": "Chefferie Kirundu"
+            },
+            {
+              "id": 1162,
+              "name": "Walengola-Lowa"
+            },
+            {
+              "id": 1163,
+              "name": "Lowa (commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 163,
+          "name": "Opala",
+          "towns": [
+            {
+              "id": 1164,
+              "name": "Opala(commune rurale)"
+            },
+            {
+              "id": 1165,
+              "name": "Yawende Loolo"
+            },
+            {
+              "id": 1166,
+              "name": "Chefferie Yalingo"
+            },
+            {
+              "id": 1167,
+              "name": "Chefferie Yeyango"
+            },
+            {
+              "id": 1168,
+              "name": "Chefferie Yomaie"
+            },
+            {
+              "id": 1169,
+              "name": "Iye"
+            },
+            {
+              "id": 1170,
+              "name": "Chefferie Yapandu"
+            },
+            {
+              "id": 1171,
+              "name": "Chefferie Mongo"
+            },
+            {
+              "id": 1172,
+              "name": "Chefferie Kembe"
+            },
+            {
+              "id": 1173,
+              "name": "Balinga-Lindja"
+            },
+            {
+              "id": 1174,
+              "name": "Tooli"
+            },
+            {
+              "id": 1175,
+              "name": "Yaleko (Yakelo)(commune rurale)"
+            },
+            {
+              "id": 1176,
+              "name": "Lobaie"
+            },
+            {
+              "id": 1177,
+              "name": "Yatolema (commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 164,
+          "name": "Isangi",
+          "towns": [
+            {
+              "id": 1178,
+              "name": "Commune du Fleuve"
+            },
+            {
+              "id": 1179,
+              "name": " Isangi"
+            },
+            {
+              "id": 1180,
+              "name": "Lomami"
+            },
+            {
+              "id": 1181,
+              "name": "Loolo"
+            },
+            {
+              "id": 1182,
+              "name": "Chefferie Bolomboki"
+            },
+            {
+              "id": 1183,
+              "name": "ChefferieBaluolambila"
+            },
+            {
+              "id": 1184,
+              "name": "Bambelota"
+            },
+            {
+              "id": 1185,
+              "name": "Yabaondo (commune rurale)"
+            },
+            {
+              "id": 1186,
+              "name": "Lukombe"
+            },
+            {
+              "id": 1187,
+              "name": "Lueta (Luete )"
+            },
+            {
+              "id": 1188,
+              "name": "Chefferie Liutua"
+            },
+            {
+              "id": 1189,
+              "name": "Chefferie Kombe"
+            },
+            {
+              "id": 1190,
+              "name": "Yawembe Basoa"
+            },
+            {
+              "id": 1191,
+              "name": "Turumbu"
+            },
+            {
+              "id": 1192,
+              "name": "Yaokandja"
+            },
+            {
+              "id": 1193,
+              "name": "Yalikandja Yanongo"
+            },
+            {
+              "id": 1194,
+              "name": "Chefferie Yalikila(Yalihilo"
+            },
+            {
+              "id": 1195,
+              "name": "Chefferie Yalikoka - Mboso"
+            },
+            {
+              "id": 1196,
+              "name": "Cité de Lotokila(c. rurale)"
+            }
+          ]
+        },
+        {
+          "id": 165,
+          "name": "Yangambi",
+          "towns": [
+            {
+              "id": 1197,
+              "name": " Ekutsu"
+            },
+            {
+              "id": 1198,
+              "name": "Lusambila"
+            },
+            {
+              "id": 1199,
+              "name": "Manzikala"
+            }
+          ]
+        },
+        {
+          "id": 166,
+          "name": "Yahuma",
+          "towns": [
+            {
+              "id": 1200,
+              "name": "ahuma (Com. rurale)"
+            },
+            {
+              "id": 1201,
+              "name": "Bosoku(Bosoko)"
+            },
+            {
+              "id": 1202,
+              "name": "Bolinga"
+            },
+            {
+              "id": 1203,
+              "name": "Buma"
+            },
+            {
+              "id": 1204,
+              "name": "Chefferie Mombesa"
+            },
+            {
+              "id": 1205,
+              "name": "Mosite(commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 167,
+          "name": "Basoko",
+          "towns": [
+            {
+              "id": 1206,
+              "name": "Bandole"
+            },
+            {
+              "id": 1207,
+              "name": "Bandu - Lokutu"
+            },
+            {
+              "id": 1208,
+              "name": "Lokumete"
+            },
+            {
+              "id": 1209,
+              "name": "Nzombo"
+            },
+            {
+              "id": 1210,
+              "name": "Bomenge"
+            },
+            {
+              "id": 1211,
+              "name": "Lukutu"
+            },
+            {
+              "id": 1212,
+              "name": "Lokutu (Com. rurale)"
+            },
+            {
+              "id": 1213,
+              "name": "Bandu (Com. rurale)"
+            },
+            {
+              "id": 1214,
+              "name": "Chefferie Yaliwasa"
+            },
+            {
+              "id": 1215,
+              "name": "Mobango Itimbiri"
+            },
+            {
+              "id": 1216,
+              "name": "Moenge(Com. rurale)"
+            },
+            {
+              "id": 1217,
+              "name": "Chefferie Yamandundu"
+            },
+            {
+              "id": 1218,
+              "name": "Chefferie Wahanga"
+            },
+            {
+              "id": 1219,
+              "name": "Bangelema"
+            }
+          ]
+        },
+        {
+          "id": 168,
+          "name": "Banalia",
+          "towns": [
+            {
+              "id": 1220,
+              "name": "Banalia (commune rurale)"
+            },
+            {
+              "id": 1221,
+              "name": "Banalia - Bangba"
+            },
+            {
+              "id": 1222,
+              "name": "Bamanga"
+            },
+            {
+              "id": 1223,
+              "name": "Chefferie Baboro"
+            },
+            {
+              "id": 1224,
+              "name": "Baboa de Kole"
+            },
+            {
+              "id": 1225,
+              "name": "Popoy"
+            },
+            {
+              "id": 1226,
+              "name": "Panga (commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 169,
+          "name": "Bafwasende",
+          "towns": [
+            {
+              "id": 1227,
+              "name": "Bafwasende(commune rurale)"
+            },
+            {
+              "id": 1228,
+              "name": "Bokumu d' Angumu"
+            },
+            {
+              "id": 1229,
+              "name": "Barumbi - Opienge"
+            },
+            {
+              "id": 1230,
+              "name": "Opienge (c. rurale)"
+            },
+            {
+              "id": 1231,
+              "name": "Bakundumu"
+            },
+            {
+              "id": 1232,
+              "name": "Bekeni - Kondolole"
+            },
+            {
+              "id": 1233,
+              "name": "Bafwandaka"
+            },
+            {
+              "id": 1234,
+              "name": "Bemili"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Tshuapa",
+      "cities": [
+        {
+          "id": 170,
+          "name": "Boende",
+          "towns": [
+            {
+              "id": 1235,
+              "name": "Boende"
+            },
+            {
+              "id": 1236,
+              "name": "Tshuapa"
+            },
+            {
+              "id": 1237,
+              "name": "Bolua"
+            },
+            {
+              "id": 1238,
+              "name": "Wini"
+            },
+            {
+              "id": 1239,
+              "name": "Djera"
+            },
+            {
+              "id": 1240,
+              "name": "Lofoy"
+            }
+          ]
+        },
+        {
+          "id": 171,
+          "name": "Befale",
+          "towns": [
+            {
+              "id": 1241,
+              "name": "Befale (commune rurale)"
+            },
+            {
+              "id": 1242,
+              "name": "Befumbo"
+            },
+            {
+              "id": 1243,
+              "name": "Lomaka"
+            },
+            {
+              "id": 1244,
+              "name": "Duale"
+            }
+          ]
+        },
+        {
+          "id": 172,
+          "name": "Djolu",
+          "towns": [
+            {
+              "id": 1245,
+              "name": "Djolu (commune rurale)"
+            },
+            {
+              "id": 1246,
+              "name": "Djolu"
+            },
+            {
+              "id": 1247,
+              "name": "Luo"
+            },
+            {
+              "id": 1248,
+              "name": "Lingomo"
+            },
+            {
+              "id": 1249,
+              "name": "Yala"
+            },
+            {
+              "id": 1250,
+              "name": "Bokakata(commune rurale)"
+            }
+          ]
+        },
+        {
+          "id": 173,
+          "name": "Ikela",
+          "towns": [
+            {
+              "id": 1251,
+              "name": "Ikela (commune rurale)"
+            },
+            {
+              "id": 1252,
+              "name": "Tumbenga"
+            },
+            {
+              "id": 1253,
+              "name": "Lokina"
+            },
+            {
+              "id": 1254,
+              "name": "Loile"
+            },
+            {
+              "id": 1255,
+              "name": "Lofome"
+            }
+          ]
+        },
+        {
+          "id": 174,
+          "name": "Bokungu",
+          "towns": [
+            {
+              "id": 1256,
+              "name": "Bokungu (commune rurale)"
+            },
+            {
+              "id": 1257,
+              "name": "Loombo"
+            },
+            {
+              "id": 1258,
+              "name": "Luay"
+            },
+            {
+              "id": 1259,
+              "name": "Luando"
+            },
+            {
+              "id": 1260,
+              "name": "Lolaka"
+            },
+            {
+              "id": 1261,
+              "name": "chefferie Nkole"
+            }
+          ]
+        },
+        {
+          "id": 175,
+          "name": "Monkoto",
+          "towns": [
+            {
+              "id": 1262,
+              "name": "Monkoto(commune rurale)"
+            },
+            {
+              "id": 1263,
+              "name": "Bianga"
+            },
+            {
+              "id": 1264,
+              "name": "Monkoto"
+            },
+            {
+              "id": 1265,
+              "name": "Nongo"
+            }
+          ]
+        }
+      ]
+    }
+  ]
