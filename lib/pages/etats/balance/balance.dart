@@ -20,12 +20,16 @@ class Balance extends StatelessWidget {
   String dateDepart;
   String dateFin;
   String devise;
+  bool tout;
+  //
+  //
+  String balance;
   //
   var box = GetStorage();
   String titre = "";
 
-  Balance(
-      this.index, this.resultats, this.dateDepart, this.dateFin, this.devise) {
+  Balance(this.index, this.resultats, this.dateDepart, this.dateFin,
+      this.devise, this.tout, this.balance) {
     List exercices = box.read("exercices") ?? [];
     //
     //
@@ -348,7 +352,7 @@ class Balance extends StatelessWidget {
                                 width: double.maxFinite,
                                 height: double.maxFinite,
                                 child: pw.Text(
-                                  "${r['cumul_debit']}",
+                                  "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
                                   style: entete1,
                                 ),
                               ),
@@ -364,7 +368,7 @@ class Balance extends StatelessWidget {
                                 width: double.maxFinite,
                                 height: double.maxFinite,
                                 child: pw.Text(
-                                  "${r['cumul_credit']}",
+                                  "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
                                   style: entete1,
                                 ),
                               ),
@@ -380,7 +384,7 @@ class Balance extends StatelessWidget {
                                 width: double.maxFinite,
                                 height: double.maxFinite,
                                 child: pw.Text(
-                                  "${r['solde_periode']}",
+                                  "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
                                   style: entete1,
                                 ),
                               ),
@@ -431,7 +435,8 @@ class Balance extends StatelessWidget {
               //
               String? outputFile = await FilePicker.platform.saveFile(
                   dialogTitle: 'Save Your File to desired location',
-                  fileName: "BALANCE - $titre.pdf");
+                  fileName:
+                      "BALANCE - ${tout ? 'tous' : balance} - $titre.pdf");
 
               try {
                 //
@@ -579,7 +584,8 @@ class Balance extends StatelessWidget {
               //----------------------------------------------------------------
               String? outputFile = await FilePicker.platform.saveFile(
                   dialogTitle: 'Save Your File to desired location',
-                  fileName: "BALANCE - $titre.xlsx");
+                  fileName:
+                      "BALANCE - ${tout ? 'tous' : balance} - $titre.xlsx");
 
               try {
                 //
@@ -806,7 +812,7 @@ class Balance extends StatelessWidget {
                           width: double.maxFinite,
                           height: double.maxFinite,
                           child: Text(
-                            "${r['cumul_debit']}",
+                            "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
                             style: entete,
                           ),
                         ),
@@ -822,7 +828,7 @@ class Balance extends StatelessWidget {
                           width: double.maxFinite,
                           height: double.maxFinite,
                           child: Text(
-                            "${r['cumul_credit']}",
+                            "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
                             style: entete,
                           ),
                         ),
@@ -838,7 +844,7 @@ class Balance extends StatelessWidget {
                           width: double.maxFinite,
                           height: double.maxFinite,
                           child: Text(
-                            "${r['solde_periode']}",
+                            "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
                             style: entete,
                           ),
                         ),
@@ -854,7 +860,7 @@ class Balance extends StatelessWidget {
                           width: double.maxFinite,
                           height: double.maxFinite,
                           child: Text(
-                            "${r['solde_periode']}",
+                            "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
                             style: entete,
                           ),
                         ),

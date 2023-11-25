@@ -1,3 +1,4 @@
+import 'package:get_storage/get_storage.dart';
 import 'package:nzimbu/pages/parametres/code_comptable/code_comptable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,8 @@ import 'exercice_comptable/exercice_comptable_controller.dart';
 import 'taux/taux.dart';
 
 class Parametres extends StatelessWidget {
+  //
+  var box = GetStorage();
   //
 
   @override

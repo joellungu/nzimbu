@@ -283,9 +283,11 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2050),
                               ).then((d) {
-                                //
-                                dateDebut.value =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  dateDebut.value =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                             },
                             icon: Icon(Icons.calendar_month),
@@ -326,9 +328,11 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2050),
                               ).then((d) {
-                                //
-                                dateFin.value =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  dateFin.value =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                             },
                             icon: Icon(Icons.calendar_month),
@@ -356,507 +360,643 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                         );
                         //saisies
 
-                        var exercice = box.read("exercice") ?? "";
-                        List balances = [];
-                        List saisies = box.read("saisies$exercice") ?? [];
-                        Set listePieces = Set();
-                        saisies.forEach((ss) {
-                          //
-                          listePieces.add(
-                              "${ss['date_enregistrement']}|${ss['compte']['numero_de_compte']}|${ss['compte']['intitule']}");
-                        });
-                        //saisies
-                        ////////////////////////////////////////////////////////
-                        if (compteSelect.isEmpty) {
-                          List choix = box.read("comptes") ?? [];
-
-                          //
-                          listePieces.forEach((piece) {
-                            List infosCellule = "$piece".split("|");
-
-                            //
-                            List jrs = [];
-                            double debitTotal = 0;
-                            double creditTotal = 0;
-                            //
-                            double tDebit = 0.0;
-                            double tCrebit = 0.0;
-                            //
-                            Map jr = {};
-                            jr['intitule'] = infosCellule[2];
-                            jr['numero_de_compte'] = infosCellule[1];
-                            jr['date_enregistrement'] = infosCellule[0];
-                            //n_piece: infosCellule[1]   journal: s['code']
-                            //
-                            choix.forEach((s) {
-                              //
-                              //jr['intitule'] = s['intitule'];
-                              //jr['code'] = s['code'];
-                              //jr['type'] = s['type'];
-                              //
-                              if (infosCellule[1] == s["numero_de_compte"]) {
-                                //
-                                String usd_cdf = box.read("usd_cdf") ?? "0.0";
-                                String usd_eur = box.read("usd_eur") ?? "0.0";
-                                String eur_cdf = box.read("eur_cdf") ?? "0.0";
-                                //
-                                //List infosCellule = "$piece".split("|");
-                                //jr['intitule'] = infosCellule[2];
-                                //jr['numero_de_compte'] = infosCellule[1];
-                                //jr['date_enregistrement'] = infosCellule[0];
-                                //Date d'écriture${ss['date_enregistrement']} Piece N° ${ss['n_piece']}
-
-                                //
-                                saisies.forEach((r) {
-                                  print(
-                                      "La valeur: ${s["numero_de_compte"]} == ${infosCellule[1] == r['n_piece']} == ${r['n_piece']}");
-                                  //Seulement si
-
-                                  //infosCellule[1] == r['n_piece']
-                                  //
-
-                                  //print(
-                                  //  "numero_de_compte: ${s["numero_de_compte"]}");
-                                  //
-                                  List dateSaisieText =
-                                      r['date_enregistrement'].split("-");
-                                  List dateDebutText =
-                                      dateDebut.value.split("-");
-                                  List dateFinText = dateFin.value.split("-");
-
-                                  //
-                                  DateTime dateTimeSaisie = DateTime(
-                                      int.parse(dateSaisieText[0]),
-                                      int.parse(dateSaisieText[1]),
-                                      int.parse(dateSaisieText[2]));
-                                  //
-                                  DateTime dateTimeDepart = DateTime(
-                                      int.parse(dateDebutText[0]),
-                                      int.parse(dateDebutText[1]),
-                                      int.parse(dateDebutText[2]));
-                                  //
-                                  DateTime dateTimeFin = DateTime(
-                                      int.parse(dateFinText[0]),
-                                      int.parse(dateFinText[1]),
-                                      int.parse(dateFinText[2]));
-                                  //
-                                  if ((dateDebut.value ==
-                                              r['date_enregistrement'] ||
-                                          dateTimeSaisie
-                                              .isAfter(dateTimeDepart)) &&
-                                      (dateFin.value ==
-                                              r['date_enregistrement'] ||
-                                          dateTimeSaisie
-                                              .isBefore(dateTimeFin))) {
-                                    //
-
-                                    //
-                                    print(
-                                        "égalité ${r['date_enregistrement']} -- ${infosCellule[0]} -- ${s['numero_de_compte']} \n $s");
-                                    ////n_piece: infosCellule[1]   journal: s['code']
-                                    ///r['compte']["numero_de_compte"] ==
-                                    //             s["numero_de_compte"]
-                                    if (r['compte']["numero_de_compte"] ==
-                                            s["numero_de_compte"] ||
-                                        r['date_enregistrement'] ==
-                                            infosCellule[0]) {
-                                      //
-                                      jrs.add(r);
-                                      double md = r['montant_debit'].isNotEmpty
-                                          ? double.parse(r['montant_debit'])
-                                          : 0;
-                                      //___________________
-                                      double mc = r['montant_credit'].isNotEmpty
-                                          ? double.parse(r['montant_credit'])
-                                          : 0;
-                                      //___________________
-                                      //"USD", "CDF", "EUR"
-                                      if (r['devise'] == "USD") {
-                                        //USD
-                                        if (Devises[indexDevise.value] ==
-                                            "USD") {
-                                          //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + md;
-
-                                          //
-                                          tDebit = tDebit + md;
-                                          tCrebit = tCrebit + mc;
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "CDF") {
-                                          //
-                                          creditTotal = creditTotal +
-                                              (md * double.parse(usd_cdf));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(usd_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(usd_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(usd_cdf));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "EUR") {
-                                          //
-                                          creditTotal = creditTotal +
-                                              (md * double.parse(usd_eur));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(usd_eur));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(usd_eur));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(usd_eur));
-                                        }
-                                      }
-                                      if (r['devise'] == "CDF") {
-                                        if (Devises[indexDevise.value] ==
-                                            "USD") {
-                                          //
-                                          creditTotal = creditTotal +
-                                              (md / double.parse(usd_cdf));
-                                          debitTotal = debitTotal +
-                                              (mc / double.parse(usd_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md / double.parse(usd_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc / double.parse(usd_cdf));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "CDF") {
-                                          //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + mc;
-                                          //
-                                          tDebit = tDebit + md;
-                                          tCrebit = tCrebit + mc;
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "EUR") {
-                                          //
-                                          debitTotal = debitTotal +
-                                              (md / double.parse(eur_cdf));
-                                          creditTotal = creditTotal +
-                                              (mc / double.parse(eur_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md / double.parse(eur_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc / double.parse(eur_cdf));
-                                        }
-                                      }
-                                      if (r['devise'] == "EUR") {
-                                        if (Devises[indexDevise.value] ==
-                                            "USD") {
-                                          //
-                                          debitTotal = debitTotal +
-                                              (md * double.parse(usd_eur));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(usd_eur));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(usd_eur));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(usd_eur));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "CDF") {
-                                          //
-                                          debitTotal = debitTotal +
-                                              (md * double.parse(eur_cdf));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(eur_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(eur_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(eur_cdf));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "EUR") {
-                                          //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + mc;
-                                          //
-                                          tDebit = tDebit + md;
-                                          tCrebit = tCrebit + mc;
-                                        }
-                                      }
-                                      //
-                                    }
-                                  }
-                                });
-                                //
-                                jr['ssis'] = jrs;
-                                //
-                                //double anouveau = calcculeAnouveau(saisies, s);
-                                //
-                                jr["debitTotal"] = tDebit;
-                                jr["creditTotal"] = tCrebit;
-
-                                //
-                                double solde_periode = tDebit - tCrebit;
-                                //
-                                print("resultat: $jr");
-                                balances.add(jr);
-                                //
-                                //
-                                tDebit = 0;
-                                tCrebit = 0;
-                                //
-                              }
-                              //
-                            });
+                        try {
+                          var exercice = box.read("exercice") ?? "";
+                          List balances = [];
+                          List saisies = box.read("saisies$exercice") ?? [];
+                          Set listePieces = Set();
+                          saisies.forEach((ss) {
+                            print(
+                                "t'es quoi toi ? cool test: ${ss['compte']['intitule']}");
+                            listePieces.add("${ss['compte']['intitule']}");
+                            //listePieces.add(
+                            //  "${ss['date_enregistrement']}|${ss['compte']['numero_de_compte']}|${ss['compte']['intitule']}");
                           });
-
-                          //
-                        } else {
-                          //
-
-                          //print(
-                          //  "compteSelect: $compteSelect \n saisies: $saisies");
-
-                          //__________________________________________________
-                          listePieces.forEach((piece) {
-                            List infosCellule = "$piece".split("|");
+                          //saisies
+                          ////////////////////////////////////////////////////////
+                          if (compteSelect.isEmpty &&
+                              Selections[indexSelect.value] == "Tout") {
+                            List choix = box.read("comptes") ?? [];
 
                             //
-                            List jrs = [];
-                            double debitTotal = 0;
-                            double creditTotal = 0;
-                            //
-                            double tDebit = 0.0;
-                            double tCrebit = 0.0;
-                            //
-                            Map jr = {};
-                            jr['intitule'] = infosCellule[2];
-                            jr['numero_de_compte'] = infosCellule[1];
-                            jr['date_enregistrement'] = infosCellule[0];
-                            //n_piece: infosCellule[1]   journal: s['code']
-                            //
-                            compteSelect.forEach((s) {
+                            listePieces.forEach((piece) {
+                              String infosCellule = piece;
+
                               //
-                              //jr['intitule'] = s['intitule'];
-                              //jr['code'] = s['code'];
-                              //jr['type'] = s['type'];
-                              if (infosCellule[1] == s["numero_de_compte"]) {
+                              List jrs = [];
+
+                              Map jr = {};
+                              //
+                              double tDebit = 0.0;
+                              double tCrebit = 0.0;
+
+                              //n_piece: infosCellule[1]   journal: s['code']
+                              //
+                              choix.forEach((s) {
                                 //
-                                String usd_cdf = box.read("usd_cdf") ?? "0.0";
-                                String usd_eur = box.read("usd_eur") ?? "0.0";
-                                String eur_cdf = box.read("eur_cdf") ?? "0.0";
-                                //
-                                //List infosCellule = "$piece".split("|");
-                                //jr['intitule'] = infosCellule[2];
-                                //jr['numero_de_compte'] = infosCellule[1];
-                                //jr['date_enregistrement'] = infosCellule[0];
-                                //Date d'écriture${ss['date_enregistrement']} Piece N° ${ss['n_piece']}
-
-                                //
-                                saisies.forEach((r) {
-                                  print(
-                                      "La valeur: ${s["numero_de_compte"]} == ${infosCellule[1] == r['n_piece']} == ${r['n_piece']}");
-                                  //Seulement si
-
-                                  //infosCellule[1] == r['n_piece']
+                                print("t'es quoi toi ? $s");
+                                //jr['intitule'] = s['intitule'];
+                                //jr['code'] = s['code'];
+                                //jr['type'] = s['type'];
+                                //print(
+                                //  "balances: èè ${infosCellule[1]} ${infosCellule[1] == s["numero_de_compte"]} == ${s["numero_de_compte"]}");
+                                if (infosCellule == s['intitule']) {
                                   //
-
-                                  //print(
-                                  //  "numero_de_compte: ${s["numero_de_compte"]}");
+                                  String usd_cdf = box.read("usd_cdf") ?? "0.0";
+                                  String usd_eur = box.read("usd_eur") ?? "0.0";
+                                  String eur_cdf = box.read("eur_cdf") ?? "0.0";
                                   //
-                                  List dateSaisieText =
-                                      r['date_enregistrement'].split("-");
-                                  List dateDebutText =
-                                      dateDebut.value.split("-");
-                                  List dateFinText = dateFin.value.split("-");
+                                  //List infosCellule = "$piece".split("|");
+                                  //jr['intitule'] = infosCellule[2];
+                                  //jr['numero_de_compte'] = infosCellule[1];
+                                  //jr['date_enregistrement'] = infosCellule[0];
+                                  //Date d'écriture${ss['date_enregistrement']} Piece N° ${ss['n_piece']}
 
                                   //
-                                  DateTime dateTimeSaisie = DateTime(
-                                      int.parse(dateSaisieText[0]),
-                                      int.parse(dateSaisieText[1]),
-                                      int.parse(dateSaisieText[2]));
-                                  //
-                                  DateTime dateTimeDepart = DateTime(
-                                      int.parse(dateDebutText[0]),
-                                      int.parse(dateDebutText[1]),
-                                      int.parse(dateDebutText[2]));
-                                  //
-                                  DateTime dateTimeFin = DateTime(
-                                      int.parse(dateFinText[0]),
-                                      int.parse(dateFinText[1]),
-                                      int.parse(dateFinText[2]));
-                                  //
-                                  if ((dateDebut.value ==
-                                              r['date_enregistrement'] ||
-                                          dateTimeSaisie
-                                              .isAfter(dateTimeDepart)) &&
-                                      (dateFin.value ==
-                                              r['date_enregistrement'] ||
-                                          dateTimeSaisie
-                                              .isBefore(dateTimeFin))) {
+                                  saisies.forEach((r) {
+                                    //print(
+                                    //  "La valeur: ${s["numero_de_compte"]} == ${infosCellule[1] == r['n_piece']} == ${r['n_piece']}");
+                                    //Seulement si
+
+                                    //infosCellule[1] == r['n_piece']
                                     //
 
+                                    //print(
+                                    //  "numero_de_compte: ${s["numero_de_compte"]}");
                                     //
-                                    print(
-                                        "égalité ${r['date_enregistrement']} -- ${infosCellule[0]} -- ${s['numero_de_compte']} \n $s");
-                                    ////n_piece: infosCellule[1]   journal: s['code']
-                                    ///r['compte']["numero_de_compte"] ==
-                                    //             s["numero_de_compte"]
-                                    if (r['compte']["numero_de_compte"] ==
-                                            s["numero_de_compte"] ||
-                                        r['date_enregistrement'] ==
-                                            infosCellule[0]) {
-                                      //
-                                      jrs.add(r);
-                                      double md = r['montant_debit'].isNotEmpty
-                                          ? double.parse(r['montant_debit'])
-                                          : 0;
-                                      //___________________
-                                      double mc = r['montant_credit'].isNotEmpty
-                                          ? double.parse(r['montant_credit'])
-                                          : 0;
-                                      //___________________
-                                      //"USD", "CDF", "EUR"
-                                      if (r['devise'] == "USD") {
-                                        //USD
-                                        if (Devises[indexDevise.value] ==
-                                            "USD") {
-                                          //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + md;
+                                    List dateSaisieText =
+                                        r['date_enregistrement'].split("-");
+                                    List dateDebutText =
+                                        dateDebut.value.split("-");
+                                    List dateFinText = dateFin.value.split("-");
 
-                                          //
-                                          tDebit = tDebit + md;
-                                          tCrebit = tCrebit + mc;
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "CDF") {
-                                          //
-                                          creditTotal = creditTotal +
-                                              (md * double.parse(usd_cdf));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(usd_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(usd_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(usd_cdf));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "EUR") {
-                                          //
-                                          creditTotal = creditTotal +
-                                              (md * double.parse(usd_eur));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(usd_eur));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(usd_eur));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(usd_eur));
-                                        }
-                                      }
-                                      if (r['devise'] == "CDF") {
-                                        if (Devises[indexDevise.value] ==
-                                            "USD") {
-                                          //
-                                          creditTotal = creditTotal +
-                                              (md / double.parse(usd_cdf));
-                                          debitTotal = debitTotal +
-                                              (mc / double.parse(usd_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md / double.parse(usd_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc / double.parse(usd_cdf));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "CDF") {
-                                          //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + mc;
-                                          //
-                                          tDebit = tDebit + md;
-                                          tCrebit = tCrebit + mc;
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "EUR") {
-                                          //
-                                          debitTotal = debitTotal +
-                                              (md / double.parse(eur_cdf));
-                                          creditTotal = creditTotal +
-                                              (mc / double.parse(eur_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md / double.parse(eur_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc / double.parse(eur_cdf));
-                                        }
-                                      }
-                                      if (r['devise'] == "EUR") {
-                                        if (Devises[indexDevise.value] ==
-                                            "USD") {
-                                          //
-                                          debitTotal = debitTotal +
-                                              (md * double.parse(usd_eur));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(usd_eur));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(usd_eur));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(usd_eur));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "CDF") {
-                                          //
-                                          debitTotal = debitTotal +
-                                              (md * double.parse(eur_cdf));
-                                          creditTotal = creditTotal +
-                                              (mc * double.parse(eur_cdf));
-                                          //
-                                          tDebit = tDebit +
-                                              (md * double.parse(eur_cdf));
-                                          tCrebit = tCrebit +
-                                              (mc * double.parse(eur_cdf));
-                                        }
-                                        if (Devises[indexDevise.value] ==
-                                            "EUR") {
-                                          //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + mc;
-                                          //
-                                          tDebit = tDebit + md;
-                                          tCrebit = tCrebit + mc;
-                                        }
-                                      }
+                                    //
+                                    DateTime dateTimeSaisie = DateTime(
+                                        int.parse(dateSaisieText[0]),
+                                        int.parse(dateSaisieText[1]),
+                                        int.parse(dateSaisieText[2]));
+                                    //
+                                    DateTime dateTimeDepart = DateTime(
+                                        int.parse(dateDebutText[0]),
+                                        int.parse(dateDebutText[1]),
+                                        int.parse(dateDebutText[2]));
+                                    //
+                                    DateTime dateTimeFin = DateTime(
+                                        int.parse(dateFinText[0]),
+                                        int.parse(dateFinText[1]),
+                                        int.parse(dateFinText[2]));
+                                    //
+                                    if ((dateDebut.value ==
+                                                r['date_enregistrement'] ||
+                                            dateTimeSaisie
+                                                .isAfter(dateTimeDepart)) &&
+                                        (dateFin.value ==
+                                                r['date_enregistrement'] ||
+                                            dateTimeSaisie
+                                                .isBefore(dateTimeFin))) {
                                       //
+//
+                                      double debitTotal = 0;
+                                      double creditTotal = 0;
+                                      //infosCellule
+
+                                      jr['intitule'] = infosCellule;
+                                      // jr['numero_de_compte'] =
+                                      //     r['compte']["numero_de_compte"];
+                                      // jr['date_enregistrement'] =
+                                      //     r['date_enregistrement'];
+                                      //
+                                      ////n_piece: infosCellule[1]   journal: s['code']
+                                      ///r['compte']["numero_de_compte"] ==
+                                      //             s["numero_de_compte"]
+                                      if (r['compte']["numero_de_compte"] ==
+                                          s["numero_de_compte"]) {
+                                        //
+                                        jr['numero_de_compte'] =
+                                            r['compte']["numero_de_compte"];
+                                        jr['date_enregistrement'] =
+                                            r['date_enregistrement'];
+                                        //
+                                        //  "balances: èè ${r['compte']['date_enregistrement']} -- ${r['compte']["numero_de_compte"] == s["numero_de_compte"] || r['date_enregistrement'] == infosCellule[0]} \n ${s["numero_de_compte"]}");
+
+                                        //
+                                        jrs.add(r);
+                                        double md = r['montant_debit'];
+                                        //___________________
+                                        double mc = r['montant_credit'];
+
+                                        //___________________
+                                        //"USD", "CDF", "EUR"
+                                        if (r['devise'] == "USD") {
+                                          //USD
+                                          if (Devises[indexDevise.value] ==
+                                              "USD") {
+                                            //
+                                            r['montant_credit_'] = mc;
+                                            r['montant_debit_'] = md;
+
+                                            //
+                                            tDebit = tDebit + md;
+                                            tCrebit = tCrebit + mc;
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "CDF") {
+                                            //
+                                            r['montant_debit_'] =
+                                                //
+                                                creditTotal = creditTotal +
+                                                    (md *
+                                                        double.parse(usd_cdf));
+                                            //
+                                            r['montant_credit_'] =
+                                                //
+                                                creditTotal = creditTotal +
+                                                    (mc *
+                                                        double.parse(usd_cdf));
+
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(usd_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(usd_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(usd_cdf));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "EUR") {
+                                            //
+                                            r['montant_debit_'] = creditTotal +
+                                                (md * double.parse(usd_eur));
+                                            //
+                                            r['montant_credit_'] = creditTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            creditTotal = creditTotal +
+                                                (md * double.parse(usd_eur));
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(usd_eur));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(usd_eur));
+                                          }
+                                        }
+                                        if (r['devise'] == "CDF") {
+                                          if (Devises[indexDevise.value] ==
+                                              "USD") {
+                                            //
+                                            r['montant_debit_'] = creditTotal +
+                                                (md / double.parse(usd_cdf));
+                                            //
+                                            r['montant_credit_'] = creditTotal +
+                                                (mc / double.parse(usd_cdf));
+                                            //
+                                            creditTotal = creditTotal +
+                                                (md / double.parse(usd_cdf));
+                                            debitTotal = debitTotal +
+                                                (mc / double.parse(usd_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md / double.parse(usd_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc / double.parse(usd_cdf));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "CDF") {
+                                            //
+                                            r['montant_credit_'] = mc;
+                                            r['montant_debit_'] = md;
+                                            //
+                                            debitTotal = debitTotal + md;
+                                            creditTotal = creditTotal + mc;
+                                            //
+                                            tDebit = tDebit + md;
+                                            tCrebit = tCrebit + mc;
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "EUR") {
+                                            //
+                                            r['montant_debit_'] = debitTotal +
+                                                (md / double.parse(eur_cdf));
+                                            //
+                                            r['montant_credit_'] = debitTotal +
+                                                (mc / double.parse(eur_cdf));
+                                            //
+                                            debitTotal = debitTotal +
+                                                (md / double.parse(eur_cdf));
+                                            creditTotal = creditTotal +
+                                                (mc / double.parse(eur_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md / double.parse(eur_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc / double.parse(eur_cdf));
+                                          }
+                                        }
+                                        if (r['devise'] == "EUR") {
+                                          if (Devises[indexDevise.value] ==
+                                              "USD") {
+                                            //
+                                            r['montant_debit_'] = debitTotal +
+                                                (md * double.parse(usd_eur));
+                                            //
+                                            r['montant_credit_'] = debitTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            debitTotal = debitTotal +
+                                                (md * double.parse(usd_eur));
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(usd_eur));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(usd_eur));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "CDF") {
+                                            //
+                                            r['montant_debit_'] = debitTotal +
+                                                (md * double.parse(eur_cdf));
+                                            //
+                                            r['montant_credit_'] = debitTotal +
+                                                (mc * double.parse(eur_cdf));
+                                            //
+                                            debitTotal = debitTotal +
+                                                (md * double.parse(eur_cdf));
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(eur_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(eur_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(eur_cdf));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "EUR") {
+                                            //
+                                            r['montant_credit_'] = mc;
+                                            r['montant_debit_'] = md;
+                                            //
+                                            debitTotal = debitTotal + md;
+                                            creditTotal = creditTotal + mc;
+                                            //
+                                            tDebit = tDebit + md;
+                                            tCrebit = tCrebit + mc;
+                                          }
+                                        }
+                                        //
+                                      }
                                     }
-                                  }
-                                });
-                                //
-                                jr['ssis'] = jrs;
-                                //
-                                //double anouveau = calcculeAnouveau(saisies, s);
-                                //
-                                jr["debitTotal"] = tDebit;
-                                jr["creditTotal"] = tCrebit;
+                                  });
+                                  //
+                                  jr['ssis'] = jrs;
+                                  //
+                                  //double anouveau = calcculeAnouveau(saisies, s);
+                                  //
+                                  jr["debitTotal"] = tDebit;
+                                  jr["creditTotal"] = tCrebit;
 
-                                //
-                                double solde_periode = tDebit - tCrebit;
-                                //
-                                print("resultat: $jr");
-                                balances.add(jr);
-                                //
-                                //
-                                tDebit = 0;
-                                tCrebit = 0;
-                                //
-                              }
+                                  //
+                                  double solde_periode = tDebit - tCrebit;
+                                  //
+                                  print("resultat: $jr");
+                                  balances.add(jr);
+                                  //
+                                  //
+                                  tDebit = 0;
+                                  tCrebit = 0;
+                                  //
+                                }
+                              });
                             });
-                          });
+
+                            //
+                          } else {
+                            //
+
+                            //print(
+                            //  "compteSelect: $compteSelect \n saisies: $saisies");
+
+                            //__________________________________________________
+                            listePieces.forEach((piece) {
+                              String infosCellule = piece; //.split("|");
+                              //
+                              List jrs = [];
+
+                              Map jr = {};
+                              //
+                              double tDebit = 0.0;
+                              double tCrebit = 0.0;
+                              //
+                              //n_piece: infosCellule[1]   journal: s['code']
+                              //
+                              compteSelect.forEach((s) {
+                                //
+                                print("t'es quoi toi ? $s");
+                                //jr['intitule'] = s['intitule'];
+                                //jr['code'] = s['code'];
+                                //jr['type'] = s['type'];
+                                //print(
+                                //  "balances: èè ${infosCellule[1]} ${infosCellule[1] == s["numero_de_compte"]} == ${s["numero_de_compte"]}");
+                                if (infosCellule == s['intitule']) {
+                                  //
+                                  String usd_cdf = box.read("usd_cdf") ?? "0.0";
+                                  String usd_eur = box.read("usd_eur") ?? "0.0";
+                                  String eur_cdf = box.read("eur_cdf") ?? "0.0";
+                                  //
+                                  //List infosCellule = "$piece".split("|");
+                                  //jr['intitule'] = infosCellule[2];
+                                  //jr['numero_de_compte'] = infosCellule[1];
+                                  //jr['date_enregistrement'] = infosCellule[0];
+                                  //Date d'écriture${ss['date_enregistrement']} Piece N° ${ss['n_piece']}
+
+                                  //
+                                  saisies.forEach((r) {
+                                    //print(
+                                    //  "La valeur: ${s["numero_de_compte"]} == ${infosCellule[1] == r['n_piece']} == ${r['n_piece']}");
+                                    //Seulement si
+
+                                    //infosCellule[1] == r['n_piece']
+                                    //
+
+                                    //print(
+                                    //  "numero_de_compte: ${s["numero_de_compte"]}");
+                                    //
+                                    List dateSaisieText =
+                                        r['date_enregistrement'].split("-");
+                                    List dateDebutText =
+                                        dateDebut.value.split("-");
+                                    List dateFinText = dateFin.value.split("-");
+
+                                    //
+                                    DateTime dateTimeSaisie = DateTime(
+                                        int.parse(dateSaisieText[0]),
+                                        int.parse(dateSaisieText[1]),
+                                        int.parse(dateSaisieText[2]));
+                                    //
+                                    DateTime dateTimeDepart = DateTime(
+                                        int.parse(dateDebutText[0]),
+                                        int.parse(dateDebutText[1]),
+                                        int.parse(dateDebutText[2]));
+                                    //
+                                    DateTime dateTimeFin = DateTime(
+                                        int.parse(dateFinText[0]),
+                                        int.parse(dateFinText[1]),
+                                        int.parse(dateFinText[2]));
+                                    //
+                                    if ((dateDebut.value ==
+                                                r['date_enregistrement'] ||
+                                            dateTimeSaisie
+                                                .isAfter(dateTimeDepart)) &&
+                                        (dateFin.value ==
+                                                r['date_enregistrement'] ||
+                                            dateTimeSaisie
+                                                .isBefore(dateTimeFin))) {
+                                      //
+//
+                                      double debitTotal = 0;
+                                      double creditTotal = 0;
+                                      //infosCellule
+
+                                      jr['intitule'] = infosCellule;
+
+                                      //
+                                      ////n_piece: infosCellule[1]   journal: s['code']
+                                      ///r['compte']["numero_de_compte"] ==
+                                      //             s["numero_de_compte"]
+                                      if (r['compte']["numero_de_compte"] ==
+                                          s["numero_de_compte"]) {
+                                        //
+                                        jr['numero_de_compte'] =
+                                            r['compte']["numero_de_compte"];
+                                        jr['date_enregistrement'] =
+                                            r['date_enregistrement'];
+                                        //
+                                        print(
+                                            "::: ${s["numero_de_compte"]} == ${r['compte']["numero_de_compte"]}");
+                                        /**
+                                               *  ||
+                                        r['date_enregistrement'] ==
+                                            infosCellule
+                                               */
+                                        //
+                                        //print(
+                                        //  "balances: èè ${r['compte']['date_enregistrement']} -- ${r['compte']["numero_de_compte"] == s["numero_de_compte"] || r['date_enregistrement'] == infosCellule[0]} \n ${s["numero_de_compte"]}");
+
+                                        //
+                                        jrs.add(r);
+                                        double md = r['montant_debit'];
+                                        //___________________
+                                        double mc = r['montant_credit'];
+                                        //___________________
+                                        //"USD", "CDF", "EUR"
+                                        if (r['devise'] == "USD") {
+                                          //USD
+                                          if (Devises[indexDevise.value] ==
+                                              "USD") {
+                                            //
+                                            r['montant_credit_'] = mc;
+                                            r['montant_debit_'] = md;
+
+                                            //
+                                            tDebit = tDebit + md;
+                                            tCrebit = tCrebit + mc;
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "CDF") {
+                                            //
+                                            r['montant_debit_'] =
+                                                //
+                                                creditTotal = creditTotal +
+                                                    (md *
+                                                        double.parse(usd_cdf));
+                                            //
+                                            r['montant_credit_'] =
+                                                //
+                                                creditTotal = creditTotal +
+                                                    (mc *
+                                                        double.parse(usd_cdf));
+
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(usd_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(usd_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(usd_cdf));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "EUR") {
+                                            //
+                                            r['montant_debit_'] = creditTotal +
+                                                (md * double.parse(usd_eur));
+                                            //
+                                            r['montant_credit_'] = creditTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            creditTotal = creditTotal +
+                                                (md * double.parse(usd_eur));
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(usd_eur));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(usd_eur));
+                                          }
+                                        }
+                                        if (r['devise'] == "CDF") {
+                                          if (Devises[indexDevise.value] ==
+                                              "USD") {
+                                            //
+                                            r['montant_debit_'] = creditTotal +
+                                                (md / double.parse(usd_cdf));
+                                            //
+                                            r['montant_credit_'] = creditTotal +
+                                                (mc / double.parse(usd_cdf));
+                                            //
+                                            creditTotal = creditTotal +
+                                                (md / double.parse(usd_cdf));
+                                            debitTotal = debitTotal +
+                                                (mc / double.parse(usd_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md / double.parse(usd_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc / double.parse(usd_cdf));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "CDF") {
+                                            //
+                                            r['montant_credit_'] = mc;
+                                            r['montant_debit_'] = md;
+                                            //
+                                            debitTotal = debitTotal + md;
+                                            creditTotal = creditTotal + mc;
+                                            //
+                                            tDebit = tDebit + md;
+                                            tCrebit = tCrebit + mc;
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "EUR") {
+                                            //
+                                            r['montant_debit_'] = debitTotal +
+                                                (md / double.parse(eur_cdf));
+                                            //
+                                            r['montant_credit_'] = debitTotal +
+                                                (mc / double.parse(eur_cdf));
+                                            //
+                                            debitTotal = debitTotal +
+                                                (md / double.parse(eur_cdf));
+                                            creditTotal = creditTotal +
+                                                (mc / double.parse(eur_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md / double.parse(eur_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc / double.parse(eur_cdf));
+                                          }
+                                        }
+                                        if (r['devise'] == "EUR") {
+                                          if (Devises[indexDevise.value] ==
+                                              "USD") {
+                                            //
+                                            r['montant_debit_'] = debitTotal +
+                                                (md * double.parse(usd_eur));
+                                            //
+                                            r['montant_credit_'] = debitTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            debitTotal = debitTotal +
+                                                (md * double.parse(usd_eur));
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(usd_eur));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(usd_eur));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(usd_eur));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "CDF") {
+                                            //
+                                            r['montant_debit_'] = debitTotal +
+                                                (md * double.parse(eur_cdf));
+                                            //
+                                            r['montant_credit_'] = debitTotal +
+                                                (mc * double.parse(eur_cdf));
+                                            //
+                                            debitTotal = debitTotal +
+                                                (md * double.parse(eur_cdf));
+                                            creditTotal = creditTotal +
+                                                (mc * double.parse(eur_cdf));
+                                            //
+                                            tDebit = tDebit +
+                                                (md * double.parse(eur_cdf));
+                                            tCrebit = tCrebit +
+                                                (mc * double.parse(eur_cdf));
+                                          }
+                                          if (Devises[indexDevise.value] ==
+                                              "EUR") {
+                                            //
+                                            r['montant_credit_'] = mc;
+                                            r['montant_debit_'] = md;
+                                            //
+                                            debitTotal = debitTotal + md;
+                                            creditTotal = creditTotal + mc;
+                                            //
+                                            tDebit = tDebit + md;
+                                            tCrebit = tCrebit + mc;
+                                          }
+                                        }
+                                        //
+                                      }
+                                    }
+                                  });
+                                  //
+                                  jr['ssis'] = jrs;
+                                  //
+                                  //double anouveau = calcculeAnouveau(saisies, s);
+                                  //
+                                  jr["debitTotal"] = tDebit;
+                                  jr["creditTotal"] = tCrebit;
+
+                                  //
+                                  double solde_periode = tDebit - tCrebit;
+                                  //
+                                  print("resultat: $jr");
+                                  balances.add(jr);
+                                  //
+                                  //
+                                  tDebit = 0;
+                                  tCrebit = 0;
+                                  //
+                                }
+                              });
+                            });
+                          }
+                          //
+                          Get.back();
+                          Get.to(
+                            GrandLivre(
+                              0,
+                              balances,
+                              dateDebut.value,
+                              dateFin.value,
+                              Devises[indexDevise.value],
+                              compteSelect.isEmpty,
+                              comptes[indexCompte.value]['intitule'],
+                            ),
+                          );
+
+                          //
+                        } catch (e) {
+                          Get.back();
+                          print("eee $e");
                         }
+
                         ////////////////////////////////////////////////////////
                         // if (compteSelect.isEmpty) {
                         //   List choix = box.read("comptes") ?? [];
@@ -1136,16 +1276,6 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                         //
                         //print("balances: $balances");
                         //
-                        Get.back();
-                        Get.to(
-                          GrandLivre(
-                            0,
-                            balances,
-                            dateDebut.value,
-                            dateFin.value,
-                            Devises[indexDevise.value],
-                          ),
-                        );
                       },
                       child: Container(
                         alignment: Alignment.center,

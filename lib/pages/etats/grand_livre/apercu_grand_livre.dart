@@ -304,13 +304,10 @@ class ApercuGrandLivre extends StatelessWidget {
                         //
 
                         if (index == 0) {
-                          debit = s['montant_debit'].isNotEmpty
-                              ? double.parse(s['montant_debit'])
-                              : 0;
+                          debit = s['montant_debit'];
                         }
-                        double credit = s['montant_credit'].isNotEmpty
-                            ? double.parse(s['montant_credit'])
-                            : 0;
+                        double credit = s['montant_credit'];
+
                         //
                         return Container(
                           decoration: const BoxDecoration(
@@ -927,13 +924,10 @@ class ApercuGrandLivre extends StatelessWidget {
                           //
 
                           if (index == 0) {
-                            debit = s['montant_debit'].isNotEmpty
-                                ? double.parse(s['montant_debit'])
-                                : 0;
+                            debit = s['montant_debit'];
                           }
-                          double credit = s['montant_credit'].isNotEmpty
-                              ? double.parse(s['montant_credit'])
-                              : 0;
+                          double credit = s['montant_credit'];
+
                           //
                           return pw.Container(
                             decoration: const pw.BoxDecoration(

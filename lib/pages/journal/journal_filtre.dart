@@ -284,9 +284,11 @@ class JournalFiltre extends GetView<JournalController> {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2050),
                               ).then((d) {
-                                //
-                                dateDebut.value =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  dateDebut.value =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                             },
                             icon: Icon(Icons.calendar_month),
@@ -327,9 +329,11 @@ class JournalFiltre extends GetView<JournalController> {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2050),
                               ).then((d) {
-                                //
-                                dateFin.value =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  dateFin.value =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                             },
                             icon: Icon(Icons.calendar_month),
@@ -362,53 +366,58 @@ class JournalFiltre extends GetView<JournalController> {
                         List saisies = box.read("saisies$exercice") ?? [];
                         Set listePieces = Set();
                         saisies.forEach((ss) {
-                          //
+                          //${ss['date_enregistrement']}|${ss['n_piece']}|${ss['journale']['code']}
                           listePieces.add(
-                              "${ss['date_enregistrement']}|${ss['n_piece']}");
+                              "${ss['n_piece']}|${ss['date_enregistrement']}");
                         });
                         //saisies
-                        if (journalSelect.isEmpty) {
+                        if (journalSelect.isEmpty &&
+                            Selections[indexSelect.value] == "Tout") {
                           List choix = box.read("journaux") ?? [];
 
                           //
                           listePieces.forEach((piece) {
                             List infosCellule = "$piece".split("|");
+                            //List infosCellule = "$piece".split("|");
+                            //
 
-                            //
-                            List jrs = [];
-                            double debitTotal = 0;
-                            double creditTotal = 0;
-                            //
-                            double tDebit = 0.0;
-                            double tCrebit = 0.0;
-                            //
-                            Map jr = {};
-                            jr['n_piece'] = infosCellule[1];
-                            jr['date_enregistrement'] = infosCellule[0];
                             //n_piece: infosCellule[1]   journal: s['code']
                             //
                             choix.forEach((s) {
                               //
-                              jr['intitule'] = s['intitule'];
-                              jr['code'] = s['code'];
-                              jr['type'] = s['type'];
+                              List jrs = [];
+
                               //
-                              String usd_cdf = box.read("usd_cdf") ?? "0.0";
-                              String usd_eur = box.read("usd_eur") ?? "0.0";
-                              String eur_cdf = box.read("eur_cdf") ?? "0.0";
+                              double tDebit = 0.0;
+                              double tCrebit = 0.0;
                               //
-                              List infosCellule = "$piece".split("|");
-                              jr['n_piece'] = infosCellule[1];
-                              jr['date_enregistrement'] = infosCellule[0];
+                              Map jr = {};
+                              //
+                              //List infosCellule = "$piece".split("|");
+
                               //Date d'écriture${ss['date_enregistrement']} Piece N° ${ss['n_piece']}
 
                               //
                               saisies.forEach((r) {
-                                print(
-                                    "La valeur: ${infosCellule[1]} == ${infosCellule[1] == r['n_piece']} == ${r['n_piece']}");
+                                //print(
+                                //  "La valeur: ${(infosCellule[1] == r['n_piece']) && (s['code'] == r['journale']['code']) && (infosCellule[2] == r['journale']['code'])} ");
                                 //Seulement si
-                                if (infosCellule[1] == r['n_piece']) {
+                                if ((infosCellule[0] == r['n_piece']) &&
+                                    (s['code'] == r['journale']['code']) &&
+                                    infosCellule[1] ==
+                                        r['date_enregistrement']) {
+                                  double debitTotal = 0;
+                                  double creditTotal = 0;
+                                  /**
+                                       * (infosCellule[2] ==
+                                        r['journale']['code'])
+                                       */
                                   //
+                                  //jr['date_enregistrement'] = infosCellule[0];
+                                  //jr['n_piece'] = infosCellule[1];
+                                  //
+                                  print("cool test: ${r['n_piece']}");
+                                  //____________________________________________
 
                                   //print(
                                   //  "numero_de_compte: ${s["numero_de_compte"]}");
@@ -444,20 +453,36 @@ class JournalFiltre extends GetView<JournalController> {
                                           dateTimeSaisie
                                               .isBefore(dateTimeFin))) {
                                     //
-                                    jrs.add(r);
+
                                     //
                                     print(
                                         "égalité ${r['devise']} -- ${r['montant_debit']} -- ${r['montant_credit']} \n $s");
                                     ////n_piece: infosCellule[1]   journal: s['code']
                                     if (r['journale']["code"] == s["code"] &&
-                                        r['n_piece'] == infosCellule[1]) {
-                                      double md = r['montant_debit'].isNotEmpty
-                                          ? double.parse(r['montant_debit'])
-                                          : 0;
+                                        r['n_piece'] == infosCellule[0]) {
+                                      //[1]
+
+                                      //
+                                      jr['intitule'] = s['intitule'];
+                                      jr['code'] = s['code'];
+                                      jr['type'] = s['type'];
+                                      //
+                                      String usd_cdf =
+                                          box.read("usd_cdf") ?? "0.0";
+                                      String usd_eur =
+                                          box.read("usd_eur") ?? "0.0";
+                                      String eur_cdf =
+                                          box.read("eur_cdf") ?? "0.0";
+                                      //
+                                      jr['n_piece'] = infosCellule[0];
+                                      jr['date_enregistrement'] =
+                                          r["date_enregistrement"];
+                                      //['compte']
+
                                       //___________________
-                                      double mc = r['montant_credit'].isNotEmpty
-                                          ? double.parse(r['montant_credit'])
-                                          : 0;
+                                      double mc = r['montant_credit'];
+                                      double md = r['montant_debit'];
+
                                       //___________________
                                       //"USD", "CDF", "EUR"
                                       if (r['devise'] == "USD") {
@@ -465,8 +490,8 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "USD") {
                                           //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + md;
+                                          r['montant_credit_'] = mc;
+                                          r['montant_debit_'] = md;
 
                                           //
                                           tDebit = tDebit + md;
@@ -475,8 +500,16 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "CDF") {
                                           //
-                                          creditTotal = creditTotal +
-                                              (md * double.parse(usd_cdf));
+                                          r['montant_debit_'] =
+                                              //
+                                              creditTotal = creditTotal +
+                                                  (md * double.parse(usd_cdf));
+                                          //
+                                          r['montant_credit_'] =
+                                              //
+                                              creditTotal = creditTotal +
+                                                  (mc * double.parse(usd_cdf));
+
                                           creditTotal = creditTotal +
                                               (mc * double.parse(usd_cdf));
                                           //
@@ -487,6 +520,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         }
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
+                                          //
+                                          r['montant_debit_'] = creditTotal +
+                                              (md * double.parse(usd_eur));
+                                          //
+                                          r['montant_credit_'] = creditTotal +
+                                              (mc * double.parse(usd_eur));
                                           //
                                           creditTotal = creditTotal +
                                               (md * double.parse(usd_eur));
@@ -503,6 +542,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "USD") {
                                           //
+                                          r['montant_debit_'] = creditTotal +
+                                              (md / double.parse(usd_cdf));
+                                          //
+                                          r['montant_credit_'] = creditTotal +
+                                              (mc / double.parse(usd_cdf));
+                                          //
                                           creditTotal = creditTotal +
                                               (md / double.parse(usd_cdf));
                                           debitTotal = debitTotal +
@@ -516,6 +561,9 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "CDF") {
                                           //
+                                          r['montant_credit_'] = mc;
+                                          r['montant_debit_'] = md;
+                                          //
                                           debitTotal = debitTotal + md;
                                           creditTotal = creditTotal + mc;
                                           //
@@ -524,6 +572,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         }
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
+                                          //
+                                          r['montant_debit_'] = debitTotal +
+                                              (md / double.parse(eur_cdf));
+                                          //
+                                          r['montant_credit_'] = debitTotal +
+                                              (mc / double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
                                               (md / double.parse(eur_cdf));
@@ -540,6 +594,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "USD") {
                                           //
+                                          r['montant_debit_'] = debitTotal +
+                                              (md * double.parse(usd_eur));
+                                          //
+                                          r['montant_credit_'] = debitTotal +
+                                              (mc * double.parse(usd_eur));
+                                          //
                                           debitTotal = debitTotal +
                                               (md * double.parse(usd_eur));
                                           creditTotal = creditTotal +
@@ -552,6 +612,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         }
                                         if (Devises[indexDevise.value] ==
                                             "CDF") {
+                                          //
+                                          r['montant_debit_'] = debitTotal +
+                                              (md * double.parse(eur_cdf));
+                                          //
+                                          r['montant_credit_'] = debitTotal +
+                                              (mc * double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
                                               (md * double.parse(eur_cdf));
@@ -566,6 +632,9 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
                                           //
+                                          r['montant_credit_'] = mc;
+                                          r['montant_debit_'] = md;
+                                          //
                                           debitTotal = debitTotal + md;
                                           creditTotal = creditTotal + mc;
                                           //
@@ -573,6 +642,8 @@ class JournalFiltre extends GetView<JournalController> {
                                           tCrebit = tCrebit + mc;
                                         }
                                       }
+                                      //
+                                      jrs.add(r);
                                       //
                                     }
                                   }
@@ -589,7 +660,9 @@ class JournalFiltre extends GetView<JournalController> {
                               //
                               double solde_periode = tDebit - tCrebit;
                               //
+                              print("resultat: $jr");
                               resultats.add(jr);
+                              //
                               //
                               tDebit = 0;
                               tCrebit = 0;
@@ -607,42 +680,47 @@ class JournalFiltre extends GetView<JournalController> {
                           //__________________________________________________
                           listePieces.forEach((piece) {
                             List infosCellule = "$piece".split("|");
+                            //.split("|");
 
                             //
-                            List jrs = [];
-                            double debitTotal = 0;
-                            double creditTotal = 0;
-                            //
-                            double tDebit = 0.0;
-                            double tCrebit = 0.0;
-                            //
-                            Map jr = {};
-                            jr['n_piece'] = infosCellule[1];
-                            jr['date_enregistrement'] = infosCellule[0];
+
                             //n_piece: infosCellule[1]   journal: s['code']
                             //
                             journalSelect.forEach((s) {
                               //
-                              jr['intitule'] = s['intitule'];
-                              jr['code'] = s['code'];
-                              jr['type'] = s['type'];
+                              List jrs = [];
+
                               //
-                              String usd_cdf = box.read("usd_cdf") ?? "0.0";
-                              String usd_eur = box.read("usd_eur") ?? "0.0";
-                              String eur_cdf = box.read("eur_cdf") ?? "0.0";
+                              double tDebit = 0.0;
+                              double tCrebit = 0.0;
                               //
-                              List infosCellule = "$piece".split("|");
-                              jr['n_piece'] = infosCellule[1];
-                              jr['date_enregistrement'] = infosCellule[0];
+                              Map jr = {};
+                              //
+                              //List infosCellule = "$piece".split("|");
+
                               //Date d'écriture${ss['date_enregistrement']} Piece N° ${ss['n_piece']}
 
                               //
                               saisies.forEach((r) {
-                                print(
-                                    "La valeur: ${infosCellule[1]} == ${infosCellule[1] == r['n_piece']} == ${r['n_piece']}");
+                                //print(
+                                //  "La valeur: ${(infosCellule[1] == r['n_piece']) && (s['code'] == r['journale']['code']) && (infosCellule[2] == r['journale']['code'])} ");
                                 //Seulement si
-                                if (infosCellule[1] == r['n_piece']) {
+                                if ((infosCellule[0] == r['n_piece']) &&
+                                    (s['code'] == r['journale']['code']) &&
+                                    infosCellule[1] ==
+                                        r['date_enregistrement']) {
+                                  double debitTotal = 0;
+                                  double creditTotal = 0;
+                                  /**
+                                       * (infosCellule[2] ==
+                                        r['journale']['code'])
+                                       */
                                   //
+                                  //jr['date_enregistrement'] = infosCellule[0];
+                                  //jr['n_piece'] = infosCellule[1];
+                                  //
+                                  print("cool test: ${r['n_piece']}");
+                                  //____________________________________________
 
                                   //print(
                                   //  "numero_de_compte: ${s["numero_de_compte"]}");
@@ -678,20 +756,36 @@ class JournalFiltre extends GetView<JournalController> {
                                           dateTimeSaisie
                                               .isBefore(dateTimeFin))) {
                                     //
-                                    jrs.add(r);
+
                                     //
                                     print(
                                         "égalité ${r['devise']} -- ${r['montant_debit']} -- ${r['montant_credit']} \n $s");
                                     ////n_piece: infosCellule[1]   journal: s['code']
                                     if (r['journale']["code"] == s["code"] &&
-                                        r['n_piece'] == infosCellule[1]) {
-                                      double md = r['montant_debit'].isNotEmpty
-                                          ? double.parse(r['montant_debit'])
-                                          : 0;
+                                        r['n_piece'] == infosCellule[0]) {
+                                      //[1]
+
+                                      //
+                                      jr['intitule'] = s['intitule'];
+                                      jr['code'] = s['code'];
+                                      jr['type'] = s['type'];
+                                      //
+                                      String usd_cdf =
+                                          box.read("usd_cdf") ?? "0.0";
+                                      String usd_eur =
+                                          box.read("usd_eur") ?? "0.0";
+                                      String eur_cdf =
+                                          box.read("eur_cdf") ?? "0.0";
+                                      //
+                                      jr['n_piece'] = infosCellule[0];
+                                      jr['date_enregistrement'] =
+                                          r["date_enregistrement"];
+                                      //['compte']
+
                                       //___________________
-                                      double mc = r['montant_credit'].isNotEmpty
-                                          ? double.parse(r['montant_credit'])
-                                          : 0;
+                                      double md = r['montant_debit'];
+                                      double mc = r['montant_credit'];
+
                                       //___________________
                                       //"USD", "CDF", "EUR"
                                       if (r['devise'] == "USD") {
@@ -699,8 +793,8 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "USD") {
                                           //
-                                          debitTotal = debitTotal + md;
-                                          creditTotal = creditTotal + md;
+                                          r['montant_credit_'] = mc;
+                                          r['montant_debit_'] = md;
 
                                           //
                                           tDebit = tDebit + md;
@@ -709,8 +803,16 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "CDF") {
                                           //
-                                          creditTotal = creditTotal +
-                                              (md * double.parse(usd_cdf));
+                                          r['montant_debit_'] =
+                                              //
+                                              creditTotal = creditTotal +
+                                                  (md * double.parse(usd_cdf));
+                                          //
+                                          r['montant_credit_'] =
+                                              //
+                                              creditTotal = creditTotal +
+                                                  (mc * double.parse(usd_cdf));
+
                                           creditTotal = creditTotal +
                                               (mc * double.parse(usd_cdf));
                                           //
@@ -721,6 +823,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         }
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
+                                          //
+                                          r['montant_debit_'] = creditTotal +
+                                              (md * double.parse(usd_eur));
+                                          //
+                                          r['montant_credit_'] = creditTotal +
+                                              (mc * double.parse(usd_eur));
                                           //
                                           creditTotal = creditTotal +
                                               (md * double.parse(usd_eur));
@@ -737,6 +845,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "USD") {
                                           //
+                                          r['montant_debit_'] = creditTotal +
+                                              (md / double.parse(usd_cdf));
+                                          //
+                                          r['montant_credit_'] = creditTotal +
+                                              (mc / double.parse(usd_cdf));
+                                          //
                                           creditTotal = creditTotal +
                                               (md / double.parse(usd_cdf));
                                           debitTotal = debitTotal +
@@ -750,6 +864,9 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "CDF") {
                                           //
+                                          r['montant_credit_'] = mc;
+                                          r['montant_debit_'] = md;
+                                          //
                                           debitTotal = debitTotal + md;
                                           creditTotal = creditTotal + mc;
                                           //
@@ -758,6 +875,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         }
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
+                                          //
+                                          r['montant_debit_'] = debitTotal +
+                                              (md / double.parse(eur_cdf));
+                                          //
+                                          r['montant_credit_'] = debitTotal +
+                                              (mc / double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
                                               (md / double.parse(eur_cdf));
@@ -774,6 +897,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "USD") {
                                           //
+                                          r['montant_debit_'] = debitTotal +
+                                              (md * double.parse(usd_eur));
+                                          //
+                                          r['montant_credit_'] = debitTotal +
+                                              (mc * double.parse(usd_eur));
+                                          //
                                           debitTotal = debitTotal +
                                               (md * double.parse(usd_eur));
                                           creditTotal = creditTotal +
@@ -786,6 +915,12 @@ class JournalFiltre extends GetView<JournalController> {
                                         }
                                         if (Devises[indexDevise.value] ==
                                             "CDF") {
+                                          //
+                                          r['montant_debit_'] = debitTotal +
+                                              (md * double.parse(eur_cdf));
+                                          //
+                                          r['montant_credit_'] = debitTotal +
+                                              (mc * double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
                                               (md * double.parse(eur_cdf));
@@ -800,6 +935,9 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
                                           //
+                                          r['montant_credit_'] = mc;
+                                          r['montant_debit_'] = md;
+                                          //
                                           debitTotal = debitTotal + md;
                                           creditTotal = creditTotal + mc;
                                           //
@@ -807,6 +945,8 @@ class JournalFiltre extends GetView<JournalController> {
                                           tCrebit = tCrebit + mc;
                                         }
                                       }
+                                      //
+                                      jrs.add(r);
                                       //
                                     }
                                   }
@@ -833,7 +973,61 @@ class JournalFiltre extends GetView<JournalController> {
                             });
                           });
                         }
-                        ////
+                        //Algo de tri par date...
+                        List listeTrie = [];
+                        List l0 = dateDebut.split("-");
+                        DateTime d0 = DateTime(int.parse(l0[2]),
+                            int.parse(l0[1]), int.parse(l0[1]));
+                        for (int i = 0; i < resultats.length; i++) {
+                          //Map ss = resultats[i];
+
+                          for (int j = 0; j < resultats.length; j++) {
+                            //
+
+                            Map ii = resultats[i];
+                            Map jj = resultats[j];
+                            if (ii['date_enregistrement'] != null &&
+                                jj['date_enregistrement'] != null) {
+                              List li = ii['date_enregistrement'].split("-");
+                              DateTime d1 = DateTime(int.parse(li[2]),
+                                  int.parse(li[1]), int.parse(li[0]));
+                              //d0.isBefore(d1)
+
+                              List lj = jj['date_enregistrement'].split("-");
+                              DateTime d2 = DateTime(int.parse(lj[2]),
+                                  int.parse(lj[1]), int.parse(lj[0]));
+                              //d1.isBefore(d2)
+                              if (d1.isBefore(d2)) {
+                                //resultats[i] < resultats[j]
+                                Map tmp = resultats[i];
+                                resultats[i] = resultats[j];
+                                print(
+                                    "la valeur de listeDate[$i] = ${resultats[i]}");
+                                resultats[j] = tmp;
+                                print(
+                                    "et la valeur de listeDate[$j] = ${resultats[j]}");
+                              }
+                            }
+                          }
+                        }
+                        print("resultats: $resultats");
+                        //
+                        // for (int i = 0; i < resultats.length; i++) {
+                        //   //
+                        //   Map ii = resultats[i];
+                        //   List li = ii['date_enregistrement'].split("-");
+                        //   DateTime d1 = DateTime(li[2], li[1], li[0]);
+                        //   if (d0.isBefore(d1)) {
+                        //     listeTrie.add(ii);
+                        //     //
+                        //     //
+                        //   } else if (d0.isAfter(d1)) {
+                        //     listeTrie.insert(i, ii);
+                        //   } else {
+                        //     listeTrie.add(ii);
+                        //   }
+                        // }
+                        //
 
                         Get.back();
                         Get.to(
@@ -843,6 +1037,8 @@ class JournalFiltre extends GetView<JournalController> {
                             dateDebut.value,
                             dateFin.value,
                             Devises[indexDevise.value],
+                            journalSelect.isEmpty,
+                            journals[indexJournal.value]['intitule'],
                           ),
                         );
                       },

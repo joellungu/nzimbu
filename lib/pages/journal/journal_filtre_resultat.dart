@@ -20,12 +20,24 @@ class JournalFiltreResultat extends StatelessWidget {
   String dateDepart;
   String dateFin;
   String devise;
+  bool tout;
+  //
+  //
+  String journal;
   //
   var box = GetStorage();
   String titre = "";
+  //
 
   JournalFiltreResultat(
-      this.index, this.resultats, this.dateDepart, this.dateFin, this.devise) {
+    this.index,
+    this.resultats,
+    this.dateDepart,
+    this.dateFin,
+    this.devise,
+    this.tout,
+    this.journal,
+  ) {
     List exercices = box.read("exercices") ?? [];
     //
     //
@@ -38,9 +50,184 @@ class JournalFiltreResultat extends StatelessWidget {
         break;
       }
     }
+    //
+    resultats.forEach((e) {
+      //
+      if (e['date_enregistrement'] != null) {
+        List dates = e['date_enregistrement'].split("-");
+        String d = dates[1];
+        //
+        filtre.add(d);
+      }
+    });
+    //
+    filtre.forEach((d) {
+      //
+
+      //
+      resultats.forEach((r) {
+        //
+        if (r['date_enregistrement'] != null) {
+          List dff = r['date_enregistrement'].split("-");
+          String df = dff[1];
+          // ignore: unrelated_type_equality_checks
+          print("filtre: $d == $df :: ${d == df && (df == "1" || df == "01")}");
+
+          if (d == df && (df == "1" || df == "01")) {
+            //debitTotal//creditTotal//
+            jDebit = jDebit + r['debitTotal'];
+            jCredit = jCredit + r['creditTotal'];
+            //
+            listJ.add(r);
+            //
+          } //
+          if (d == df && (df == "2" || df == "02")) {
+            //
+            fDebit = fDebit + r['debitTotal'];
+            fCredit = fCredit + r['creditTotal'];
+            //
+            listF.add(r);
+          } //
+          if (d == df && (df == "3" || df == "03")) {
+            //
+            mDebit = mDebit + r['debitTotal'];
+            mCredit = mCredit + r['creditTotal'];
+            //
+            listM.add(r);
+          } //
+          if (d == df && (df == "4" || df == "04")) {
+            //
+            aDebit = aDebit + r['debitTotal'];
+            aCredit = aCredit + r['creditTotal'];
+            //
+            listA.add(r);
+          } //
+          if (d == df && (df == "5" || df == "05")) {
+            //
+            maDebit = maDebit + r['debitTotal'];
+            maCredit = maCredit + r['creditTotal'];
+            //
+            listMa.add(r);
+          } //
+          if (d == df && (df == "6" || df == "06")) {
+            //
+            juDebit = juDebit + r['debitTotal'];
+            juCredit = juCredit + r['creditTotal'];
+            //
+            listJu.add(r);
+          } //
+          if (d == df && (df == "7" || df == "07")) {
+            //
+            jiDebit = jiDebit + r['debitTotal'];
+            jiCredit = jiCredit + r['creditTotal'];
+            //
+            listJi.add(r);
+          } //
+          if (d == df && (df == "8" || df == "08")) {
+            //
+            oDebit = oDebit + r['debitTotal'];
+            oCredit = oCredit + r['creditTotal'];
+            //
+            listO.add(r);
+          } //
+          if (d == df && (df == "9" || df == "09")) {
+            //
+            sDebit = sDebit + r['debitTotal'];
+            sCredit = sCredit + r['creditTotal'];
+            //
+            listS.add(r);
+          } //
+          if (d == df && (df == "10" || df == "10")) {
+            //
+            ocDebit = ocDebit + r['debitTotal'];
+            ocCredit = ocCredit + r['creditTotal'];
+            //
+            listOc.add(r);
+          } //
+          if (d == df && (df == "11" || df == "11")) {
+            //
+            nDebit = nDebit + r['debitTotal'];
+            nCredit = nCredit + r['creditTotal'];
+            //
+            listN.add(r);
+          } //
+          if (d == df && (df == "12" || df == "12")) {
+            //
+            dDebit = dDebit + r['debitTotal'];
+            dCredit = dCredit + r['creditTotal'];
+            //
+            listD.add(r);
+          } //
+          // if (d == d && (d == "12" || d == "12")) {
+          //   //
+          //   dDebit = dDebit + r['debitTotal'];
+          //   dCredit = dCredit + r['creditTotal'];
+          //   //
+          //   listJ.add(r);
+          // } //
+        }
+      });
+    });
+    //
+    longueur = resultats.length * 5;
+    print("le total vaut: ${resultats.length} // $longueur");
   }
   //
   double debit = 0;
+  //________________________________
+  //
+  double jDebit = 0;
+  double jCredit = 0;
+  List listJ = [];
+
+  //
+  double fDebit = 0;
+  double fCredit = 0;
+  List listF = [];
+  //
+  double mDebit = 0;
+  double mCredit = 0;
+  List listM = [];
+  //
+  double aDebit = 0;
+  double aCredit = 0;
+  List listA = [];
+  //
+  double maDebit = 0;
+  double maCredit = 0;
+  List listMa = [];
+  //
+  double juDebit = 0;
+  double juCredit = 0;
+  List listJu = [];
+  //
+  double jiDebit = 0;
+  double jiCredit = 0;
+  List listJi = [];
+  //
+  double oDebit = 0;
+  double oCredit = 0;
+  List listO = [];
+  //
+  double sDebit = 0;
+  double sCredit = 0;
+  List listS = [];
+  //
+  double ocDebit = 0;
+  double ocCredit = 0;
+  List listOc = [];
+  //
+  double nDebit = 0;
+  double nCredit = 0;
+  List listN = [];
+  //
+  double dDebit = 0;
+  double dCredit = 0;
+  List listD = [];
+  //____________________________
+  Set filtre = {};
+  //____________________________
+  int longueur = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +244,7 @@ class JournalFiltreResultat extends StatelessWidget {
 
       js.add(r["intitule"]);
     });
-    //
+
     //
     return Scaffold(
       appBar: AppBar(
@@ -66,6 +253,123 @@ class JournalFiltreResultat extends StatelessWidget {
             onPressed: () async {
               //
               final pdf = pw.Document();
+
+              pw.Widget vue = pw.Column(
+                children: [
+                  //List.generate(filtre.toList().length, (index) {
+                  //  List l = filtre.toList();
+                  //String d = l[index];
+                  //
+                  listJ.isNotEmpty
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listJ),
+                            pwGrandTotal(jDebit, jCredit, "JANVIER")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  listF.isNotEmpty
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listF),
+                            pwGrandTotal(fDebit, fCredit, "FEVRIER")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listM.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listM),
+                            pwGrandTotal(mDebit, mCredit, "MARS")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listA.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listA),
+                            pwGrandTotal(aDebit, aCredit, "AVRIL")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listMa.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listMa),
+                            pwGrandTotal(maDebit, maCredit, "MAI")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listJu.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listJu),
+                            pwGrandTotal(juDebit, juCredit, "JUIN")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listJi.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listJi),
+                            pwGrandTotal(jiDebit, jiCredit, "JUILLET")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listO.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listO),
+                            pwGrandTotal(oDebit, oCredit, "AOUT")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listS.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listS),
+                            pwGrandTotal(sDebit, sCredit, "SEPTEMBRE")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listOc.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listOc),
+                            pwGrandTotal(ocDebit, ocCredit, "OCTOBRE")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listN.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listN),
+                            pwGrandTotal(nDebit, nCredit, "NOVEMBRE")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                  (listD.isNotEmpty)
+                      ? pw.Column(
+                          children: [
+                            pwGetVue(listD),
+                            pwGrandTotal(dDebit, dCredit, "DECEMBRE")
+                          ],
+                        )
+                      : pw.Container(),
+                  //
+                ],
+              );
 
               // pdf.addPage(
               //   pw.Page(
@@ -102,6 +406,7 @@ class JournalFiltreResultat extends StatelessWidget {
               //
               pdf.addPage(
                 pw.MultiPage(
+                  maxPages: longueur,
                   margin: const pw.EdgeInsets.all(3),
                   header: (c) {
                     //
@@ -149,7 +454,7 @@ class JournalFiltreResultat extends StatelessWidget {
                         pw.Row(
                           mainAxisAlignment: pw.MainAxisAlignment.start,
                           children: [
-                            pw.Text("Journal: $js"
+                            pw.Text("Journal: ${js ?? 'Tous'}"
                                 .replaceAll("{", "")
                                 .replaceAll("}", ""))
                           ],
@@ -295,320 +600,72 @@ class JournalFiltreResultat extends StatelessWidget {
                     );
                   },
                   build: (c) {
-                    return List.generate(resultats.length, (index) {
-                      Map r = resultats[index];
-                      // r['numero_de_compte']
-                      return pw.Column(
-                        mainAxisAlignment: pw.MainAxisAlignment.start,
-                        children: [
-                          pw.Container(
-                            padding: const pw.EdgeInsets.only(left: 10),
-                            alignment: pw.Alignment.centerLeft,
-                            height: 25,
-                            child: pw.Text("${r['intitule']}"),
-                          ),
-                          pw.Container(
-                            alignment: pw.Alignment.centerLeft,
-                            padding: const pw.EdgeInsets.only(left: 10),
-                            height: 25,
-                            child: pw.Text(
-                                "Date d'écriture: ${r['date_enregistrement']} Piece N° ${r['n_piece']}"),
-                          ),
-                          pw.Column(
-                            children: List.generate(r['jrs'].length, (index) {
-                              //return Text("Salut");
-                              Map s = r['jrs'][index];
-                              //
-                              return pw.Container(
-                                decoration: const pw.BoxDecoration(
-                                  border: pw.Border(
-                                    bottom: pw.BorderSide(
-                                      color: PdfColors.black,
-                                      width: 0.5,
-                                    ),
-                                  ),
-                                ),
-                                height: 25,
-                                width: double.maxFinite,
-                                child: pw.Row(
-                                  mainAxisAlignment:
-                                      pw.MainAxisAlignment.spaceAround,
-                                  children: [
-                                    pw.Expanded(
-                                      flex: 1,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['journale']['type']}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 2,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 1,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['date_echeance'] ?? ""}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 2,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 1,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['compte']['numero_de_compte']}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 2,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 3,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['compte']['intitule']}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 2,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 3,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['libelle_enregistrement']}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 1,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 1,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 2,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 2,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['montant_debit']}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                    pw.Container(
-                                      width: 2,
-                                      color: PdfColors.black,
-                                    ),
-                                    pw.Expanded(
-                                      flex: 2,
-                                      child: pw.Container(
-                                        //color: PdfColors.grey,
-                                        width: double.maxFinite,
-                                        height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['montant_credit']}",
-                                          style: entete1,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }),
-                          ),
-                          pw.Container(
-                            decoration: pw.BoxDecoration(
-                              color: PdfColors.teal,
-                              border: const pw.Border(
-                                bottom: pw.BorderSide(
-                                  color: PdfColors.black,
-                                  width: 0.5,
-                                ),
-                              ),
-                            ),
-                            height: 20,
-                            width: double.maxFinite,
-                            child: pw.Row(
-                              mainAxisAlignment:
-                                  pw.MainAxisAlignment.spaceAround,
-                              children: [
-                                pw.Expanded(
-                                  flex: 1,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "TOTAL",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 2,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 1,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 2,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 1,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 2,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 3,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 2,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 3,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 1,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 1,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 2,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 2,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "${r['debitTotal']}",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                                pw.Container(
-                                  width: 2,
-                                  color: PdfColors.black,
-                                ),
-                                pw.Expanded(
-                                  flex: 2,
-                                  child: pw.Container(
-                                    color: PdfColors.grey,
-                                    width: double.maxFinite,
-                                    height: double.maxFinite,
-                                    child: pw.Text(
-                                      "${r['creditTotal']}",
-                                      style: entete1,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      );
-                    });
+                    return [
+                      //List.generate(filtre.toList().length, (index) {
+                      //  List l = filtre.toList();
+                      //String d = l[index];
+                      //
+                      pwGetVue(listJ),
+                      listJ.isNotEmpty
+                          ? pwGrandTotal(jDebit, jCredit, "JANVIER")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listF),
+                      listF.isNotEmpty
+                          ? pwGrandTotal(fDebit, fCredit, "FEVRIER")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listM),
+                      listM.isNotEmpty
+                          ? pwGrandTotal(mDebit, mCredit, "MARS")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listA),
+                      listA.isNotEmpty
+                          ? pwGrandTotal(aDebit, aCredit, "AVRIL")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listMa),
+                      listMa.isNotEmpty
+                          ? pwGrandTotal(maDebit, maCredit, "MAI")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listJu),
+                      listJu.isNotEmpty
+                          ? pwGrandTotal(juDebit, juCredit, "JUIN")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listJi),
+                      listJi.isNotEmpty
+                          ? pwGrandTotal(jiDebit, jiCredit, "JUILLET")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listO),
+                      listO.isNotEmpty
+                          ? pwGrandTotal(oDebit, oCredit, "AOUT")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listS),
+                      listS.isNotEmpty
+                          ? pwGrandTotal(sDebit, sCredit, "SEPTEMBRE")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listOc),
+                      listOc.isNotEmpty
+                          ? pwGrandTotal(ocDebit, ocCredit, "OCTOBRE")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listN),
+                      listN.isNotEmpty
+                          ? pwGrandTotal(nDebit, nCredit, "NOVEMBRE")
+                          : pw.Container(),
+                      //
+                      pwGetVue(listD),
+                      listD.isNotEmpty
+                          ? pwGrandTotal(dDebit, dCredit, "DECEMBRE")
+                          : pw.Container(),
+                      //
+                    ];
                   },
                 ),
               );
@@ -634,8 +691,9 @@ class JournalFiltreResultat extends StatelessWidget {
            */
               //
               String? outputFile = await FilePicker.platform.saveFile(
-                  dialogTitle: 'Save Your File to desired location',
-                  fileName: "JOURNAUX - $titre.pdf");
+                  dialogTitle: 'Sauvegarder votre fichier',
+                  fileName:
+                      "JOURNAL - ${tout ? 'tous' : journal} - $titre.pdf");
 
               try {
                 //
@@ -743,9 +801,8 @@ class JournalFiltreResultat extends StatelessWidget {
                 List.generate(r['jrs'].length, (index) {
                   Map s = r['jrs'][index];
                   //
-                  double credit = s['montant_credit'].isNotEmpty
-                      ? double.parse(s['montant_credit'])
-                      : 0;
+                  double credit = s['montant_credit_'];
+
                   //
                   sheetObject.appendRow([
                     "${s['journale']['type']}",
@@ -754,8 +811,8 @@ class JournalFiltreResultat extends StatelessWidget {
                     "${s['compte']['intitule']}",
                     "${s['libelle_enregistrement']}",
                     "",
-                    "${s['montant_debit']}",
-                    "${s['montant_credit']}",
+                    "${s['montant_debit_']}",
+                    "${s['montant_credit_']}",
                     "${r['intitule']}",
                     "${r['date_enregistrement']}",
                     "${r['n_piece']}",
@@ -767,7 +824,7 @@ class JournalFiltreResultat extends StatelessWidget {
               }
 
               //
-              excel['SheetName'] = sheetObject;
+              excel['JOURNAUX'] = sheetObject;
 
 // printing cell-type
               print('CellType: ' + cell1.cellType.toString());
@@ -790,7 +847,8 @@ class JournalFiltreResultat extends StatelessWidget {
               //----------------------------------------------------------------
               String? outputFile = await FilePicker.platform.saveFile(
                   dialogTitle: 'Save Your File to desired location',
-                  fileName: "JOURNAUX - $titre.xlsx");
+                  fileName:
+                      "JOURNAUX - ${tout ? 'tous' : journal} - $titre.xlsx");
 
               try {
                 //
@@ -969,178 +1027,179 @@ class JournalFiltreResultat extends StatelessWidget {
          */
           Expanded(
             flex: 1,
-            child: ListView(
-              children: List.generate(resultats.length, (index) {
-                Map r = resultats[index];
-                // r['numero_de_compte']
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+            child: Container(
+              alignment: Alignment.topCenter,
+              //color: Colors.teal,
+              child: SingleChildScrollView(
+                child: Column(
                   children: [
-                    Container(
-                      padding: const EdgeInsets.only(left: 10),
-                      alignment: Alignment.centerLeft,
-                      height: 25,
-                      child: Text("${r['intitule']}"),
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.only(left: 10),
-                      height: 25,
-                      child: Text(
-                          "Date d'écriture: ${r['date_enregistrement']} Piece N° ${r['n_piece']}"),
-                    ),
-                    Column(
-                      children: List.generate(r['jrs'].length, (index) {
-                        //return Text("Salut");
-                        Map s = r['jrs'][index];
-                        //
-                        return Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Colors.black,
-                                width: 0.5,
-                              ),
-                            ),
-                          ),
-                          height: 40,
-                          width: double.maxFinite,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //List.generate(filtre.toList().length, (index) {
+                    //  List l = filtre.toList();
+                    //String d = l[index];
+                    //
+                    listJ.isNotEmpty
+                        ? Column(
                             children: [
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['journale']['type']}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['date_echeance'] ?? ""}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['compte']['numero_de_compte']}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['compte']['intitule']}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['libelle_enregistrement']}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 1,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['montant_debit']}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                color: Colors.black,
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Container(
-                                  color: Colors.grey.shade300,
-                                  width: double.maxFinite,
-                                  height: double.maxFinite,
-                                  child: Text(
-                                    "${s['montant_credit']}",
-                                    style: entete,
-                                  ),
-                                ),
-                              ),
+                              getVue(listJ),
+                              GrandTotal(jDebit, jCredit, "JANVIER")
                             ],
-                          ),
-                        );
-                      }),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.teal.shade300,
-                        border: const Border(
+                          )
+                        : Container(),
+                    //
+                    listF.isNotEmpty
+                        ? Column(
+                            children: [
+                              getVue(listF),
+                              GrandTotal(fDebit, fCredit, "FEVRIER")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listM.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listM),
+                              GrandTotal(mDebit, mCredit, "MARS")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listA.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listA),
+                              GrandTotal(aDebit, aCredit, "AVRIL")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listMa.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listMa),
+                              GrandTotal(maDebit, maCredit, "MAI")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listJu.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listJu),
+                              GrandTotal(juDebit, juCredit, "JUIN")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listJi.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listJi),
+                              GrandTotal(jiDebit, jiCredit, "JUILLET")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listO.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listO),
+                              GrandTotal(oDebit, oCredit, "AOUT")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listS.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listS),
+                              GrandTotal(sDebit, sCredit, "SEPTEMBRE")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listOc.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listOc),
+                              GrandTotal(ocDebit, ocCredit, "OCTOBRE")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listN.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listN),
+                              GrandTotal(nDebit, nCredit, "NOVEMBRE")
+                            ],
+                          )
+                        : Container(),
+                    //
+                    (listD.isNotEmpty)
+                        ? Column(
+                            children: [
+                              getVue(listD),
+                              GrandTotal(dDebit, dCredit, "DECEMBRE")
+                            ],
+                          )
+                        : Container(),
+                    //
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget getVue(List resultats) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: List.generate(
+        resultats.length,
+        (index) {
+          Map r = resultats[index];
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              r['date_enregistrement'] != null
+                  ? Container(
+                      padding: const EdgeInsets.only(left: 10),
+                      alignment: Alignment.centerLeft,
+                      height: 25,
+                      child: Text("${r['intitule'] ?? ''}"),
+                    )
+                  : Container(),
+              r['date_enregistrement'] != null
+                  ? Container(
+                      alignment: Alignment.centerLeft,
+                      padding: const EdgeInsets.only(left: 10),
+                      height: 25,
+                      child: r['date_enregistrement'] != null
+                          ? Text(
+                              "Date d'écriture: ${r['date_enregistrement'] ?? ''} Piece N° ${r['n_piece'] ?? ''}")
+                          : const Text(""),
+                    )
+                  : Container(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: List.generate(
+                  r['jrs'].length,
+                  (index) {
+                    //return Text("Salut");
+                    Map s = r['jrs'][index];
+                    double mnt1 = s['montant_debit_'];
+                    mnt1.toStringAsFixed(2);
+                    //
+                    double mnt2 = s['montant_credit_'];
+                    mnt2.toStringAsFixed(2);
+                    //
+                    return Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
                           bottom: BorderSide(
                             color: Colors.black,
                             width: 0.5,
@@ -1159,7 +1218,7 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "TOTAL",
+                                "${s['journale']['type']}",
                                 style: entete,
                               ),
                             ),
@@ -1175,7 +1234,7 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "",
+                                "${s['date_echeance'] ?? ""}",
                                 style: entete,
                               ),
                             ),
@@ -1191,7 +1250,7 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "",
+                                "${s['compte']['numero_de_compte']}",
                                 style: entete,
                               ),
                             ),
@@ -1207,7 +1266,7 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "",
+                                "${s['compte']['intitule']}",
                                 style: entete,
                               ),
                             ),
@@ -1223,7 +1282,7 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "",
+                                "${s['libelle_enregistrement']}",
                                 style: entete,
                               ),
                             ),
@@ -1255,7 +1314,9 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "${r['debitTotal']}",
+                                s['montant_debit_'] != 0.00
+                                    ? s['montant_debit_'].toStringAsFixed(2)
+                                    : "",
                                 style: entete,
                               ),
                             ),
@@ -1271,23 +1332,747 @@ class JournalFiltreResultat extends StatelessWidget {
                               width: double.maxFinite,
                               height: double.maxFinite,
                               child: Text(
-                                "${r['creditTotal']}",
+                                s['montant_credit_'] != 0.00
+                                    ? s['montant_credit_'].toStringAsFixed(2)
+                                    : "",
                                 style: entete,
                               ),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                );
-              }),
+                    );
+                  },
+                ),
+              ),
+              r['date_enregistrement'] != null
+                  ? Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.green,
+                        border: Border(
+                          bottom: BorderSide(
+                            color: Colors.black,
+                            width: 0.5,
+                          ),
+                        ),
+                      ),
+                      height: 25,
+                      width: double.maxFinite,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "TOTAL",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 1,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                r['debitTotal'] != 0.00
+                                    ? "${r['debitTotal'].toStringAsFixed(2)}"
+                                    : "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                r['creditTotal'] != 0.00
+                                    ? "${r['creditTotal'].toStringAsFixed(2)}"
+                                    : "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : Container(),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget GrandTotal(double debit, double credit, String mois) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.teal,
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black,
+            width: 0.5,
+          ),
+        ),
+      ),
+      height: 25,
+      width: double.maxFinite,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Expanded(
+            flex: 3,
+            child: Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "GRAND TOTAL $mois",
+                style: entete,
+              ),
             ),
-          )
+          ),
+          Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 1,
+            //color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "$debit",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "$credit",
+                style: entete,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
+
+  //_____________________________
+  pw.Container pwGrandTotal(double debit, double credit, String mois) {
+    return pw.Container(
+      decoration: const pw.BoxDecoration(
+        color: PdfColors.teal,
+        border: pw.Border(
+          bottom: pw.BorderSide(
+            color: PdfColors.black,
+            width: 0.5,
+          ),
+        ),
+      ),
+      height: 25,
+      width: double.maxFinite,
+      child: pw.Row(
+        mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+        children: [
+          pw.Expanded(
+            flex: 3,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "GRAND TOTAL $mois",
+                style: entete1,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          pw.Expanded(
+            flex: 3,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "",
+                style: entete1,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          pw.Expanded(
+            flex: 3,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "",
+                style: entete1,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 1,
+            //color: Colors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "",
+                style: entete1,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          pw.Expanded(
+            flex: 2,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "$debit",
+                style: entete1,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            //color: Colors.black,
+          ),
+          pw.Expanded(
+            flex: 2,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "$credit",
+                style: entete1,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  pw.Column pwGetVue(List resultats) {
+    return pw.Column(
+      mainAxisAlignment: pw.MainAxisAlignment.start,
+      children: List.generate(
+        resultats.length,
+        (index) {
+          Map r = resultats[index];
+          return pw.Column(
+            mainAxisAlignment: pw.MainAxisAlignment.start,
+            children: [
+              r['date_enregistrement'] != null
+                  ? pw.Container(
+                      padding: const pw.EdgeInsets.only(left: 10),
+                      alignment: pw.Alignment.centerLeft,
+                      height: 25,
+                      child: pw.Text("${r['intitule'] ?? ''}"),
+                    )
+                  : pw.Container(),
+              r['date_enregistrement'] != null
+                  ? pw.Container(
+                      alignment: pw.Alignment.centerLeft,
+                      padding: const pw.EdgeInsets.only(left: 10),
+                      height: 25,
+                      child: r['date_enregistrement'] != null
+                          ? pw.Text(
+                              "Date d'écriture: ${r['date_enregistrement'] ?? ''} Piece N° ${r['n_piece'] ?? ''}")
+                          : pw.Text(""),
+                    )
+                  : pw.Container(),
+              pw.Column(
+                mainAxisAlignment: pw.MainAxisAlignment.start,
+                children: List.generate(
+                  r['jrs'].length,
+                  (index) {
+                    //return Text("Salut");
+                    Map s = r['jrs'][index];
+                    double mnt1 = s['montant_debit_'];
+                    mnt1.toStringAsFixed(2);
+                    //
+                    double mnt2 = s['montant_credit_'];
+                    mnt2.toStringAsFixed(2);
+                    //
+                    return pw.Container(
+                      decoration: const pw.BoxDecoration(
+                        border: pw.Border(
+                          bottom: pw.BorderSide(
+                            color: PdfColors.black,
+                            width: 0.5,
+                          ),
+                        ),
+                      ),
+                      height: 25,
+                      width: double.maxFinite,
+                      child: pw.Row(
+                        mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+                        children: [
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: PdfColors.grey,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "${s['journale']['type']}",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: PdfColors.grey,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "${s['date_echeance'] ?? ""}",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "${s['compte']['numero_de_compte']}",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 3,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "${s['compte']['intitule']}",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 3,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "${s['libelle_enregistrement']}",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 2,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                s['montant_debit_'] != 0.00
+                                    ? s['montant_debit_'].toStringAsFixed(2)
+                                    : "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            color: PdfColors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 2,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                s['montant_credit_'] != 0.00
+                                    ? s['montant_credit_'].toStringAsFixed(2)
+                                    : "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              r['date_enregistrement'] != null
+                  ? pw.Container(
+                      decoration: const pw.BoxDecoration(
+                        color: PdfColors.green,
+                        border: pw.Border(
+                          bottom: pw.BorderSide(
+                            color: PdfColors.black,
+                            width: 0.5,
+                          ),
+                        ),
+                      ),
+                      height: 25,
+                      width: double.maxFinite,
+                      child: pw.Row(
+                        mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+                        children: [
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "TOTAL",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 3,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 3,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 1,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 1,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 2,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                r['debitTotal'] != 0.00
+                                    ? "${r['debitTotal'].toStringAsFixed(2)}"
+                                    : "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                          pw.Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          pw.Expanded(
+                            flex: 2,
+                            child: pw.Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: pw.Text(
+                                r['creditTotal'] != 0.00
+                                    ? "${r['creditTotal'].toStringAsFixed(2)}"
+                                    : "",
+                                style: entete1,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : pw.Container(),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  //_____________________________
 
   //
   pw.TextStyle entete1 = pw.TextStyle(
@@ -1301,3 +2086,154 @@ class JournalFiltreResultat extends StatelessWidget {
     fontWeight: FontWeight.bold,
   );
 }
+
+/**
+ *   Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.green,
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: Colors.black,
+                                    width: 0.5,
+                                  ),
+                                ),
+                              ),
+                              height: 25,
+                              width: double.maxFinite,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        "TOTAL",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 2,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 2,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 2,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 3,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 2,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 3,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 1,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 2,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        r['debitTotal'] != 0.00
+                                            ? "${r['debitTotal'].toStringAsFixed(2)}"
+                                            : "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 2,
+                                    //color: Colors.black,
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      //color: Colors.grey.shade300,
+                                      width: double.maxFinite,
+                                      height: double.maxFinite,
+                                      child: Text(
+                                        r['creditTotal'] != 0.00
+                                            ? "${r['creditTotal'].toStringAsFixed(2)}"
+                                            : "",
+                                        style: entete,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          
+ */

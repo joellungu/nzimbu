@@ -485,6 +485,15 @@ class Application extends GetView<ExerciceComptableController> {
           )
         ],
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () async {
+      //     //
+      //     var exercice = box.read("exercice") ?? "";
+      //     List balances = [];
+      //     box.write("saisies$exercice", null);
+      //   },
+      //   child: Icon(Icons.class_rounded),
+      // ),
     );
   }
 }

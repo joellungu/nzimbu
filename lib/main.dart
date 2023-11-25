@@ -5,9 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:window_manager/window_manager.dart';
 import 'pages/accueil.dart';
-import 'pages/achats/achats_controller.dart';
 import 'pages/application.dart';
-import 'pages/caisses/caisse_controller.dart';
 import 'pages/comptes/comptes_controller.dart';
 import 'pages/etats/balance/balance_controller.dart';
 import 'pages/journal/journal_controller.dart';
@@ -15,17 +13,11 @@ import 'pages/parametres/code_comptable/code_comptable_controller.dart';
 import 'pages/parametres/exercice_comptable/exercice_comptable_controller.dart';
 import 'pages/saisies/saisie_controller.dart';
 import 'pages/splash.dart';
-import 'pages/ventes/ventes_controller.dart';
 
 List entiteAdmin = [];
 
 void main() async {
   //
-  AchatsController achatsController = Get.put(AchatsController());
-  // //
-  VentesController ventesController = Get.put(VentesController());
-  // //
-  CaisseController caisseController = Get.put(CaisseController());
   //
   //
   CodeComptableController codeComptableController =

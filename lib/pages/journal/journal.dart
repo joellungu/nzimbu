@@ -20,7 +20,7 @@ class Journal extends GetView<JournalController> {
     //
     return Center(
       child: SizedBox(
-        width: 400,
+        width: 700,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -50,6 +50,66 @@ class Journal extends GetView<JournalController> {
                           ),
                         ),
                       ),
+                      Card(
+                        elevation: 0,
+                        child: Container(
+                          height: 40,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  padding: const EdgeInsets.all(2),
+                                  alignment: Alignment.centerLeft,
+                                  color: Colors.grey.shade300,
+                                  //color: Colors.amber,
+                                  child: const Text("Code"),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  padding: const EdgeInsets.all(2),
+                                  alignment: Alignment.centerLeft,
+                                  color: Colors.grey.shade300,
+                                  //color: Colors.red,
+                                  child: const Text("Sigle"),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 5,
+                                child: Container(
+                                  padding: const EdgeInsets.all(2),
+                                  alignment: Alignment.centerLeft,
+                                  color: Colors.grey.shade300,
+                                  //color: Colors.yellow,
+                                  child: const Text("Intitulé"),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  padding: const EdgeInsets.all(2),
+                                  alignment: Alignment.centerLeft,
+                                  color: Colors.grey.shade300,
+                                  child: const Text("Type de journal"),
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  //
+                                  //
+                                },
+                                icon: Icon(
+                                  Icons.check,
+                                  color: Colors.white,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                       Expanded(
                         flex: 1,
                         child: Obx(
@@ -67,12 +127,117 @@ class Journal extends GetView<JournalController> {
                                             .toLowerCase()
                                             .contains(
                                                 text.value.toLowerCase())) {
+                                      return Card(
+                                        elevation: 0,
+                                        child: Container(
+                                          height: 40,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Expanded(
+                                                flex: 1,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                      bottom: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 0.5,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  padding:
+                                                      const EdgeInsets.all(2),
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  //color: Colors.amber,
+                                                  child: Text(
+                                                      "${compte['sg'] ?? ''}"),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 2,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                      bottom: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 0.5,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  padding:
+                                                      const EdgeInsets.all(2),
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  //color: Colors.red,
+                                                  child:
+                                                      Text("${compte['code']}"),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 5,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                      bottom: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 0.5,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  padding:
+                                                      const EdgeInsets.all(2),
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  //color: Colors.yellow,
+                                                  child: Text(
+                                                      "${compte['intitule']}"),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 2,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                      bottom: BorderSide(
+                                                        color: Colors.black,
+                                                        width: 0.5,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  padding:
+                                                      const EdgeInsets.all(2),
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  //color: Colors.blue,
+                                                  child:
+                                                      Text("${compte['type']}"),
+                                                ),
+                                              ),
+                                              IconButton(
+                                                onPressed: () {
+                                                  //
+                                                  comptes.removeAt(index);
+                                                  box.write("comptes", comptes);
+                                                  controller.tousLesClients();
+                                                  //
+                                                },
+                                                icon: Icon(
+                                                  Icons.delete,
+                                                  color: Colors.red.shade700,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
                                       return ListTile(
                                         //isThreeLine: true,
                                         //leading: Icon(Icons.person),
                                         title: Text("${compte['intitule']}"),
                                         subtitle: Text(
-                                          "${compte['type']}",
+                                          "${compte['type']} // ${compte['code']}",
                                           style: const TextStyle(
                                             color: Colors.teal,
                                           ),

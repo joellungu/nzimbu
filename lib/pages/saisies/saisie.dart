@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -44,7 +45,30 @@ class Saisie extends GetView<SaisieController> {
   RxList journals = [].obs;
   RxInt indexJournal = 0.obs;
   //
+  RxString recherche = "".obs;
+  //
   Saisie() {
+    //
+    RawKeyboard.instance.addListener((e) {
+      if (e is RawKeyDownEvent) {
+        if (e.data.isModifierPressed(ModifierKey.controlModifier) &&
+            e.logicalKey == LogicalKeyboardKey.keyS) {
+          //
+          //
+          taux.clear();
+          piece.clear();
+          //
+          libelle2.clear();
+          montantDebit.clear();
+          montantCredit.clear();
+          intitule.clear();
+          reference.clear();
+          //
+          controller.enregistrerSaisie();
+          //
+        }
+      }
+    });
     //
     journals.value = box.read("journaux") ?? [];
     //
@@ -181,6 +205,10 @@ class Saisie extends GetView<SaisieController> {
                                 Expanded(
                                   flex: 1,
                                   child: TextField(
+                                    onChanged: (t) {
+                                      //
+                                      libelle2.text = t;
+                                    },
                                     controller: libelle,
                                     decoration: const InputDecoration.collapsed(
                                         hintText: ''),
@@ -264,9 +292,11 @@ class Saisie extends GetView<SaisieController> {
                                       firstDate: DateTime(2000),
                                       lastDate: DateTime(2050),
                                     ).then((d) {
-                                      //
-                                      dateEnregistrement.value =
-                                          "${d!.day}-${d.month}-${d.year}";
+                                      if (d != null) {
+                                        //
+                                        dateEnregistrement.value =
+                                            "${d!.day}-${d.month}-${d.year}";
+                                      }
                                     });
                                   },
                                   icon: Icon(Icons.calendar_month),
@@ -464,6 +494,8 @@ class Saisie extends GetView<SaisieController> {
                                 controller.openView();
                               },
                               onChanged: (_) {
+                                recherche.value = _;
+                                print("recherche: ${recherche.value}");
                                 controller.openView();
                               },
                               //leading: const Icon(Icons.search),
@@ -486,29 +518,46 @@ class Saisie extends GetView<SaisieController> {
                           },
                           suggestionsBuilder: (BuildContext context,
                               SearchController controller) {
-                            return List<ListTile>.generate(comptes.length,
-                                (int index) {
-                              final String item =
-                                  '${comptes[index]['intitule']} ${comptes[index]['numero_de_compte']}';
-                              return ListTile(
-                                title: Text(item),
-                                onTap: () {
-                                  print("item: ${item}");
-                                  //
-                                  compte = comptes[index];
-                                  codeCompte =
-                                      comptes[index]['numero_de_compte'];
-                                  libCompte = comptes[index]['intitule'];
-                                  intitule.text = libCompte;
-                                  //
-                                  controller.closeView(
-                                      '${comptes[index]['numero_de_compte']}');
-                                  // setState(() {
-                                  //   controller.closeView(item);
-                                  // });
-                                },
-                              );
-                            });
+                            return List<Widget>.generate(
+                              comptes.length,
+                              (int index) {
+                                //
+                                recherche.value = controller.text;
+                                return Obx(
+                                  () {
+                                    print("recherche: ${controller.text}");
+                                    final String item =
+                                        '${comptes[index]['intitule']} ${comptes[index]['numero_de_compte']}';
+                                    if (comptes[index]['numero_de_compte']
+                                            .contains(recherche.value) ||
+                                        comptes[index]['intitule']
+                                            .contains(recherche.value)) {
+                                      return ListTile(
+                                        title: Text(item),
+                                        onTap: () {
+                                          print("item: ${item}");
+                                          //
+                                          compte = comptes[index];
+                                          codeCompte = comptes[index]
+                                              ['numero_de_compte'];
+                                          libCompte =
+                                              comptes[index]['intitule'];
+                                          intitule.text = libCompte;
+                                          //
+                                          controller.closeView(
+                                              '${comptes[index]['numero_de_compte']}');
+                                          // setState(() {
+                                          //   controller.closeView(item);
+                                          // });
+                                        },
+                                      );
+                                    } else {
+                                      return Container();
+                                    }
+                                  },
+                                );
+                              },
+                            );
                           },
                         ),
                       ),
@@ -582,9 +631,11 @@ class Saisie extends GetView<SaisieController> {
                                     firstDate: DateTime(2000),
                                     lastDate: DateTime(2050),
                                   ).then((d) {
-                                    //
-                                    dateEcheance.value =
-                                        "${d!.day}-${d.month}-${d.year}";
+                                    if (d != null) {
+                                      //
+                                      dateEcheance.value =
+                                          "${d!.day}-${d.month}-${d.year}";
+                                    }
                                   });
                                 },
                                 icon: Icon(Icons.calendar_month),
@@ -621,8 +672,12 @@ class Saisie extends GetView<SaisieController> {
                               "n_piece": piece.text,
                               "compte": compte,
                               "libelle_enregistrement": libelle2.text,
-                              "montant_debit": montantDebit.text,
-                              "montant_credit": montantCredit.text,
+                              "montant_debit": montantDebit.text == ""
+                                  ? 0.0
+                                  : double.parse(montantDebit.text),
+                              "montant_credit": montantCredit.text == ""
+                                  ? 0.0
+                                  : double.parse(montantCredit.text),
                               "intitule": libCompte,
                               "date_echeance": dateEcheance.value,
                               "reference": reference.text,
@@ -657,6 +712,15 @@ class Saisie extends GetView<SaisieController> {
           ElevatedButton(
             onPressed: () {
               //
+              taux.clear();
+              piece.clear();
+              //
+              libelle2.clear();
+              montantDebit.clear();
+              montantCredit.clear();
+              intitule.clear();
+              reference.clear();
+              //
               controller.enregistrerSaisie();
               //
             },
@@ -667,13 +731,13 @@ class Saisie extends GetView<SaisieController> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          //
-          print("liste ${controller.listesSaisies}");
-        },
-        child: Icon(Icons.abc),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     //
+      //     print("liste ${controller.listesSaisies}");
+      //   },
+      //   child: Icon(Icons.abc),
+      // ),
     );
   }
 

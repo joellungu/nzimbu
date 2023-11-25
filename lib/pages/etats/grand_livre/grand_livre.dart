@@ -21,9 +21,14 @@ class GrandLivre extends StatelessWidget {
   //
   var box = GetStorage();
   String titre = "";
+  //
+  bool tout;
+  //
+  //
+  String grandLivre;
 
-  GrandLivre(
-      this.index, this.resultats, this.dateDepart, this.dateFin, this.devise) {
+  GrandLivre(this.index, this.resultats, this.dateDepart, this.dateFin,
+      this.devise, this.tout, this.grandLivre) {
     String exe = box.read("exercice") ?? "";
     //
     List exercices = box.read("exercices") ?? [];
@@ -38,13 +43,15 @@ class GrandLivre extends StatelessWidget {
     }
   }
   //
-  double debit = 0;
+  double tdebit = 0;
 
   @override
   Widget build(BuildContext context) {
     //
     //
     Set js = Set();
+    //
+
     //
 
     DateTime d = DateTime.now();
@@ -328,6 +335,10 @@ class GrandLivre extends StatelessWidget {
                   build: (c) {
                     return List.generate(resultats.length, (index) {
                       Map r = resultats[index];
+                      //
+                      double result = 0;
+                      double sDebit = 0;
+                      double sCredit = 0;
                       // r['numero_de_compte']
                       return pw.Column(
                         mainAxisAlignment: pw.MainAxisAlignment.start,
@@ -346,17 +357,29 @@ class GrandLivre extends StatelessWidget {
                               //return Text("Salut");
                               Map s = r['ssis'][index];
                               //
-                              print("balances: $s");
+                              print("balances: HHH $s ");
                               //
 
-                              if (index == 0) {
-                                debit = s['montant_debit'].isNotEmpty
-                                    ? double.parse(s['montant_debit'])
-                                    : 0;
+                              print(
+                                  "balances: HHG ${s["compte"]['classe'].runtimeType} == ${s["compte"]['classe'] == "6"} == '6'");
+                              //
+                              print(
+                                  "mm1: ${s['montant_debit_']} mm2: ${s['montant_credit_']}");
+
+                              //if (index == 0) {
+                              double debit = s['montant_debit_'];
+                              //}
+                              double credit = s['montant_credit_'];
+                              //
+                              sDebit = sDebit + debit;
+                              sCredit = sCredit + credit;
+                              //
+                              if (debit == 0.0) {
+                                result = result - credit;
+                              } else {
+                                //
+                                result = result + debit + credit;
                               }
-                              double credit = s['montant_credit'].isNotEmpty
-                                  ? double.parse(s['montant_credit'])
-                                  : 0;
                               //
                               return pw.Container(
                                 decoration: const pw.BoxDecoration(
@@ -367,7 +390,7 @@ class GrandLivre extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                height: 40,
+                                height: 25,
                                 width: double.maxFinite,
                                 child: pw.Row(
                                   mainAxisAlignment:
@@ -392,11 +415,11 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 2,
                                       child: pw.Container(
-                                        //color: PdfColors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
-                                          "${s['journale']['code']} (${s['journale']['code']})",
+                                          "${s['journale']['code']} ${s['journale']['sg'] != null ? '(${s['journale']['sg']})' : ''}",
                                           style: entete1,
                                         ),
                                       ),
@@ -408,7 +431,7 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 2,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
@@ -424,7 +447,7 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 2,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
@@ -440,7 +463,7 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 5,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
@@ -456,7 +479,7 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 1,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
@@ -472,13 +495,20 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 2,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['montant_debit']}",
-                                          style: entete1,
-                                        ),
+                                        child: s["compte"]['classe'] == "6" ||
+                                                s["compte"]['classe'] == "1" ||
+                                                s["compte"]['classe'] == "2" ||
+                                                s["compte"]['classe'] == "3" ||
+                                                s["compte"]['classe'] == "4" ||
+                                                s["compte"]['classe'] == "5"
+                                            ? pw.Text(
+                                                "${s['montant_debit_'].toStringAsFixed(2)}",
+                                                style: entete1,
+                                              )
+                                            : pw.Text(""),
                                       ),
                                     ),
                                     pw.Container(
@@ -488,7 +518,7 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 1,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
@@ -504,13 +534,20 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 2,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
-                                        child: pw.Text(
-                                          "${s['montant_credit']}",
-                                          style: entete1,
-                                        ),
+                                        child: s["compte"]['classe'] == "7" ||
+                                                s["compte"]['classe'] == "1" ||
+                                                s["compte"]['classe'] == "2" ||
+                                                s["compte"]['classe'] == "3" ||
+                                                s["compte"]['classe'] == "4" ||
+                                                s["compte"]['classe'] == "5"
+                                            ? pw.Text(
+                                                "${s['montant_credit_'].toStringAsFixed(2)}",
+                                                style: entete1,
+                                              )
+                                            : pw.Text(""),
                                       ),
                                     ),
                                     pw.Container(
@@ -520,11 +557,11 @@ class GrandLivre extends StatelessWidget {
                                     pw.Expanded(
                                       flex: 2,
                                       child: pw.Container(
-                                        //color: Colors.grey.shade300,
+                                        //color: PdfColors.grey,
                                         width: double.maxFinite,
                                         height: double.maxFinite,
                                         child: pw.Text(
-                                          "${debit - credit}",
+                                          result.toStringAsFixed(2),
                                           style: entete1,
                                         ),
                                       ),
@@ -533,6 +570,130 @@ class GrandLivre extends StatelessWidget {
                                 ),
                               );
                             }),
+                          ),
+                          pw.Container(
+                            padding: const pw.EdgeInsets.only(left: 0),
+                            alignment: pw.Alignment.centerLeft,
+                            height: 25,
+                            color: PdfColors.blue,
+                            child: pw.Row(
+                              mainAxisAlignment:
+                                  pw.MainAxisAlignment.spaceAround,
+                              children: [
+                                pw.Expanded(
+                                  flex: 3,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      "TOTAL COMPTE ${r['numero_de_compte']}",
+                                      style: entete1,
+                                    ),
+                                  ),
+                                ),
+                                pw.Container(
+                                  width: 2,
+                                  //color: Colors.black,
+                                ),
+                                pw.Expanded(
+                                  flex: 9,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      sDebit == sCredit
+                                          ? 'Compte soldé'
+                                          : sDebit > sCredit
+                                              ? 'Solde compte débiteur'
+                                              : 'Solde compte créditeur',
+                                      style: entete1,
+                                    ),
+                                  ),
+                                ),
+                                pw.Container(
+                                  width: 2,
+                                  //color: Colors.black,
+                                ),
+                                pw.Expanded(
+                                  flex: 1,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      "",
+                                      //style: entete1,
+                                    ),
+                                  ),
+                                ),
+                                pw.Container(
+                                  width: 2,
+                                  //color: Colors.black,
+                                ),
+                                pw.Expanded(
+                                  flex: 2,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      "$sDebit",
+                                      style: entete1,
+                                    ),
+                                  ),
+                                ),
+                                pw.Container(
+                                  width: 2,
+                                  //color: Colors.black,
+                                ),
+                                pw.Expanded(
+                                  flex: 1,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      "",
+                                      //style: entete1,
+                                    ),
+                                  ),
+                                ),
+                                pw.Container(
+                                  width: 2,
+                                  //color: Colors.black,
+                                ),
+                                pw.Expanded(
+                                  flex: 2,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      "$sCredit",
+                                      style: entete1,
+                                    ),
+                                  ),
+                                ),
+                                pw.Container(
+                                  width: 2,
+                                  //color: Colors.black,
+                                ),
+                                pw.Expanded(
+                                  flex: 2,
+                                  child: pw.Container(
+                                    //color: Colors.grey.shade300,
+                                    width: double.maxFinite,
+                                    height: double.maxFinite,
+                                    child: pw.Text(
+                                      "$result",
+                                      style: entete1,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       );
@@ -543,7 +704,8 @@ class GrandLivre extends StatelessWidget {
               //
               String? outputFile = await FilePicker.platform.saveFile(
                   dialogTitle: 'Save Your File to desired location',
-                  fileName: "GRANDLIVRE - $titre.pdf");
+                  fileName:
+                      "GRANDLIVRE ${tout ? 'tous' : grandLivre} - $titre.pdf");
 
               try {
                 //
@@ -648,25 +810,70 @@ class GrandLivre extends StatelessWidget {
               cell12.cellStyle = cellStyle;
               //________________________________________________________________
               for (Map r in resultats) {
+                //
+                double result = 0;
+                double sDebit = 0;
+                double sCredit = 0;
+                //
                 List.generate(r['ssis'].length, (index) {
                   Map s = r['ssis'][index];
+
                   //
-                  double credit = s['montant_credit'].isNotEmpty
-                      ? double.parse(s['montant_credit'])
-                      : 0;
+                  print("balances: HHH $s ");
+                  //
+
+                  print(
+                      "balances: HHG ${s["compte"]['classe'].runtimeType} == ${s["compte"]['classe'] == "6"} == '6'");
+                  //
+                  print(
+                      "mm1: ${s['montant_debit_']} mm2: ${s['montant_credit_']}");
+
+                  //if (index == 0) {
+                  double debit = s['montant_debit_'];
+                  //}
+                  double credit = s['montant_credit_'];
+                  //
+                  sDebit = sDebit + debit;
+                  sCredit = sCredit + credit;
+                  //
+                  if (debit == 0.0) {
+                    result = result - credit;
+                  } else {
+                    //
+                    result = result + debit + credit;
+                  }
+                  //
                   //
                   sheetObject.appendRow([
                     "",
-                    "${s['journale']['code']} (${s['journale']['code']})",
+                    "${s['journale']['code']} ${s['journale']['sg'] != null ? '(${s['journale']['sg']})' : ''}",
                     "${s['date_enregistrement']}",
                     "${s['n_piece']}",
                     "${s['libelle_enregistrement']}",
                     "",
-                    "${s['montant_debit']}",
+                    s["compte"]['classe'] == "6" ||
+                            s["compte"]['classe'] == "1" ||
+                            s["compte"]['classe'] == "2" ||
+                            s["compte"]['classe'] == "3" ||
+                            s["compte"]['classe'] == "4" ||
+                            s["compte"]['classe'] == "5"
+                        ? s['montant_debit_'] != 0.00
+                            ? "${s['montant_debit_']}"
+                            : ""
+                        : "",
                     "",
-                    "${s['montant_credit']}",
+                    s["compte"]['classe'] == "7" ||
+                            s["compte"]['classe'] == "1" ||
+                            s["compte"]['classe'] == "2" ||
+                            s["compte"]['classe'] == "3" ||
+                            s["compte"]['classe'] == "4" ||
+                            s["compte"]['classe'] == "5"
+                        ? s['montant_credit_'] != 0.00
+                            ? "${s['montant_credit_']}"
+                            : ""
+                        : "",
                     "",
-                    "${debit - credit}",
+                    "$result",
                     "${r['intitule']}",
                     "${r['numero_de_compte']}",
                   ]);
@@ -699,7 +906,8 @@ class GrandLivre extends StatelessWidget {
               //----------------------------------------------------------------
               String? outputFile = await FilePicker.platform.saveFile(
                   dialogTitle: 'Save Your File to desired location',
-                  fileName: "GRANDLIVRE - $titre.xlsx");
+                  fileName:
+                      "GRANDLIVRE ${tout ? 'tous' : grandLivre} - $titre.xlsx");
 
               try {
                 //
@@ -906,6 +1114,10 @@ class GrandLivre extends StatelessWidget {
             child: ListView(
               children: List.generate(resultats.length, (index) {
                 Map r = resultats[index];
+                //
+                double result = 0;
+                double sDebit = 0;
+                double sCredit = 0;
                 // r['numero_de_compte']
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -923,19 +1135,33 @@ class GrandLivre extends StatelessWidget {
                     Column(
                       children: List.generate(r['ssis'].length, (index) {
                         //return Text("Salut");
+
                         Map s = r['ssis'][index];
                         //
-                        print("balances: $s");
+                        print("balances: HHH $s ");
                         //
 
-                        if (index == 0) {
-                          debit = s['montant_debit'].isNotEmpty
-                              ? double.parse(s['montant_debit'])
-                              : 0;
+                        print(
+                            "balances: HHG ${s["compte"]['classe'].runtimeType} == ${s["compte"]['classe'] == "6"} == '6'");
+                        //
+                        print(
+                            "mm1: ${s['montant_debit_']} mm2: ${s['montant_credit_']}");
+
+                        //if (index == 0) {
+                        double debit = s['montant_debit_'];
+                        //}
+                        double credit = s['montant_credit_'];
+                        //
+                        sDebit = sDebit + debit;
+                        sCredit = sCredit + credit;
+
+                        //
+                        if (debit == 0.0) {
+                          result = result - credit;
+                        } else {
+                          //
+                          result = result + debit + credit;
                         }
-                        double credit = s['montant_credit'].isNotEmpty
-                            ? double.parse(s['montant_credit'])
-                            : 0;
                         //
                         return Container(
                           decoration: const BoxDecoration(
@@ -974,7 +1200,7 @@ class GrandLivre extends StatelessWidget {
                                   width: double.maxFinite,
                                   height: double.maxFinite,
                                   child: Text(
-                                    "${s['journale']['code']} (${s['journale']['code']})",
+                                    "${s['journale']['code']} ${s['journale']['sg'] != null ? '(${s['journale']['sg']})' : ''}",
                                     style: entete,
                                   ),
                                 ),
@@ -1053,10 +1279,19 @@ class GrandLivre extends StatelessWidget {
                                   color: Colors.grey.shade300,
                                   width: double.maxFinite,
                                   height: double.maxFinite,
-                                  child: Text(
-                                    "${s['montant_debit']}",
-                                    style: entete,
-                                  ),
+                                  child: s["compte"]['classe'] == "6" ||
+                                          s["compte"]['classe'] == "1" ||
+                                          s["compte"]['classe'] == "2" ||
+                                          s["compte"]['classe'] == "3" ||
+                                          s["compte"]['classe'] == "4" ||
+                                          s["compte"]['classe'] == "5"
+                                      ? Text(
+                                          debit != 0.0
+                                              ? "${s['montant_debit_'].toStringAsFixed(2)}"
+                                              : "",
+                                          style: entete,
+                                        )
+                                      : Text(""),
                                 ),
                               ),
                               Container(
@@ -1085,10 +1320,19 @@ class GrandLivre extends StatelessWidget {
                                   color: Colors.grey.shade300,
                                   width: double.maxFinite,
                                   height: double.maxFinite,
-                                  child: Text(
-                                    "${s['montant_credit']}",
-                                    style: entete,
-                                  ),
+                                  child: s["compte"]['classe'] == "7" ||
+                                          s["compte"]['classe'] == "1" ||
+                                          s["compte"]['classe'] == "2" ||
+                                          s["compte"]['classe'] == "3" ||
+                                          s["compte"]['classe'] == "4" ||
+                                          s["compte"]['classe'] == "5"
+                                      ? Text(
+                                          credit != 0.0
+                                              ? "${s['montant_credit_'].toStringAsFixed(2)}"
+                                              : "",
+                                          style: entete,
+                                        )
+                                      : Text(""),
                                 ),
                               ),
                               Container(
@@ -1102,7 +1346,7 @@ class GrandLivre extends StatelessWidget {
                                   width: double.maxFinite,
                                   height: double.maxFinite,
                                   child: Text(
-                                    "${debit - credit}",
+                                    result.toStringAsFixed(2),
                                     style: entete,
                                   ),
                                 ),
@@ -1110,8 +1354,130 @@ class GrandLivre extends StatelessWidget {
                             ],
                           ),
                         );
+                        // if (s['montant_credit_'].isNotEmpty) {
+                        // } else {
+                        //   return Container();
+                        // }
                       }),
                     ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 0),
+                      alignment: Alignment.centerLeft,
+                      height: 25,
+                      color: Colors.blue,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "TOTAL COMPTE ${r['numero_de_compte']}",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 9,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                sDebit == sCredit
+                                    ? 'Compte soldé'
+                                    : sDebit > sCredit
+                                        ? 'Solde compte débiteur'
+                                        : 'Solde compte créditeur',
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text("$sDebit"),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text("$sCredit"),
+                            ),
+                          ),
+                          Container(
+                            width: 2,
+                            //color: Colors.black,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              //color: Colors.grey.shade300,
+                              width: double.maxFinite,
+                              height: double.maxFinite,
+                              child: Text(
+                                "$result",
+                                style: entete,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
                     // Container(
                     //   decoration: const BoxDecoration(
                     //     color: Colors.teal,
@@ -1265,7 +1631,7 @@ class GrandLivre extends StatelessWidget {
   }
 
   //
-  TextStyle entete = TextStyle(
+  TextStyle entete = const TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.normal,
   );

@@ -31,7 +31,7 @@ class BalanceFiltre extends GetView<BalanceController> {
   Set cmps = Set();
   RxInt indexCompte = 0.obs;
   //
-  RxList Selections = ["Particulier", "Tout"].obs;
+  RxList Selections = ["Tout"].obs;
   RxInt indexSelect = 0.obs;
   //
   //
@@ -116,38 +116,38 @@ class BalanceFiltre extends GetView<BalanceController> {
                         const SizedBox(
                           width: 10,
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: DropdownButtonHideUnderline(
-                            child: Obx(
-                              () => comptes.isNotEmpty
-                                  ? DropdownButton(
-                                      value: indexCompte.value,
-                                      onChanged: (c) {
-                                        //
-                                        indexCompte.value = c as int;
-                                        //compteDefaut = codes[c as int]['code'];
-                                        if (Selections[indexSelect.value] !=
-                                            "Tout") {
-                                          if (cmps.add(
-                                              "${comptes[c]['intitule']}")) {
-                                            compteSelect.add(comptes[c]);
-                                          }
-                                        }
-                                      },
-                                      items: List.generate(comptes.length,
-                                          (index) {
-                                        return DropdownMenuItem(
-                                          value: index,
-                                          child: Text(
-                                              "${comptes[index]['intitule']} (${comptes[index]['numero_de_compte']})"),
-                                        );
-                                      }),
-                                    )
-                                  : Container(),
-                            ),
-                          ),
-                        ),
+                        // Expanded(
+                        //   flex: 1,
+                        //   child: DropdownButtonHideUnderline(
+                        //     child: Obx(
+                        //       () => comptes.isNotEmpty
+                        //           ? DropdownButton(
+                        //               value: indexCompte.value,
+                        //               onChanged: (c) {
+                        //                 //
+                        //                 indexCompte.value = c as int;
+                        //                 //compteDefaut = codes[c as int]['code'];
+                        //                 if (Selections[indexSelect.value] !=
+                        //                     "Tout") {
+                        //                   if (cmps.add(
+                        //                       "${comptes[c]['intitule']}")) {
+                        //                     compteSelect.add(comptes[c]);
+                        //                   }
+                        //                 }
+                        //               },
+                        //               items: List.generate(comptes.length,
+                        //                   (index) {
+                        //                 return DropdownMenuItem(
+                        //                   value: index,
+                        //                   child: Text(
+                        //                       "${comptes[index]['intitule']} (${comptes[index]['numero_de_compte']})"),
+                        //                 );
+                        //               }),
+                        //             )
+                        //           : Container(),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -284,9 +284,11 @@ class BalanceFiltre extends GetView<BalanceController> {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2050),
                               ).then((d) {
-                                //
-                                dateDebut.value =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  dateDebut.value =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                             },
                             icon: Icon(Icons.calendar_month),
@@ -327,9 +329,11 @@ class BalanceFiltre extends GetView<BalanceController> {
                                 firstDate: DateTime(2000),
                                 lastDate: DateTime(2050),
                               ).then((d) {
-                                //
-                                dateFin.value =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  dateFin.value =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                             },
                             icon: Icon(Icons.calendar_month),
@@ -409,29 +413,42 @@ class BalanceFiltre extends GetView<BalanceController> {
                                 //
                                 if (r['compte']["numero_de_compte"] ==
                                     s["numero_de_compte"]) {
-                                  double md = r['montant_debit'].isNotEmpty
-                                      ? double.parse(r['montant_debit'])
-                                      : 0;
+                                  double md = r['montant_debit'];
+
                                   //___________________
-                                  double mc = r['montant_credit'].isNotEmpty
-                                      ? double.parse(r['montant_credit'])
-                                      : 0;
+                                  double mc = r['montant_credit'];
+
                                   //___________________
                                   //"USD", "CDF", "EUR"
                                   if (r['devise'] == "USD") {
                                     //USD
                                     if (Devises[indexDevise.value] == "USD") {
                                       //
+                                      r['montant_debit_'] = md;
+                                      r['montant_credit_'] = mc;
+                                      //
                                       tDebit = tDebit + md;
                                       tCrebit = tCrebit + mc;
                                     }
                                     if (Devises[indexDevise.value] == "CDF") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(usd_cdf));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(usd_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(usd_cdf));
                                       tCrebit = tCrebit +
                                           (mc * double.parse(usd_cdf));
                                     }
                                     if (Devises[indexDevise.value] == "EUR") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(usd_eur));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(usd_eur));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(usd_eur));
                                       tCrebit = tCrebit +
@@ -440,6 +457,12 @@ class BalanceFiltre extends GetView<BalanceController> {
                                   }
                                   if (r['devise'] == "CDF") {
                                     if (Devises[indexDevise.value] == "USD") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md / double.parse(usd_cdf));
+                                      r['montant_credit_'] =
+                                          (mc / double.parse(usd_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md / double.parse(usd_cdf));
                                       tCrebit = tCrebit +
@@ -447,10 +470,20 @@ class BalanceFiltre extends GetView<BalanceController> {
                                     }
                                     if (Devises[indexDevise.value] == "CDF") {
                                       //
+                                      r['montant_debit_'] = md;
+                                      r['montant_credit_'] = mc;
+                                      //
+                                      //
                                       tDebit = tDebit + md;
                                       tCrebit = tCrebit + mc;
                                     }
                                     if (Devises[indexDevise.value] == "EUR") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md / double.parse(eur_cdf));
+                                      r['montant_credit_'] =
+                                          (mc / double.parse(eur_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md / double.parse(eur_cdf));
                                       tCrebit = tCrebit +
@@ -459,18 +492,34 @@ class BalanceFiltre extends GetView<BalanceController> {
                                   }
                                   if (r['devise'] == "EUR") {
                                     if (Devises[indexDevise.value] == "USD") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(usd_eur));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(usd_eur));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(usd_eur));
                                       tCrebit = tCrebit +
                                           (mc * double.parse(usd_eur));
                                     }
                                     if (Devises[indexDevise.value] == "CDF") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(eur_cdf));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(eur_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(eur_cdf));
                                       tCrebit = tCrebit +
                                           (mc * double.parse(eur_cdf));
                                     }
                                     if (Devises[indexDevise.value] == "EUR") {
+                                      //
+                                      r['montant_debit_'] = md;
+                                      r['montant_credit_'] = mc;
+                                      //
                                       //
                                       tDebit = tDebit + md;
                                       tCrebit = tCrebit + mc;
@@ -548,29 +597,42 @@ class BalanceFiltre extends GetView<BalanceController> {
                                 //
                                 if (r['compte']["numero_de_compte"] ==
                                     s["numero_de_compte"]) {
-                                  double md = r['montant_debit'].isNotEmpty
-                                      ? double.parse(r['montant_debit'])
-                                      : 0;
                                   //___________________
-                                  double mc = r['montant_credit'].isNotEmpty
-                                      ? double.parse(r['montant_credit'])
-                                      : 0;
+                                  double md = r['montant_debit'];
+                                  //___________________
+                                  double mc = r['montant_credit'];
+
                                   //___________________
                                   //"USD", "CDF", "EUR"
                                   if (r['devise'] == "USD") {
                                     //USD
                                     if (Devises[indexDevise.value] == "USD") {
                                       //
+                                      r['montant_debit_'] = md;
+                                      r['montant_credit_'] = mc;
+                                      //
                                       tDebit = tDebit + md;
                                       tCrebit = tCrebit + mc;
                                     }
                                     if (Devises[indexDevise.value] == "CDF") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(usd_cdf));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(usd_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(usd_cdf));
                                       tCrebit = tCrebit +
                                           (mc * double.parse(usd_cdf));
                                     }
                                     if (Devises[indexDevise.value] == "EUR") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(usd_eur));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(usd_eur));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(usd_eur));
                                       tCrebit = tCrebit +
@@ -579,6 +641,12 @@ class BalanceFiltre extends GetView<BalanceController> {
                                   }
                                   if (r['devise'] == "CDF") {
                                     if (Devises[indexDevise.value] == "USD") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md / double.parse(usd_cdf));
+                                      r['montant_credit_'] =
+                                          (mc / double.parse(usd_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md / double.parse(usd_cdf));
                                       tCrebit = tCrebit +
@@ -586,10 +654,20 @@ class BalanceFiltre extends GetView<BalanceController> {
                                     }
                                     if (Devises[indexDevise.value] == "CDF") {
                                       //
+                                      r['montant_debit_'] = md;
+                                      r['montant_credit_'] = mc;
+                                      //
+                                      //
                                       tDebit = tDebit + md;
                                       tCrebit = tCrebit + mc;
                                     }
                                     if (Devises[indexDevise.value] == "EUR") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md / double.parse(eur_cdf));
+                                      r['montant_credit_'] =
+                                          (mc / double.parse(eur_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md / double.parse(eur_cdf));
                                       tCrebit = tCrebit +
@@ -598,18 +676,34 @@ class BalanceFiltre extends GetView<BalanceController> {
                                   }
                                   if (r['devise'] == "EUR") {
                                     if (Devises[indexDevise.value] == "USD") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(usd_eur));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(usd_eur));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(usd_eur));
                                       tCrebit = tCrebit +
                                           (mc * double.parse(usd_eur));
                                     }
                                     if (Devises[indexDevise.value] == "CDF") {
+                                      //
+                                      r['montant_debit_'] =
+                                          (md * double.parse(eur_cdf));
+                                      r['montant_credit_'] =
+                                          (mc * double.parse(eur_cdf));
+                                      //
                                       tDebit =
                                           tDebit + (md * double.parse(eur_cdf));
                                       tCrebit = tCrebit +
                                           (mc * double.parse(eur_cdf));
                                     }
                                     if (Devises[indexDevise.value] == "EUR") {
+                                      //
+                                      r['montant_debit_'] = md;
+                                      r['montant_credit_'] = mc;
+                                      //
                                       //
                                       tDebit = tDebit + md;
                                       tCrebit = tCrebit + mc;
@@ -641,6 +735,8 @@ class BalanceFiltre extends GetView<BalanceController> {
                             dateDebut.value,
                             dateFin.value,
                             Devises[indexDevise.value],
+                            true,
+                            "",
                           ),
                         ); //
                         print("balances: $balances");

@@ -203,21 +203,23 @@ class _BilanCaisse extends State<BilanCaisse> {
                                       firstDate: DateTime(2020),
                                       lastDate: DateTime(2030))
                                   .then((d) {
-                                //
-                                totalCredit.value = 0.0;
-                                totalDebit.value = 0.0;
-                                //
-                                exercice = box.read("exercice") ?? "";
-                                journalsCaisses.value = box.read(
-                                        "${widget.choixCaisse['nom']}$exercice") ??
-                                    [];
-                                //
-                                ddepart.value.text =
-                                    "${d!.day}-${d.month}-${d.year}";
-                                //
+                                if (d != null) {
+                                  //
+                                  totalCredit.value = 0.0;
+                                  totalDebit.value = 0.0;
+                                  //
+                                  exercice = box.read("exercice") ?? "";
+                                  journalsCaisses.value = box.read(
+                                          "${widget.choixCaisse['nom']}$exercice") ??
+                                      [];
+                                  //
+                                  ddepart.value.text =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                  //
 
-                                print("depart_${ddepart.value.text}__");
-                                //
+                                  print("depart_${ddepart.value.text}__");
+                                  //
+                                }
                               });
                               //recherche.value = "${d.day}-${d.month}-${d.year}";
                               //
@@ -274,17 +276,19 @@ class _BilanCaisse extends State<BilanCaisse> {
                                       firstDate: DateTime(2020),
                                       lastDate: DateTime(2030))
                                   .then((d) {
-                                //
-                                totalCredit.value = 0.0;
-                                totalDebit.value = 0.0;
-                                //
-                                exercice = box.read("exercice") ?? "";
-                                journalsCaisses.value = box.read(
-                                        "${widget.choixCaisse['nom']}$exercice") ??
-                                    [];
-                                //
-                                dfin.value.text =
-                                    "${d!.day}-${d.month}-${d.year}";
+                                if (d != null) {
+                                  //
+                                  totalCredit.value = 0.0;
+                                  totalDebit.value = 0.0;
+                                  //
+                                  exercice = box.read("exercice") ?? "";
+                                  journalsCaisses.value = box.read(
+                                          "${widget.choixCaisse['nom']}$exercice") ??
+                                      [];
+                                  //
+                                  dfin.value.text =
+                                      "${d!.day}-${d.month}-${d.year}";
+                                }
                               });
                               //recherche.value = "${d.day}-${d.month}-${d.year}";
                               //
