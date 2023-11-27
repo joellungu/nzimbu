@@ -19,6 +19,8 @@ class Saisie extends GetView<SaisieController> {
   List comptes = [];
   String codeCompte = "";
   String libCompte = "";
+  //
+  final ScrollController _firstController = ScrollController();
 
   //
   TextEditingController libelle = TextEditingController();
@@ -697,14 +699,28 @@ class Saisie extends GetView<SaisieController> {
                       ),
                     ],
                   ),
-                  controller.obx((state) {
-                    List ll = state!;
-                    return Column(
-                      children: List.generate(ll.length, (index) {
-                        return NouveauSaisie(ll[index], index);
-                      }),
-                    );
-                  })
+                  Expanded(
+                    flex: 1,
+                    child: controller.obx(
+                      (state) {
+                        List ll = state!;
+                        return Scrollbar(
+                          thumbVisibility: true,
+                          showTrackOnHover: true,
+                          //isAlwaysShown: true,
+                          thickness: 10,
+                          //scrollbarOrientation: ScrollbarOrientation.top,
+                          controller: _firstController,
+                          child: ListView(
+                            controller: _firstController,
+                            children: List.generate(ll.length, (index) {
+                              return NouveauSaisie(ll[index], index);
+                            }),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
