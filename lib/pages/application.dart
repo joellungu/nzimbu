@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:nzimbu/pages/accueil.dart';
-
+import 'package:uuid/uuid.dart';
 import 'dart:io' as io;
 import 'parametres/exercice_comptable/exercice_comptable_controller.dart';
 
 class Application extends GetView<ExerciceComptableController> {
+  //
+  var uuid = Uuid();
   //
   var box = GetStorage();
   //
@@ -23,12 +24,14 @@ class Application extends GetView<ExerciceComptableController> {
     List exercices = box.read("exercices") ?? [];
     //
     controller.tousLesCodes();
-    //
+    //"id": uuid.v4(),
     //exe.value = box.read("exercice") ?? "";
     //List exercices = box.read("exercices") ?? [];
     //
+
     //
     String exe = box.read("exercice") ?? "";
+    setIdaTous(exe);
     //annee
     //label
     for (var element in exercices) {
@@ -37,9 +40,20 @@ class Application extends GetView<ExerciceComptableController> {
         break;
       }
     }
-
+    //
     //
   }
+  //
+  setIdaTous(String exercice) async {
+    List saisies = box.read("saisies$exercice") ?? [];
+    saisies.forEach((element) {
+      element['id'] = uuid.v4();
+    });
+    //
+    box.write("saisies$exercice", saisies);
+  }
+
+  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:nzimbu/utils/langi.dart';
 import 'bilan/bilan.dart';
+import 'changement/changement.dart';
 import 'compte_resultat.dart/compte_resultat.dart';
 import 'comptes/comptes.dart';
 import 'comptes/comptes_controller.dart';
@@ -54,6 +55,8 @@ class _Accueil extends State<Accueil> with TickerProviderStateMixin {
     //{"titre": "Op. diverses", "icon": "PhCalendarCheckFill"},
     {"titre": "Etats", "icon": "JamNewspaperF"},
 
+    {"titre": "Changement", "icon": "BasilBookOpenSolid"},
+
     {"titre": "Parametres", "icon": "PhUserDuotone"},
     // {"titre": "Etat", "icon": "BasilBookOpenSolid"},
     // {"titre": "Clients & Fournisseurs", "icon": "IonPeople"},
@@ -100,10 +103,14 @@ class _Accueil extends State<Accueil> with TickerProviderStateMixin {
                     } else if (choix.value == 3) {
                       vue.value = Etats();
                     } else if (choix.value == 4) {
-                      vue.value = Parametres();
+                      vue.value = Changement();
                     } else if (choix.value == 5) {
-                      vue.value = Bilan();
+                      vue.value = Parametres();
+                    } else if (choix.value == 6) {
+                      //Changementelse if (choix.value == 5) {
+                      vue.value = Parametres();
                     } else {
+                      //
                       vue.value = Parametres();
                     }
                   },

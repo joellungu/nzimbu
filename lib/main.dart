@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:window_manager/window_manager.dart';
 import 'pages/accueil.dart';
 import 'pages/application.dart';
+import 'pages/changement/changement_controller.dart';
 import 'pages/comptes/comptes_controller.dart';
 import 'pages/etats/balance/balance_controller.dart';
 import 'pages/journal/journal_controller.dart';
@@ -19,6 +20,7 @@ List entiteAdmin = [];
 void main() async {
   //
   //
+  ChangementController changementController = Get.put(ChangementController());
   //
   CodeComptableController codeComptableController =
       Get.put(CodeComptableController());

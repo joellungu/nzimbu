@@ -7,11 +7,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:uuid/uuid.dart';
 
 import 'nouveau_saisie.dart';
 import 'saisie_controller.dart';
 
 class Saisie extends GetView<SaisieController> {
+  var uuid = Uuid();
   //
   var box = GetStorage();
   //
@@ -665,6 +667,7 @@ class Saisie extends GetView<SaisieController> {
                             var exe = box.read("exercice") ?? "";
                             //
                             controller.listesSaisies.add({
+                              "id": uuid.v4(),
                               "exercice": "$exe",
                               "devise": Devises[indexDevise.value],
                               "journale": journals[indexJournal.value],
