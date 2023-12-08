@@ -447,7 +447,7 @@ class JournalFiltre extends GetView<JournalController> {
                                   if ((dateDebut.value ==
                                               r['date_enregistrement'] ||
                                           dateTimeSaisie
-                                              .isAfter(dateTimeDepart)) &&
+                                              .isAfter(dateTimeDepart)) ||
                                       (dateFin.value ==
                                               r['date_enregistrement'] ||
                                           dateTimeSaisie
@@ -502,7 +502,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           //
                                           r['montant_debit_'] =
                                               //
-                                              creditTotal = creditTotal +
+                                              debitTotal = debitTotal +
                                                   (md * double.parse(usd_cdf));
                                           //
                                           r['montant_credit_'] =
@@ -521,7 +521,7 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
                                           //
-                                          r['montant_debit_'] = creditTotal +
+                                          r['montant_debit_'] = debitTotal +
                                               (md * double.parse(usd_eur));
                                           //
                                           r['montant_credit_'] = creditTotal +
@@ -576,7 +576,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           r['montant_debit_'] = debitTotal +
                                               (md / double.parse(eur_cdf));
                                           //
-                                          r['montant_credit_'] = debitTotal +
+                                          r['montant_credit_'] = creditTotal +
                                               (mc / double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
@@ -597,7 +597,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           r['montant_debit_'] = debitTotal +
                                               (md * double.parse(usd_eur));
                                           //
-                                          r['montant_credit_'] = debitTotal +
+                                          r['montant_credit_'] = creditTotal +
                                               (mc * double.parse(usd_eur));
                                           //
                                           debitTotal = debitTotal +
@@ -616,7 +616,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           r['montant_debit_'] = debitTotal +
                                               (md * double.parse(eur_cdf));
                                           //
-                                          r['montant_credit_'] = debitTotal +
+                                          r['montant_credit_'] = creditTotal +
                                               (mc * double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
@@ -747,10 +747,28 @@ class JournalFiltre extends GetView<JournalController> {
                                       int.parse(dateFinText[1]),
                                       int.parse(dateFinText[2]));
                                   //
+                                  print(
+                                      "resultats : ${(dateDebut.value == r['date_enregistrement'] || dateTimeSaisie.isAfter(dateTimeDepart)) && (dateFin.value == r['date_enregistrement'] || dateTimeSaisie.isBefore(dateTimeFin))}");
+                                  //
+                                  print(
+                                      "resultats : ${(dateDebut.value == r['date_enregistrement'])}");
+                                  //
+                                  print(
+                                      "resultats : ${(dateTimeSaisie.isAfter(dateTimeDepart))}");
+                                  //
+                                  print(
+                                      "resultats : ${(dateDebut.value)} == ${r['date_enregistrement']} || ${dateTimeSaisie.isAfter(dateTimeDepart)}");
+                                  //
+                                  print(
+                                      "resultats : _____________________________________________________________");
+                                  //
+                                  print(
+                                      "resultats : ${(dateFin.value == r['date_enregistrement'] || dateTimeSaisie.isBefore(dateTimeFin))}");
+                                  //
                                   if ((dateDebut.value ==
                                               r['date_enregistrement'] ||
                                           dateTimeSaisie
-                                              .isAfter(dateTimeDepart)) &&
+                                              .isAfter(dateTimeDepart)) ||
                                       (dateFin.value ==
                                               r['date_enregistrement'] ||
                                           dateTimeSaisie
@@ -805,7 +823,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           //
                                           r['montant_debit_'] =
                                               //
-                                              creditTotal = creditTotal +
+                                              debitTotal = debitTotal +
                                                   (md * double.parse(usd_cdf));
                                           //
                                           r['montant_credit_'] =
@@ -824,7 +842,7 @@ class JournalFiltre extends GetView<JournalController> {
                                         if (Devises[indexDevise.value] ==
                                             "EUR") {
                                           //
-                                          r['montant_debit_'] = creditTotal +
+                                          r['montant_debit_'] = debitTotal +
                                               (md * double.parse(usd_eur));
                                           //
                                           r['montant_credit_'] = creditTotal +
@@ -879,7 +897,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           r['montant_debit_'] = debitTotal +
                                               (md / double.parse(eur_cdf));
                                           //
-                                          r['montant_credit_'] = debitTotal +
+                                          r['montant_credit_'] = creditTotal +
                                               (mc / double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
@@ -900,7 +918,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           r['montant_debit_'] = debitTotal +
                                               (md * double.parse(usd_eur));
                                           //
-                                          r['montant_credit_'] = debitTotal +
+                                          r['montant_credit_'] = creditTotal +
                                               (mc * double.parse(usd_eur));
                                           //
                                           debitTotal = debitTotal +
@@ -919,7 +937,7 @@ class JournalFiltre extends GetView<JournalController> {
                                           r['montant_debit_'] = debitTotal +
                                               (md * double.parse(eur_cdf));
                                           //
-                                          r['montant_credit_'] = debitTotal +
+                                          r['montant_credit_'] = creditTotal +
                                               (mc * double.parse(eur_cdf));
                                           //
                                           debitTotal = debitTotal +
@@ -973,6 +991,9 @@ class JournalFiltre extends GetView<JournalController> {
                             });
                           });
                         }
+                        //
+                        //print(
+                        //  "resultats : ${dateDebut.value} : ${dateFin.value} $resultats");
                         //Algo de tri par date...
                         List listeTrie = [];
                         List l0 = dateDebut.split("-");

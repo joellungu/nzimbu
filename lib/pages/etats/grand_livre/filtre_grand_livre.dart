@@ -449,7 +449,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                     if ((dateDebut.value ==
                                                 r['date_enregistrement'] ||
                                             dateTimeSaisie
-                                                .isAfter(dateTimeDepart)) &&
+                                                .isAfter(dateTimeDepart)) ||
                                         (dateFin.value ==
                                                 r['date_enregistrement'] ||
                                             dateTimeSaisie
@@ -504,7 +504,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             //
                                             r['montant_debit_'] =
                                                 //
-                                                creditTotal = creditTotal +
+                                                debitTotal = debitTotal +
                                                     (md *
                                                         double.parse(usd_cdf));
                                             //
@@ -525,7 +525,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                           if (Devises[indexDevise.value] ==
                                               "EUR") {
                                             //
-                                            r['montant_debit_'] = creditTotal +
+                                            r['montant_debit_'] = debitTotal +
                                                 (md * double.parse(usd_eur));
                                             //
                                             r['montant_credit_'] = creditTotal +
@@ -580,7 +580,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             r['montant_debit_'] = debitTotal +
                                                 (md / double.parse(eur_cdf));
                                             //
-                                            r['montant_credit_'] = debitTotal +
+                                            r['montant_credit_'] = creditTotal +
                                                 (mc / double.parse(eur_cdf));
                                             //
                                             debitTotal = debitTotal +
@@ -601,7 +601,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             r['montant_debit_'] = debitTotal +
                                                 (md * double.parse(usd_eur));
                                             //
-                                            r['montant_credit_'] = debitTotal +
+                                            r['montant_credit_'] = creditTotal +
                                                 (mc * double.parse(usd_eur));
                                             //
                                             debitTotal = debitTotal +
@@ -620,7 +620,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             r['montant_debit_'] = debitTotal +
                                                 (md * double.parse(eur_cdf));
                                             //
-                                            r['montant_credit_'] = debitTotal +
+                                            r['montant_credit_'] = creditTotal +
                                                 (mc * double.parse(eur_cdf));
                                             //
                                             debitTotal = debitTotal +
@@ -749,7 +749,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                     if ((dateDebut.value ==
                                                 r['date_enregistrement'] ||
                                             dateTimeSaisie
-                                                .isAfter(dateTimeDepart)) &&
+                                                .isAfter(dateTimeDepart)) ||
                                         (dateFin.value ==
                                                 r['date_enregistrement'] ||
                                             dateTimeSaisie
@@ -809,7 +809,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             //
                                             r['montant_debit_'] =
                                                 //
-                                                creditTotal = creditTotal +
+                                                debitTotal = debitTotal +
                                                     (md *
                                                         double.parse(usd_cdf));
                                             //
@@ -830,7 +830,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                           if (Devises[indexDevise.value] ==
                                               "EUR") {
                                             //
-                                            r['montant_debit_'] = creditTotal +
+                                            r['montant_debit_'] = debitTotal +
                                                 (md * double.parse(usd_eur));
                                             //
                                             r['montant_credit_'] = creditTotal +
@@ -885,7 +885,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             r['montant_debit_'] = debitTotal +
                                                 (md / double.parse(eur_cdf));
                                             //
-                                            r['montant_credit_'] = debitTotal +
+                                            r['montant_credit_'] = creditTotal +
                                                 (mc / double.parse(eur_cdf));
                                             //
                                             debitTotal = debitTotal +
@@ -906,7 +906,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             r['montant_debit_'] = debitTotal +
                                                 (md * double.parse(usd_eur));
                                             //
-                                            r['montant_credit_'] = debitTotal +
+                                            r['montant_credit_'] = creditTotal +
                                                 (mc * double.parse(usd_eur));
                                             //
                                             debitTotal = debitTotal +
@@ -925,7 +925,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             r['montant_debit_'] = debitTotal +
                                                 (md * double.parse(eur_cdf));
                                             //
-                                            r['montant_credit_'] = debitTotal +
+                                            r['montant_credit_'] = creditTotal +
                                                 (mc * double.parse(eur_cdf));
                                             //
                                             debitTotal = debitTotal +
