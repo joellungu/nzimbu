@@ -467,12 +467,9 @@ class JournalFiltre extends GetView<JournalController> {
                                       jr['code'] = s['code'];
                                       jr['type'] = s['type'];
                                       //
-                                      String usd_cdf =
-                                          box.read("usd_cdf") ?? "0.0";
-                                      String usd_eur =
-                                          box.read("usd_eur") ?? "0.0";
-                                      String eur_cdf =
-                                          box.read("eur_cdf") ?? "0.0";
+                                      String usd_cdf = r["usd_cdf"] ?? "0.0";
+                                      String usd_eur = r["usd_eur"] ?? "0.0";
+                                      String eur_cdf = r["eur_cdf"] ?? "0.0";
                                       //
                                       jr['n_piece'] = infosCellule[0];
                                       jr['date_enregistrement'] =
@@ -788,12 +785,9 @@ class JournalFiltre extends GetView<JournalController> {
                                       jr['code'] = s['code'];
                                       jr['type'] = s['type'];
                                       //
-                                      String usd_cdf =
-                                          box.read("usd_cdf") ?? "0.0";
-                                      String usd_eur =
-                                          box.read("usd_eur") ?? "0.0";
-                                      String eur_cdf =
-                                          box.read("eur_cdf") ?? "0.0";
+                                      String usd_cdf = r["usd_cdf"] ?? "0.0";
+                                      String usd_eur = r["usd_eur"] ?? "0.0";
+                                      String eur_cdf = r["eur_cdf"] ?? "0.0";
                                       //
                                       jr['n_piece'] = infosCellule[0];
                                       jr['date_enregistrement'] =

@@ -15,7 +15,7 @@ class ChangementController extends GetxController with StateMixin<List> {
     var exercice = box.read("exercice") ?? "";
     //
     List saisies = box.read("saisies$exercice") ?? [];
-    //print("saisies: $saisies");
+    print("saisies: $saisies");
     //
     change(saisies, status: RxStatus.success());
   }
@@ -66,6 +66,25 @@ class ChangementController extends GetxController with StateMixin<List> {
         element = data;
       }
     });
+
+    //
+    Get.back();
+    //
+    box.write("saisies$exercice", saisies);
+    change(saisies, status: RxStatus.success());
+  }
+
+  //
+  supprimer(String id) {
+    var exercice = box.read("exercice") ?? "";
+    //
+    List saisies = box.read("saisies$exercice") ?? [];
+    for (int i = 0; i < saisies.length; i++) {
+      if (id == saisies[i]['id']) {
+        //
+        saisies.removeAt(i);
+      }
+    }
 
     //
     Get.back();

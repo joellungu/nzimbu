@@ -666,8 +666,15 @@ class Saisie extends GetView<SaisieController> {
                           onTap: () {
                             var exe = box.read("exercice") ?? "";
                             //
+                            String usd_cdf = box.read("usd_cdf") ?? "0.0";
+                            String usd_eur = box.read("usd_eur") ?? "0.0";
+                            String eur_cdf = box.read("eur_cdf") ?? "0.0";
+                            //
                             controller.listesSaisies.add({
                               "id": uuid.v4(),
+                              "usd_cdf": usd_cdf,
+                              "usd_eur": usd_eur,
+                              "eur_cdf": eur_cdf,
                               "exercice": "$exe",
                               "devise": Devises[indexDevise.value],
                               "journale": journals[indexJournal.value],

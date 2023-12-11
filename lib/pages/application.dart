@@ -32,6 +32,7 @@ class Application extends GetView<ExerciceComptableController> {
     //
     String exe = box.read("exercice") ?? "";
     setIdaTous(exe);
+    setTauxUneFois(exe);
     //annee
     //label
     for (var element in exercices) {
@@ -52,6 +53,34 @@ class Application extends GetView<ExerciceComptableController> {
     //
     box.write("saisies$exercice", saisies);
   }
+
+  //
+  setTauxUneFois(String exercice) async {
+    List saisies = box.read("saisies$exercice") ?? [];
+    bool v = box.read("setTauxUneFois") ?? true;
+    //
+    String usd_cdf = box.read("usd_cdf") ?? "0.0";
+    String usd_eur = box.read("usd_eur") ?? "0.0";
+    String eur_cdf = box.read("eur_cdf") ?? "0.0";
+    //
+    if (v) {
+      saisies.forEach((element) {
+        element['usd_cdf'] = usd_cdf;
+        element['usd_eur'] = usd_eur;
+        element['eur_cdf'] = eur_cdf;
+      });
+      //
+      box.write("saisies$exercice", saisies);
+    }
+    //
+    box.write("setTauxUneFois", false);
+    //
+  }
+  /**
+   * usd_cdf.text = e['usd_cdf'] ?? 0.0;
+    usd_eur.text = e['usd_eur'] ?? 0.0;
+    eur_cdf.text = e['eur_cdf'] ?? 0.0;
+   */
 
   //
   @override

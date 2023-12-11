@@ -402,9 +402,9 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                 //  "balances: èè ${infosCellule[1]} ${infosCellule[1] == s["numero_de_compte"]} == ${s["numero_de_compte"]}");
                                 if (infosCellule == s['intitule']) {
                                   //
-                                  String usd_cdf = box.read("usd_cdf") ?? "0.0";
-                                  String usd_eur = box.read("usd_eur") ?? "0.0";
-                                  String eur_cdf = box.read("eur_cdf") ?? "0.0";
+                                  //String usd_cdf = box.read("usd_cdf") ?? "0.0";
+                                  //String usd_eur = box.read("usd_eur") ?? "0.0";
+                                  //String eur_cdf = box.read("eur_cdf") ?? "0.0";
                                   //
                                   //List infosCellule = "$piece".split("|");
                                   //jr['intitule'] = infosCellule[2];
@@ -454,6 +454,10 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                                 r['date_enregistrement'] ||
                                             dateTimeSaisie
                                                 .isBefore(dateTimeFin))) {
+                                      //
+                                      String usd_cdf = r["usd_cdf"] ?? "0.0";
+                                      String usd_eur = r["usd_eur"] ?? "0.0";
+                                      String eur_cdf = r["eur_cdf"] ?? "0.0";
                                       //
 //
                                       double debitTotal = 0;
@@ -702,9 +706,9 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                 //  "balances: èè ${infosCellule[1]} ${infosCellule[1] == s["numero_de_compte"]} == ${s["numero_de_compte"]}");
                                 if (infosCellule == s['intitule']) {
                                   //
-                                  String usd_cdf = box.read("usd_cdf") ?? "0.0";
-                                  String usd_eur = box.read("usd_eur") ?? "0.0";
-                                  String eur_cdf = box.read("eur_cdf") ?? "0.0";
+                                  //String usd_cdf = box.read("usd_cdf") ?? "0.0";
+                                  //String usd_eur = box.read("usd_eur") ?? "0.0";
+                                  //String eur_cdf = box.read("eur_cdf") ?? "0.0";
                                   //
                                   //List infosCellule = "$piece".split("|");
                                   //jr['intitule'] = infosCellule[2];
@@ -758,6 +762,10 @@ class FiltreGrandLivre extends GetView<BalanceController> {
 //
                                       double debitTotal = 0;
                                       double creditTotal = 0;
+                                      //
+                                      String usd_cdf = r["usd_cdf"] ?? "0.0";
+                                      String usd_eur = r["usd_eur"] ?? "0.0";
+                                      String eur_cdf = r["eur_cdf"] ?? "0.0";
                                       //infosCellule
 
                                       jr['intitule'] = infosCellule;
@@ -976,6 +984,39 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                 }
                               });
                             });
+                          }
+                          //
+                          for (int i = 0; i < balances.length; i++) {
+                            //Map ss = resultats[i];
+
+                            for (int j = 0; j < balances.length; j++) {
+                              //
+
+                              Map ii = balances[i];
+                              Map jj = balances[j];
+                              if (ii['date_enregistrement'] != null &&
+                                  jj['date_enregistrement'] != null) {
+                                List li = ii['date_enregistrement'].split("-");
+                                DateTime d1 = DateTime(int.parse(li[2]),
+                                    int.parse(li[1]), int.parse(li[0]));
+                                //d0.isBefore(d1)
+
+                                List lj = jj['date_enregistrement'].split("-");
+                                DateTime d2 = DateTime(int.parse(lj[2]),
+                                    int.parse(lj[1]), int.parse(lj[0]));
+                                //d1.isBefore(d2)
+                                if (d1.isBefore(d2)) {
+                                  //resultats[i] < resultats[j]
+                                  Map tmp = balances[i];
+                                  balances[i] = balances[j];
+                                  print(
+                                      "la valeur de listeDate[$i] = ${balances[i]}");
+                                  balances[j] = tmp;
+                                  print(
+                                      "et la valeur de listeDate[$j] = ${balances[j]}");
+                                }
+                              }
+                            }
                           }
                           //
                           Get.back();

@@ -44,17 +44,17 @@ class Changement extends GetView<ChangementController> {
     //
     dateEnregistrement.value = "${d.day}-${d.month}-${d.year}";
     //
-    RawKeyboard.instance.addListener((e) {
-      if (e is RawKeyDownEvent) {
-        if (e.data.isModifierPressed(ModifierKey.controlModifier) &&
-            e.logicalKey == LogicalKeyboardKey.keyS) {
-          //
-          //
-          controller.enregistrerSaisie();
-          //
-        }
-      }
-    });
+    // RawKeyboard.instance.addListener((e) {
+    //   if (e is RawKeyDownEvent) {
+    //     if (e.data.isModifierPressed(ModifierKey.controlModifier) &&
+    //         e.logicalKey == LogicalKeyboardKey.keyS) {
+    //       //
+    //       //
+    //       controller.enregistrerSaisie();
+    //       //
+    //     }
+    //   }
+    // });
     //
     journals.value = box.read("journaux") ?? [];
     //

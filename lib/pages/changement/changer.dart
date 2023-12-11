@@ -21,6 +21,10 @@ class Changer extends StatelessWidget {
     dateEcheance.value = "${e['date_echeance']}";
     dateEnregistrement.value = "${e['date_enregistrement']}";
     recherche.value = "${e['numero_de_compte']}";
+    //-------------------
+    usd_cdf.text = e['usd_cdf'] ?? 0.0;
+    usd_eur.text = e['usd_eur'] ?? 0.0;
+    eur_cdf.text = e['eur_cdf'] ?? 0.0;
 
     //libelle.text = e[''];
     //
@@ -50,6 +54,9 @@ class Changer extends StatelessWidget {
   //
   TextEditingController libelle = TextEditingController();
   TextEditingController taux = TextEditingController();
+  TextEditingController usd_cdf = TextEditingController();
+  TextEditingController usd_eur = TextEditingController();
+  TextEditingController eur_cdf = TextEditingController();
   RxString dateEnregistrement = "".obs;
   RxString dateEcheance = "".obs;
   TextEditingController piece = TextEditingController();
@@ -78,7 +85,7 @@ class Changer extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return Container(
-      height: 170,
+      height: 230,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -584,6 +591,9 @@ class Changer extends StatelessWidget {
                       ),
                     );
                     //
+                    e['usd_cdf'] = usd_cdf.text;
+                    e['usd_eur'] = usd_eur.text;
+                    e['eur_cdf'] = eur_cdf.text;
                     //e['devise'] = "";
                     e['journale'] = journals[indexJournal.value];
                     e['libelle_enregistrement'] = libelle2.text;
@@ -610,6 +620,143 @@ class Changer extends StatelessWidget {
                   ),
                 ),
               ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                width: 20,
+              ),
+              Expanded(
+                flex: 3,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: Text("USD", style: entete),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(3),
+                        child: TextField(
+                          controller: usd_cdf,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: Text("CDF", style: entete),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              Expanded(
+                flex: 3,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: Text("USD", style: entete),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(3),
+                        child: TextField(
+                          controller: usd_eur,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: Text("EUR", style: entete),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              Expanded(
+                flex: 3,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: Text("EUR", style: entete),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(3),
+                        child: TextField(
+                          controller: eur_cdf,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: Text("CDF", style: entete),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 50,
+              ),
+              IconButton(
+                  onPressed: () {
+                    //Expanded(flex: 3, child:
+                    changementController.supprimer(e['id']);
+                  },
+                  icon: Icon(
+                    Icons.delete,
+                    color: Colors.red.shade700,
+                  )),
             ],
           ),
         ],

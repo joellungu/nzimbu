@@ -32,6 +32,7 @@ class Balance extends StatelessWidget {
       this.devise, this.tout, this.balance) {
     List exercices = box.read("exercices") ?? [];
     //
+    print("Balances: $resultats");
     //
     String exe = box.read("exercice") ?? "";
     //annee
@@ -57,7 +58,7 @@ class Balance extends StatelessWidget {
       //print("le resultats: $r");
       //List l = r["jrs"];
 
-      js.add(r["intitule"]);
+      js.add("Balances: $r");
     });
     //
     return Scaffold(
@@ -336,7 +337,7 @@ class Balance extends StatelessWidget {
                                 width: double.maxFinite,
                                 height: double.maxFinite,
                                 child: pw.Text(
-                                  "",
+                                  "${r['anouveau']}",
                                   style: entete1,
                                 ),
                               ),
@@ -752,125 +753,364 @@ class Balance extends StatelessWidget {
               children: List.generate(resultats.length, (index) {
                 Map r = resultats[index];
                 // r['numero_de_compte']
-                return SizedBox(
-                  height: 30,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "${r['numero_de_compte']}",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "${r['intitule']}",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 2,
-                        color: Colors.black,
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          color: Colors.grey.shade300,
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          child: Text(
-                            "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
-                            style: entete,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
+                if (r['niveau'] == 2) {
+                  return Container(
+                    height: 40,
+                    color: Colors.green,
+                  );
+                } else if (r['niveau'] == 3) {
+                  return Container(
+                    height: 40,
+                    color: Colors.teal,
+                  );
+                }
+                return getDetails(r);
               }),
             ),
           )
+        ],
+      ),
+    );
+  }
+
+  Widget getDetails(Map r) {
+    return SizedBox(
+      height: 30,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['numero_de_compte']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['intitule']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['anouveau']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                style: entete,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //
+  Widget getTotalSousClass(Map r, String classe) {
+    return SizedBox(
+      height: 30,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['numero_de_compte']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['intitule']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['anouveau']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                style: entete,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //
+  Widget getTotalClasse(Map r, String classe) {
+    return SizedBox(
+      height: 30,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Expanded(
+            flex: 4,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "TOTAL CLASS $classe",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['anouveau']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                style: entete,
+              ),
+            ),
+          ),
+          Container(
+            width: 2,
+            color: Colors.black,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                style: entete,
+              ),
+            ),
+          ),
         ],
       ),
     );
