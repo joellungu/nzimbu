@@ -285,6 +285,22 @@ class Balance extends StatelessWidget {
                     return List.generate(resultats.length, (index) {
                       Map r = resultats[index];
                       // r['numero_de_compte']
+                      if (r['niveau'] == 3) {
+                        return pw.Container(
+                          height: 30,
+                          //color: Colors.teal,
+                          child: _getTotalClasse(r, r['classe']),
+                        );
+                      }
+                      if (r['niveau'] == 2) {
+                        print("niveau::: ${r['niveau']}");
+                        return pw.Container(
+                          height: 30,
+                          //color: Colors.green,
+                          child: _getTotalSousClass(r, r['sous-classe']),
+                        );
+                      }
+                      //
                       return pw.Container(
                         decoration: const pw.BoxDecoration(
                           border: pw.Border(
@@ -401,7 +417,7 @@ class Balance extends StatelessWidget {
                                 width: double.maxFinite,
                                 height: double.maxFinite,
                                 child: pw.Text(
-                                  "${r['solde_periode']}",
+                                  "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
                                   style: entete1,
                                 ),
                               ),
@@ -763,7 +779,7 @@ class Balance extends StatelessWidget {
                 if (r['niveau'] == 2) {
                   print("niveau::: ${r['niveau']}");
                   return Container(
-                    height: 40,
+                    height: 30,
                     color: Colors.green,
                     child: getTotalSousClass(r, r['sous-classe']),
                   );
@@ -1100,6 +1116,219 @@ class Balance extends StatelessWidget {
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
+                "${r['solde_total'] == 0.00 ? '' : r['anouveau'] + r['solde_periode']}",
+                //style: entete,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //__________________________________________________
+  //
+  pw.Widget _getTotalSousClass(Map r, String classe) {
+    print("solde_total: ${r['solde_total']}");
+    return pw.Container(
+      height: 30,
+      color: PdfColors.teal,
+      child: pw.Row(
+        mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+        children: [
+          pw.Expanded(
+            flex: 4,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "SOUS CLASSE ${r['sous-classe']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['anouveau'] == 0.00 ? '' : r['anouveau']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 2,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['solde_total'] == 0.00 ? '' : r['anouveau'] + r['solde_periode']}",
+                //style: entete,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //
+  pw.Widget _getTotalClasse(Map r, String classe) {
+    print("solde_total: ${r['solde_total']}");
+    return pw.Container(
+      height: 30,
+      color: PdfColors.teal,
+      child: pw.Row(
+        mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+        children: [
+          pw.Expanded(
+            flex: 4,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "TOTAL CLASSE ${r['classe']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['anouveau'] == 0.00 ? '' : r['anouveau']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 2,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
+                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
+                //style: entete,
+              ),
+            ),
+          ),
+          pw.Container(
+            width: 2,
+            color: PdfColors.black,
+          ),
+          pw.Expanded(
+            flex: 1,
+            child: pw.Container(
+              //color: Colors.grey.shade300,
+              width: double.maxFinite,
+              height: double.maxFinite,
+              child: pw.Text(
                 "${r['solde_total'] == 0.00 ? '' : r['anouveau'] + r['solde_periode']}",
                 //style: entete,
               ),
