@@ -624,182 +624,97 @@ class BalanceFiltre extends GetView<BalanceController> {
                           element["anouveau"] = anouveau;
                         }
                         //
-                        Map st10 = getTotalSousClasse(balances, [
-                          "10",
-                          "11",
-                          "12",
-                          "13",
-                          "14",
-                          "15",
-                          "16",
-                          "17",
-                          "18",
-                          "19"
-                        ]);
+                        List resultat1 = [];
                         //
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st10["debit"], //
-                          "credit": st10["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t1 = getTotalCalsse(balances, "1");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t1["debit"],
-                          "credit": t1["credit"],
-                        });
-                        //______________________________________________________
-                        Map st20 = getTotalSousClasse(balances, [
-                          "20",
-                          "21",
-                          "22",
-                          "23",
-                          "24",
-                          "25",
-                          "26",
-                          "27",
-                          "28",
-                          "29"
-                        ]);
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st20["debit"],
-                          "credit": st20["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t2 = getTotalCalsse(balances, "2");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t2["debit"],
-                          "credit": t2["credit"],
-                        });
-                        //______________________________________________________
-                        Map st30 = getTotalSousClasse(balances, [
-                          "30",
-                          "31",
-                          "32",
-                          "33",
-                          "34",
-                          "35",
-                          "36",
-                          "37",
-                          "38",
-                          "39"
-                        ]);
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st30["debit"],
-                          "credit": st30["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t3 = getTotalCalsse(balances, "3");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t3["debit"],
-                          "credit": t3["credit"],
-                        });
-                        //______________________________________________________
-                        Map st40 = getTotalSousClasse(balances, [
-                          "40",
-                          "41",
-                          "42",
-                          "43",
-                          "44",
-                          "45",
-                          "46",
-                          "47",
-                          "48",
-                          "49"
-                        ]);
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st40["debit"],
-                          "credit": st40["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t4 = getTotalCalsse(balances, "4");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t4["debit"],
-                          "credit": t4["credit"],
-                        });
-                        //______________________________________________________
-                        Map st50 = getTotalSousClasse(balances, [
-                          "50",
-                          "51",
-                          "52",
-                          "53",
-                          "54",
-                          "55",
-                          "56",
-                          "57",
-                          "58",
-                          "59"
-                        ]);
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st50["debit"],
-                          "credit": st50["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t5 = getTotalCalsse(balances, "5");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t5["debit"],
-                          "credit": t5["credit"],
-                        });
-                        //______________________________________________________
-                        Map st60 = getTotalSousClasse(balances, [
-                          "60",
-                          "61",
-                          "62",
-                          "63",
-                          "64",
-                          "65",
-                          "66",
-                          "67",
-                          "68",
-                          "69"
-                        ]);
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st60["debit"],
-                          "credit": st60["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t6 = getTotalCalsse(balances, "6");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t6["debit"],
-                          "credit": t6["credit"],
-                        });
-                        //______________________________________________________
-                        Map st70 = getTotalSousClasse(balances, [
-                          "70",
-                          "71",
-                          "72",
-                          "73",
-                          "74",
-                          "75",
-                          "76",
-                          "77",
-                          "78",
-                          "79"
-                        ]);
-                        balances.add({
-                          "niveau": 2,
-                          "debit": st70["debit"],
-                          "credit": st70["credit"],
-                          "interval": st10["interval"],
-                        });
-                        Map t7 = getTotalCalsse(balances, "7");
-                        balances.add({
-                          "niveau": 3,
-                          "debit": t7["debit"],
-                          "credit": t7["credit"],
-                        });
-                        //______________________________________________________
+                        Set listeSousClasses = getListSousClasse(balances);
+                        //
+                        for (var element in listeSousClasses) {
+                          //
+                          double sousClasseTotalCredit = 0;
+                          double sousClasseTotalDebit = 0;
+                          double anouveauX = 0;
+                          double solde_periode = 0;
+                          String classe = "";
+                          //
+                          for (var x in balances) {
+                            //
+                            if (element == x["sous-classe"]) {
+                              sousClasseTotalDebit =
+                                  sousClasseTotalDebit + x['cumul_debit'];
+                              sousClasseTotalCredit =
+                                  sousClasseTotalCredit + x['cumul_credit'];
+                              anouveauX = anouveauX + x["anouveau"];
+                              solde_periode =
+                                  solde_periode + x["solde_periode"];
+                              //
+                              classe = x['classe'];
+                              //
+                              resultat1.add(x);
+                            }
+                          }
+                          //double solde_periode = tDebit - tCrebit;
+                          //
+                          //
+                          resultat1.add({
+                            "niveau": 2,
+                            "sous-classe": element,
+                            "classe": classe,
+                            "cumul_debit": sousClasseTotalDebit,
+                            "cumul_credit": sousClasseTotalCredit,
+                            "solde_periode":
+                                sousClasseTotalDebit - sousClasseTotalCredit,
+                            "solde_total": anouveauX == 0.00
+                                ? solde_periode
+                                : anouveauX - solde_periode,
+                            "anouveau": anouveauX
+                          });
+                        }
+                        //
+                        List resultat2 = [];
+                        //
+                        Set listeClasses = getListClasse(balances);
+                        //
+                        for (var element in listeClasses) {
+                          //
+                          double classeTotalCredit = 0;
+                          double classeTotalDebit = 0;
+                          double anouveauX = 0;
+                          double solde_periode = 0;
+                          //
+                          for (var x in resultat1) {
+                            //
+                            if (element == x["classe"]) {
+                              if (x['niveau'] != 2) {
+                                classeTotalDebit =
+                                    classeTotalDebit + x['cumul_debit'];
+                                classeTotalCredit =
+                                    classeTotalCredit + x['cumul_credit'];
+                                anouveauX = anouveauX + x["anouveau"];
+                                solde_periode =
+                                    solde_periode + x["solde_periode"];
+                                //
+                              }
+                              //
+                              resultat2.add(x);
+                            }
+                            //
+                            //resultat2.add(x);
+                          }
+                          //
+                          resultat2.add({
+                            "niveau": 3,
+                            "classe": element,
+                            "cumul_debit": classeTotalDebit,
+                            "cumul_credit": classeTotalCredit,
+                            "solde_periode":
+                                classeTotalDebit - classeTotalCredit,
+                            "solde_total": anouveauX == 0.00
+                                ? solde_periode
+                                : anouveauX - solde_periode,
+                            "anouveau": anouveauX
+                          });
+                          //
+                        }
 
                         /*
                         for (var element in balances) {
@@ -834,7 +749,7 @@ class BalanceFiltre extends GetView<BalanceController> {
                         Get.to(
                           Balance(
                             0,
-                            balances,
+                            resultat2,
                             dateDebut.value,
                             dateFin.value,
                             Devises[indexDevise.value],
@@ -858,6 +773,27 @@ class BalanceFiltre extends GetView<BalanceController> {
         ),
       ),
     );
+  }
+
+  Set getListSousClasse(List balance) {
+    Set listSousClasse = Set();
+    balance.forEach((element) {
+      //
+      listSousClasse.add(element['sous-classe']);
+    });
+
+    return listSousClasse;
+  }
+
+  //
+  Set getListClasse(List balance) {
+    Set listSousClasse = Set();
+    balance.forEach((element) {
+      //
+      listSousClasse.add(element['classe']);
+    });
+
+    return listSousClasse;
   }
 
   //
@@ -966,7 +902,7 @@ class BalanceFiltre extends GetView<BalanceController> {
       }
     }
 
-    return tDebit + tCrebit;
+    return tDebit - tCrebit;
   }
 
   Map getTotalSousClasse(List balance, List intervalle) {

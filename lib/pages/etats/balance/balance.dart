@@ -753,17 +753,22 @@ class Balance extends StatelessWidget {
               children: List.generate(resultats.length, (index) {
                 Map r = resultats[index];
                 // r['numero_de_compte']
+                if (r['niveau'] == 3) {
+                  return Container(
+                    height: 30,
+                    color: Colors.teal,
+                    child: getTotalClasse(r, r['classe']),
+                  );
+                }
                 if (r['niveau'] == 2) {
+                  print("niveau::: ${r['niveau']}");
                   return Container(
                     height: 40,
                     color: Colors.green,
-                  );
-                } else if (r['niveau'] == 3) {
-                  return Container(
-                    height: 40,
-                    color: Colors.teal,
+                    child: getTotalSousClass(r, r['sous-classe']),
                   );
                 }
+                //
                 return getDetails(r);
               }),
             ),
@@ -818,7 +823,7 @@ class Balance extends StatelessWidget {
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "${r['anouveau']}",
+                "${r['anouveau'] == 0.00 ? '' : r['anouveau']}",
                 style: entete,
               ),
             ),
@@ -855,6 +860,7 @@ class Balance extends StatelessWidget {
               ),
             ),
           ),
+          //r['anouveau']
           Container(
             width: 2,
             color: Colors.black,
@@ -894,36 +900,22 @@ class Balance extends StatelessWidget {
 
   //
   Widget getTotalSousClass(Map r, String classe) {
-    return SizedBox(
+    print("solde_total: ${r['solde_total']}");
+    return Container(
       height: 30,
+      color: Colors.green,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
-            flex: 1,
+            flex: 4,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "${r['numero_de_compte']}",
-                style: entete,
-              ),
-            ),
-          ),
-          Container(
-            width: 2,
-            color: Colors.black,
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              color: Colors.grey.shade300,
-              width: double.maxFinite,
-              height: double.maxFinite,
-              child: Text(
-                "${r['intitule']}",
-                style: entete,
+                "SOUS CLASSE ${r['sous-classe']}",
+                //style: entete,
               ),
             ),
           ),
@@ -934,12 +926,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "${r['anouveau']}",
-                style: entete,
+                "${r['anouveau'] == 0.00 ? '' : r['anouveau']}",
+                //style: entete,
               ),
             ),
           ),
@@ -950,12 +942,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
                 "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
-                style: entete,
+                //style: entete,
               ),
             ),
           ),
@@ -966,12 +958,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
                 "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
-                style: entete,
+                //style: entete,
               ),
             ),
           ),
@@ -982,12 +974,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
                 "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
-                style: entete,
+                //style: entete,
               ),
             ),
           ),
@@ -998,12 +990,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
-                style: entete,
+                "${r['solde_total'] == 0.00 ? '' : r['anouveau'] + r['solde_periode']}",
+                //style: entete,
               ),
             ),
           ),
@@ -1014,20 +1006,22 @@ class Balance extends StatelessWidget {
 
   //
   Widget getTotalClasse(Map r, String classe) {
-    return SizedBox(
+    print("solde_total: ${r['solde_total']}");
+    return Container(
       height: 30,
+      color: Colors.teal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
             flex: 4,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "TOTAL CLASS $classe",
-                style: entete,
+                "TOTAL CLASSE ${r['classe']}",
+                //style: entete,
               ),
             ),
           ),
@@ -1038,12 +1032,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "${r['anouveau']}",
-                style: entete,
+                "${r['anouveau'] == 0.00 ? '' : r['anouveau']}",
+                //style: entete,
               ),
             ),
           ),
@@ -1054,12 +1048,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
                 "${r['cumul_debit'] == 0.00 ? '' : r['cumul_debit']}",
-                style: entete,
+                //style: entete,
               ),
             ),
           ),
@@ -1070,12 +1064,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
                 "${r['cumul_credit'] == 0.00 ? '' : r['cumul_credit']}",
-                style: entete,
+                //style: entete,
               ),
             ),
           ),
@@ -1086,12 +1080,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
                 "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
-                style: entete,
+                //style: entete,
               ),
             ),
           ),
@@ -1102,12 +1096,12 @@ class Balance extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey.shade300,
+              //color: Colors.grey.shade300,
               width: double.maxFinite,
               height: double.maxFinite,
               child: Text(
-                "${r['solde_periode'] == 0.00 ? '' : r['solde_periode']}",
-                style: entete,
+                "${r['solde_total'] == 0.00 ? '' : r['anouveau'] + r['solde_periode']}",
+                //style: entete,
               ),
             ),
           ),
