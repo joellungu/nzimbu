@@ -207,6 +207,10 @@ class Application extends GetView<ExerciceComptableController> {
                                                               "Jesus-Christ est Seigneur à la Gloire de Dieu le Père",
                                                           "date":
                                                               "${d.day}-${d.month}-${d.year}",
+                                                          "journaux": box
+                                                              .read("journaux"),
+                                                          "compte": box
+                                                              .read("comptes"),
                                                           "exercice":
                                                               exercice['annee'],
                                                           "saisies": saisies
@@ -252,7 +256,7 @@ class Application extends GetView<ExerciceComptableController> {
                                                         if (noms[noms.length -
                                                                 1] ==
                                                             "compta-pro") {
-                                                          print("Cool");
+                                                          print("Cool...");
                                                           PlatformFile cc =
                                                               file.files[0];
                                                           //print(
@@ -266,12 +270,18 @@ class Application extends GetView<ExerciceComptableController> {
                                                             vv.add(d);
                                                           });
 
-                                                          String data =
-                                                              utf8.decode(vv);
-                                                          print("data: $data");
-                                                          //
+                                                          String data = String
+                                                              .fromCharCodes(
+                                                                  vv);
+                                                          //print("data: $vv");
+                                                          print(String
+                                                              .fromCharCodes(
+                                                                  vv));
+
                                                           Map sauv =
                                                               jsonDecode(data);
+                                                          print(
+                                                              "annee: s:${sauv['exercice']} == e:${exercice['annee']}");
                                                           //
                                                           if ("${sauv['exercice']}" ==
                                                               "${exercice['annee']}") {
@@ -317,7 +327,6 @@ class Application extends GetView<ExerciceComptableController> {
                                                                   Colors.white,
                                                             );
                                                           }
-                                                          //
                                                         } else {
                                                           print("Pas cool");
                                                           Get.snackbar(
@@ -332,9 +341,11 @@ class Application extends GetView<ExerciceComptableController> {
                                                         }
                                                       } catch (e) {
                                                         //
+                                                        print(e);
+                                                        //
                                                         Get.snackbar(
                                                           "Erreur",
-                                                          "Ce fichier n'est pas une sauvegarde",
+                                                          "Un problème est survenu lors de l'ouverture du fichier",
                                                           backgroundColor:
                                                               Colors
                                                                   .red.shade700,
