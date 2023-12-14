@@ -681,7 +681,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                             //
 
                             //print(
-                            //  "compteSelect: $compteSelect \n saisies: $saisies");
+                            //  "::: 1 compteSelect: $compteSelect // saisies: $saisies");
 
                             //__________________________________________________
                             listePieces.forEach((piece) {
@@ -698,7 +698,8 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                               //
                               compteSelect.forEach((s) {
                                 //
-                                print("t'es quoi toi ? $s");
+                                print(
+                                    "::: $infosCellule -- ${infosCellule == s['intitule']} -- ${s['intitule']}");
                                 //jr['intitule'] = s['intitule'];
                                 //jr['code'] = s['code'];
                                 //jr['type'] = s['type'];
@@ -706,6 +707,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                 //  "balances: èè ${infosCellule[1]} ${infosCellule[1] == s["numero_de_compte"]} == ${s["numero_de_compte"]}");
                                 if (infosCellule == s['intitule']) {
                                   //
+                                  print("::: 3 $infosCellule");
                                   //String usd_cdf = box.read("usd_cdf") ?? "0.0";
                                   //String usd_eur = box.read("usd_eur") ?? "0.0";
                                   //String eur_cdf = box.read("eur_cdf") ?? "0.0";
@@ -724,6 +726,7 @@ class FiltreGrandLivre extends GetView<BalanceController> {
 
                                     //infosCellule[1] == r['n_piece']
                                     //
+                                    print("::: cool je boucle");
 
                                     //print(
                                     //  "numero_de_compte: ${s["numero_de_compte"]}");
@@ -759,6 +762,8 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                                             dateTimeSaisie
                                                 .isBefore(dateTimeFin))) {
                                       //
+                                      print(
+                                          "::: ${s["numero_de_compte"]} == ${r['compte']["numero_de_compte"]}");
 //
                                       double debitTotal = 0;
                                       double creditTotal = 0;
@@ -1028,7 +1033,9 @@ class FiltreGrandLivre extends GetView<BalanceController> {
                               dateFin.value,
                               Devises[indexDevise.value],
                               compteSelect.isEmpty,
-                              comptes[indexCompte.value]['intitule'],
+                              comptes.isNotEmpty
+                                  ? comptes[indexCompte.value]['intitule']
+                                  : "",
                             ),
                           );
 

@@ -218,9 +218,10 @@ class Journal extends GetView<JournalController> {
                                               IconButton(
                                                 onPressed: () {
                                                   //
-                                                  comptes.removeAt(index);
-                                                  box.write("comptes", comptes);
-                                                  controller.tousLesClients();
+                                                  controller.supprimer(
+                                                      index,
+                                                      "${compte['intitule']}",
+                                                      comptes);
                                                   //
                                                 },
                                                 icon: Icon(

@@ -135,6 +135,8 @@ class JournalFiltre extends GetView<JournalController> {
                                           }
                                         }
                                       },
+                                      style: TextStyle(
+                                          fontSize: 13, color: Colors.black),
                                       items: List.generate(journals.length,
                                           (index) {
                                         return DropdownMenuItem(
@@ -1053,7 +1055,9 @@ class JournalFiltre extends GetView<JournalController> {
                             dateFin.value,
                             Devises[indexDevise.value],
                             journalSelect.isEmpty,
-                            journals[indexJournal.value]['intitule'],
+                            journals.isNotEmpty
+                                ? journals[indexJournal.value]['intitule']
+                                : "",
                           ),
                         );
                       },

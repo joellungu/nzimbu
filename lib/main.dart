@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:window_manager/window_manager.dart';
 import 'pages/accueil.dart';
 import 'pages/application.dart';
@@ -67,6 +68,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     //load(context);
+    // _deleteCacheDir();
+    // _deleteAppDir();
     //
     return GetMaterialApp(
       title: 'Economat Kisantu',
@@ -88,24 +91,20 @@ class MyApp extends StatelessWidget {
   }
 }
 
-pourcent(double pr) {
-  //
-  //(%) = 100 x Valeur partielle/Valeur totale
-  //double prct = (5 * montant) / 100;
-  double prct = (100 * 5) / 100;
-  //prct * Valeur totale = (100 * Valeur partielle)
-  //(prct * Valeur totale) / 100 = Valeur partielle
-  double vp = (pr * 300) / 100;
-  print("le pourcentage vaut: 1 = $prct");
-  print("le pourcentage vaut: 2 = $vp");
+/// this will delete cache
+Future<void> _deleteCacheDir() async {
+  final cacheDir = await getTemporaryDirectory();
+
+  if (cacheDir.existsSync()) {
+    cacheDir.deleteSync(recursive: true);
+  }
 }
 
-load() async {
-  List l = [1, 3, 4, 5];
-  print("liste avant: $l");
-  Timer(const Duration(seconds: 3), () {
-    //
-    l.insert(1, 2);
-    print("liste après: $l");
-  });
+/// this will delete app's storage
+Future<void> _deleteAppDir() async {
+  final appDir = await getApplicationSupportDirectory();
+
+  if (appDir.existsSync()) {
+    appDir.deleteSync(recursive: true);
+  }
 }

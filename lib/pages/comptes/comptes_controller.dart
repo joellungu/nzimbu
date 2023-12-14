@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -43,6 +44,36 @@ class CompteController extends GetxController with StateMixin<List> {
     //
     print("comptes: $comptes");
     //
+    change(comptes, status: RxStatus.success());
+  }
+
+//
+  supprimer(int index, String intitule, List comptes) {
+    change([], status: RxStatus.loading());
+    //
+    var exercice = box.read("exercice") ?? "";
+    //
+    List saisies = box.read("saisies$exercice") ?? [];
+    bool supp = true;
+    saisies.forEach((element) {
+      //
+      if (element['comptes']['intitule'] == intitule) {
+        supp = false;
+      }
+    });
+    //
+    if (supp) {
+      comptes.removeAt(index);
+      box.write("comptes", comptes);
+      tousLesClients();
+    } else {
+      Get.snackbar(
+        "Erreur",
+        "Ce journal a déjà des enregistrement",
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+    }
     change(comptes, status: RxStatus.success());
   }
 

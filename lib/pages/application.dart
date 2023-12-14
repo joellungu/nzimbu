@@ -158,11 +158,31 @@ class Application extends GetView<ExerciceComptableController> {
                                                 () => ListTile(
                                                   onTap: () {
                                                     //
+                                                    bool v =
+                                                        box.read("testfinal") ??
+                                                            true;
+
+                                                    //
+                                                    box.write(
+                                                        "testfinal", false);
+                                                    //
                                                     box.write("exercice",
                                                         exercice['annee']);
                                                     //
                                                     exe.value =
                                                         box.read("exercice");
+                                                    //
+                                                    if (v) {
+                                                      //
+                                                      box.write(
+                                                          "saisies$exercice",
+                                                          []);
+                                                      box.write("journaux", []);
+                                                      box.write("comptes", []);
+                                                    }
+                                                    //
+                                                    box.write(
+                                                        "testfinal", false);
                                                     //
                                                     Get.offAll(const Accueil());
                                                   },
@@ -294,6 +314,17 @@ class Application extends GetView<ExerciceComptableController> {
                                                                   "saisies${exercice['annee']}",
                                                                   sauv[
                                                                       'saisies']);
+                                                              //
+                                                              box.write(
+                                                                  "journaux",
+                                                                  sauv[
+                                                                      "journaux"]);
+                                                              //_____________________
+                                                              box.write(
+                                                                  "compte",
+                                                                  sauv[
+                                                                      "comptes"]);
+                                                              //_____________________
                                                               Get.snackbar(
                                                                   "Succès",
                                                                   "Sauvegarde importé avec succès",
@@ -353,6 +384,10 @@ class Application extends GetView<ExerciceComptableController> {
                                                               Colors.white,
                                                         );
                                                       }
+                                                    } else {
+                                                      box.write(
+                                                          "saisies${exercice['annee']}",
+                                                          null);
                                                     }
                                                     //
                                                   }, itemBuilder: (c) {

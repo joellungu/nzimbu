@@ -323,7 +323,7 @@ class Comptes extends GetView<CompteController> {
                                                             alignment: Alignment
                                                                 .centerLeft,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               border: Border(
                                                                 bottom:
                                                                     BorderSide(
@@ -341,12 +341,16 @@ class Comptes extends GetView<CompteController> {
                                                         IconButton(
                                                           onPressed: () {
                                                             //
-                                                            comptes.removeAt(
-                                                                index);
-                                                            box.write("comptes",
+                                                            controller.supprimer(
+                                                                index,
+                                                                "${compte['intitule']}",
                                                                 comptes);
-                                                            controller
-                                                                .tousLesClients();
+                                                            // comptes.removeAt(
+                                                            //     index);
+                                                            // box.write("comptes",
+                                                            //     comptes);
+                                                            // controller
+                                                            //     .tousLesClients();
                                                             //
                                                           },
                                                           icon: Icon(
