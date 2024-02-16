@@ -852,6 +852,7 @@ class GrandLivre extends StatelessWidget {
                     "${s['libelle_enregistrement']}",
                     "",
                     s["compte"]['classe'] == "6" ||
+                            s["compte"]['classe'] == "8" ||
                             s["compte"]['classe'] == "1" ||
                             s["compte"]['classe'] == "2" ||
                             s["compte"]['classe'] == "3" ||
@@ -863,6 +864,8 @@ class GrandLivre extends StatelessWidget {
                         : "",
                     "",
                     s["compte"]['classe'] == "7" ||
+                            s["compte"]['classe'] == "9" ||
+                            s["compte"]['classe'] == "8" ||
                             s["compte"]['classe'] == "1" ||
                             s["compte"]['classe'] == "2" ||
                             s["compte"]['classe'] == "3" ||
@@ -1280,6 +1283,7 @@ class GrandLivre extends StatelessWidget {
                                   width: double.maxFinite,
                                   height: double.maxFinite,
                                   child: s["compte"]['classe'] == "6" ||
+                                          s["compte"]['classe'] == "8" ||
                                           s["compte"]['classe'] == "1" ||
                                           s["compte"]['classe'] == "2" ||
                                           s["compte"]['classe'] == "3" ||
@@ -1321,6 +1325,8 @@ class GrandLivre extends StatelessWidget {
                                   width: double.maxFinite,
                                   height: double.maxFinite,
                                   child: s["compte"]['classe'] == "7" ||
+                                          s["compte"]['classe'] == "9" ||
+                                          s["compte"]['classe'] == "8" ||
                                           s["compte"]['classe'] == "1" ||
                                           s["compte"]['classe'] == "2" ||
                                           s["compte"]['classe'] == "3" ||

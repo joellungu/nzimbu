@@ -41,7 +41,7 @@ class Comptes extends GetView<CompteController> {
                         child: ListView(
                           padding: const EdgeInsets.only(top: 50),
                           children: List.generate(
-                            8,
+                            9,
                             (index) {
                               //
                               RxBool choix = false.obs;

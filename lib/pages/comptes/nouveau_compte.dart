@@ -23,6 +23,7 @@ class NouveauCompte extends StatelessWidget {
     "6",
     "7",
     "8",
+    "9",
   ].obs;
   RxInt indexClasse = 0.obs;
   //
